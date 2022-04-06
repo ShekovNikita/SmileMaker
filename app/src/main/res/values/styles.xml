@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="main_menu_text_style">
+        <item name="android:textSize">@dimen/main_menu_text_size</item>
+        <item name="android:gravity">center|bottom</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/montserrat_subrayada</item>
+    </style>
+
+    <style name="main_menu_image_style">
+        <item name="android:textSize">@dimen/main_menu_text_size</item>
+        <item name="android:gravity">center|bottom</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/montserrat_subrayada</item>
+        <item name="android:paddingTop">@dimen/padding_8dp</item>
+    </style>
+</resources>

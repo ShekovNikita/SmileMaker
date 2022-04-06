@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="flower_name_cost_title1">
+        <item>Прекрансые розы/100/Ghj dczrjt</item>
+        <item>Самые прекрансые розы/120/sdfgsd fgspdfog sdfpgo sdfsdfg sdfg f</item>
+        <item>Самые прекрансые цветы/140/f sdfg sdfgsdfgsd sdfg sdfgd ssdfg dfg df sdhfg sdfg sdf140</item>
+        <item>Свечечки/180/sd sdfg sdfgh dfggh dfgh dfgfggh dfgh dss sfd 180</item>
+    </string-array>
+    <string-array name="flower_cost">
+        <item>100</item>
+        <item>120</item>
+        <item>140</item>
+        <item>160</item>
+    </string-array>
+    <string-array name="flower_title">
+        <item>1. Ghj dczrjt</item>
+        <item>2. GHJC NBNI</item>
+        <item>3. NOIIJNMoiN OHJ  Oij oiJO Io8uU OIjoi O8u o</item>
+        <item>4. sdfsd ldkfj lksdj f0ds9 0d9fg 0df9gu  ewrt wejroptiwjerp weritj pweriot piweury typweriuty wewper8t we8r</item>
+    </string-array>
+</resources>

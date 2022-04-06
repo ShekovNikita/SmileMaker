@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/flowersOnMainFragmentContainer">
+
+    <fragment
+        android:id="@+id/flowersOnMainFragmentContainer"
+        android:name="com.example.inpre.FlowersOnMainFragmentContainer"
+        android:label="fragment_flowers_on_main_container"
+        tools:layout="@layout/fragment_flowers_on_main_container" >
+        <action
+            android:id="@+id/action_flowersOnMainFragmentContainer_to_aboutOneFlowerFragment"
+            app:destination="@id/aboutOneFlowerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutOneFlowerFragment"
+        android:name="com.example.inpre.AboutOneFlowerFragment"
+        android:label="fragment_about_one_flower"
+        tools:layout="@layout/fragment_about_one_flower" />
+</navigation>
