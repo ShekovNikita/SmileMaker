@@ -1,18 +1,18 @@
 package com.example.data.storage.sourses
 
-import com.example.inpre.R
+import com.example.data.R
+
 
 class AllFlowers {
 
-    val arrayFlower = mutableListOf<Int>()
+    private val arrayFlower = mutableListOf<Int>()
 
     fun arrayFlower(): List<Int> {
         addToArray()
         return arrayFlower
     }
 
-    fun addToArray() {
-
+    private fun addToArray() {
         arrayFlower.add(R.drawable.rose_1)
         arrayFlower.add(R.drawable.rose_2)
         arrayFlower.add(R.drawable.rose_3)

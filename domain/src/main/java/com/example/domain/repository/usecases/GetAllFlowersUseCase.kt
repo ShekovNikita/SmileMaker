@@ -5,7 +5,7 @@ import com.example.domain.repository.FlowerRepository
 
 class GetAllFlowersUseCase(private val flowerRepository: FlowerRepository) {
 
-    fun execute(): List<Flower> {
+    fun execute(): ArrayList<Flower> {
         return flowerRepository.getAllFlower()
     }
 }

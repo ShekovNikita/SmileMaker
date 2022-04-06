@@ -11,7 +11,7 @@ import com.example.domain.model.Flower
 
 class AboutOneFlowerFragment : BaseFragment<FragmentAboutOneFlowerBinding>() {
 
-    var getFlower: Flower? = null
+    lateinit var getFlower: Flower
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -22,14 +22,11 @@ class AboutOneFlowerFragment : BaseFragment<FragmentAboutOneFlowerBinding>() {
     override fun FragmentAboutOneFlowerBinding.onBindView(savedInstanceState: Bundle?) {
         setFragmentResultListener("1") { _, bundle ->
             getFlower = bundle.getSerializable("flower") as Flower
-            println("-----------------------------------------$getFlower")
             if (getFlower != null) {
-                println("-----------------------------------------")
-                imageFlower.setImageResource(getFlower!!.image)
-                imageFlower.setImageResource(getFlower!!.image)
-                cost.text = "${getFlower!!.cost} BYN"
-                textFlower.text = getFlower!!.title
-                //textAboutFlower.movementMethod = ScrollingMovementMethod()
+                imageFlower.setImageResource(getFlower.image)
+                imageFlower.setImageResource(getFlower.image)
+                cost.text = "${getFlower.cost} BYN"
+                textFlower.text = getFlower.title
             }
         }
     }

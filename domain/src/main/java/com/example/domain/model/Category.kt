@@ -1,3 +1,6 @@
 package com.example.domain.model
 
-data class Category(val category: String, val image: Int)
+class Category(
+    val nameCategory: String,
+    val image: Int
+) {}

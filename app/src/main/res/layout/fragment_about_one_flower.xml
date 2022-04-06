@@ -23,7 +23,6 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:scaleType="fitStart"
-                android:src="@drawable/igles_blue"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

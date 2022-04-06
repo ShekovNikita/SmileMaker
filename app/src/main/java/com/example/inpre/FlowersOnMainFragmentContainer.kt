@@ -8,32 +8,17 @@ import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.inpre.adapter.MainFlowerAdapter
 import com.example.inpre.base.BaseFragment
-import com.example.data.FlowerRepositoryImpl
-import com.example.data.converters.FlowerDataToFlowerDomainConverter
-import com.example.data.storage.AppDrawableFlowerStorage
 import com.example.inpre.databinding.FragmentFlowersOnMainContainerBinding
 import com.example.domain.model.Flower
-import com.example.domain.repository.usecases.GetAllFlowersUseCase
+import com.example.inpre.viewmodel.FlowersOnMainFragmentContainerViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FlowersOnMainFragmentContainer : BaseFragment<FragmentFlowersOnMainContainerBinding>(),
     MainFlowerClick {
 
-    private val flowerStorage by lazy {
-        AppDrawableFlowerStorage(
-            requireActivity().applicationContext
-        )
-    }
-    private val flowerRepository by lazy {
-        FlowerRepositoryImpl(
-            flowerStorage,
-            FlowerDataToFlowerDomainConverter()
-        )
-    }
-    private val getAllFlowersUseCase by lazy { GetAllFlowersUseCase(flowerRepository) }
+    private val viewModelMain by viewModel<FlowersOnMainFragmentContainerViewModel>()
 
-
-    val mainFlowerAdapter = MainFlowerAdapter(this)
-    var flowerList = ArrayList<Flower>()
+    private val mainFlowerAdapter = MainFlowerAdapter(this)
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -45,14 +30,10 @@ class FlowersOnMainFragmentContainer : BaseFragment<FragmentFlowersOnMainContain
 
         recyclerFlowersOnMain.adapter = mainFlowerAdapter
         recyclerFlowersOnMain.layoutManager = GridLayoutManager(context, 3)
-
-        flowerList = getAllFlowersUseCase.execute() as ArrayList<Flower>
-
-        mainFlowerAdapter.addCategory(flowerList)
+        mainFlowerAdapter.addCategory(viewModelMain.getAllFlowers())
     }
 
     override fun sendData(flower: Flower) {
-        println("-------------------------senddata    $flower")
         setFragmentResult("1", bundleOf("flower" to flower))
         navController.navigate(FlowersOnMainFragmentContainerDirections.actionFlowersOnMainFragmentContainerToAboutOneFlowerFragment())
     }

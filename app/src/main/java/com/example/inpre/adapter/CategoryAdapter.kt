@@ -4,20 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.model.Category
 import com.example.inpre.R
 import com.example.inpre.databinding.CategoryItemBinding
-import com.example.domain.model.Category
+import com.example.domain.model.Flower
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    val categoryList = ArrayList<Category>()
+    private val categoryList = ArrayList<Category>()
 
     class CategoryViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
-        val binding = CategoryItemBinding.bind(item)
+        private val binding = CategoryItemBinding.bind(item)
 
         fun bind(category: Category) = with(binding) {
-            textCategory.text = category.category
+            textCategory.text = category.nameCategory
             imageCategory.setImageResource(category.image)
         }
     }
