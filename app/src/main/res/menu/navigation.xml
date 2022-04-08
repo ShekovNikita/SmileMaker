@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_main"
         android:icon="@drawable/home"
+        android:title="@string/main_word"/>
+    <item
+        android:id="@+id/navigation_bonus"
+        android:icon="@drawable/bonus"
         android:title="@string/bonus"/>
     <item
-        android:id="@+id/navigation_catalog"
-        android:icon="@drawable/catalog"
-        android:title="@string/pay"/>
-    <item
-        android:id="@+id/navigation_contacts"
+        android:id="@+id/navigation_delivery"
         android:icon="@drawable/contacts"
         android:title="@string/dostavka"/>
     <item
-        android:id="@+id/navigation_baske"
-        android:icon="@drawable/basket"
+        android:id="@+id/navigation_contacts"
+        android:icon="@drawable/contact_big"
         android:title="@string/contacts"/>
     <item
         android:id="@+id/navigation_basket"

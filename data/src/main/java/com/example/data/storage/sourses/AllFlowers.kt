@@ -13,8 +13,12 @@ class AllFlowers {
     }
 
     private fun addToArray() {
-        arrayFlower.add(R.drawable.rose_1)
+        /*arrayFlower.add("https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-37-52.jpg")
+        arrayFlower.add("https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-37-52.jpg")
+        arrayFlower.add("https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-37-52.jpg")
+        arrayFlower.add("https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-37-52.jpg")*/
         arrayFlower.add(R.drawable.rose_2)
+        arrayFlower.add(R.drawable.rose_3)
         arrayFlower.add(R.drawable.rose_3)
         arrayFlower.add(R.drawable.igles_blue)
     }

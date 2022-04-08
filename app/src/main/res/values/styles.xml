@@ -14,4 +14,9 @@
         <item name="android:fontFamily">@font/montserrat_subrayada</item>
         <item name="android:paddingTop">@dimen/padding_8dp</item>
     </style>
+
+    <style name="my_style_no_title">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">@null</item>
+    </style>
 </resources>

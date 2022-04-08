@@ -1,4 +1,4 @@
-package com.example.inpre
+package com.example.inpre.fragments
 
 import com.example.domain.model.Flower
 

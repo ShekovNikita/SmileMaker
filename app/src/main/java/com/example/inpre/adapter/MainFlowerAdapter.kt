@@ -3,17 +3,29 @@ package com.example.inpre.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.inpre.MainFlowerClick
+import com.example.inpre.fragments.MainFlowerClick
 import com.example.inpre.R
 import com.example.inpre.databinding.MainFlowersItemBinding
 import com.example.domain.model.Flower
 
 class MainFlowerAdapter(private val click: MainFlowerClick) :
-    RecyclerView.Adapter<MainFlowerAdapter.FlowerViewHolder>() {
-
+    RecyclerView.Adapter<MainFlowerAdapter.FlowerViewHolder>(){
 
     private val mainFlowerList = ArrayList<Flower>()
+
+    private class Diff : DiffUtil.ItemCallback<Any>(){
+        override fun areItemsTheSame(oldItem: Any, newItem: Any): Boolean = when {
+            oldItem is Flower && newItem is Flower -> oldItem == newItem
+            else -> false
+        }
+
+        override fun areContentsTheSame(oldItem: Any, newItem: Any): Boolean = when {
+            oldItem is Flower && newItem is Flower -> oldItem.title == newItem.title
+            else -> false
+        }
+    }
 
     class FlowerViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
@@ -38,10 +50,13 @@ class MainFlowerAdapter(private val click: MainFlowerClick) :
     }
 
     override fun getItemCount(): Int {
+        println("===============================================================in adapter==========${mainFlowerList.size}")
         return mainFlowerList.size
     }
 
     fun addCategory(flower: ArrayList<Flower>) {
-        mainFlowerList.addAll(flower)
+        if (mainFlowerList != flower) {
+            mainFlowerList.addAll(flower)
+        }
     }
 }

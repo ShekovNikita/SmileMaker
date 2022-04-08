@@ -1,4 +1,4 @@
-package com.example.inpre
+package com.example.inpre.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,12 +22,10 @@ class AboutOneFlowerFragment : BaseFragment<FragmentAboutOneFlowerBinding>() {
     override fun FragmentAboutOneFlowerBinding.onBindView(savedInstanceState: Bundle?) {
         setFragmentResultListener("1") { _, bundle ->
             getFlower = bundle.getSerializable("flower") as Flower
-            if (getFlower != null) {
-                imageFlower.setImageResource(getFlower.image)
-                imageFlower.setImageResource(getFlower.image)
-                cost.text = "${getFlower.cost} BYN"
-                textFlower.text = getFlower.title
-            }
+            imageFlower.setImageResource(getFlower.image)
+            cost.text = "${getFlower.cost} BYN"
+            textFlower.text = getFlower.title
         }
+
     }
 }

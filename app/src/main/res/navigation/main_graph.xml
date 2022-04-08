@@ -3,20 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/flowersOnMainFragmentContainer">
+    app:startDestination="@id/navigation_main">
 
     <fragment
-        android:id="@+id/flowersOnMainFragmentContainer"
-        android:name="com.example.inpre.FlowersOnMainFragmentContainer"
-        android:label="fragment_flowers_on_main_container"
-        tools:layout="@layout/fragment_flowers_on_main_container" >
-        <action
-            android:id="@+id/action_flowersOnMainFragmentContainer_to_aboutOneFlowerFragment"
-            app:destination="@id/aboutOneFlowerFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/aboutOneFlowerFragment"
-        android:name="com.example.inpre.AboutOneFlowerFragment"
+        android:name="com.example.inpre.fragments.AboutOneFlowerFragment"
         android:label="fragment_about_one_flower"
         tools:layout="@layout/fragment_about_one_flower" />
+    <fragment
+        android:id="@+id/navigation_basket"
+        android:name="com.example.inpre.fragments.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/navigation_bonus"
+        android:name="com.example.inpre.fragments.BonusFragment"
+        android:label="fragment_bonus"
+        tools:layout="@layout/fragment_bonus" />
+    <fragment
+        android:id="@+id/navigation_contacts"
+        android:name="com.example.inpre.fragments.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/navigation_delivery"
+        android:name="com.example.inpre.fragments.DeliveryFragment"
+        android:label="fragment_delivery"
+        tools:layout="@layout/fragment_delivery" />
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.inpre.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_aboutOneFlowerFragment"
+            app:destination="@id/aboutOneFlowerFragment" />
+    </fragment>
 </navigation>
