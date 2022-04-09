@@ -2,7 +2,9 @@ package com.example.inpre
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View.GONE
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.inpre.adapter.CategoryAdapter
@@ -31,11 +33,13 @@ class MainActivity : AppCompatActivity() {
         categoryAdapter.addCategory(viewModelMain.getCategory())
 
         val navView: BottomNavigationView = findViewById(R.id.navigationView)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        setupActionBarWithNavController( navController, viewModelMain.getAppBarConfiguration())
-        setupWithNavController(navView,navController)
+        setupActionBarWithNavController(navController, viewModelMain.getAppBarConfiguration())
+        setupWithNavController(navView, navController)
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

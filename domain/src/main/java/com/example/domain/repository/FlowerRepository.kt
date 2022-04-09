@@ -8,4 +8,8 @@ interface FlowerRepository {
     fun getAllFlower(): ArrayList<Flower>
 
     fun getCategoryOfFlower(): ArrayList<Category>
+
+    fun addToBasket(flower: Flower)
+
+    fun getBasket(): ArrayList<Flower>
 }

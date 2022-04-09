@@ -8,5 +8,6 @@ data class FlowerData(
     val category: String,
     val info: String,
     val cost: String,
-    val image: Int
+    val image: Int,
+    var basket: Boolean
 )

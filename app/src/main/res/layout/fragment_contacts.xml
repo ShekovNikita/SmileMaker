@@ -7,19 +7,52 @@
     android:background="#FCE4EC"
     tools:context=".fragments.ContactsFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_call"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_margin="@dimen/margin_12dp"
-        android:inputType="textMultiLine"
-        android:text="@string/contact_Info"
-        android:textColor="@color/black"
+        android:background="@null"
+        android:src="@android:drawable/stat_sys_phone_call"
         android:textSize="20sp"
-        android:autoLink="phone"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lobster"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:text="Позвонить"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_call"
+        app:layout_constraintStart_toEndOf="@id/button_call"
+        app:layout_constraintTop_toTopOf="@id/button_call" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_instagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/instagram_icon"
+        android:layout_marginTop="@dimen/margin_12dp"
+        android:background="@null"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/button_call"
+        app:layout_constraintTop_toBottomOf="@id/button_call"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:fontFamily="@font/lobster"
+        android:text="Instagram"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_instagram"
+        app:layout_constraintStart_toEndOf="@id/button_call"
+        app:layout_constraintTop_toTopOf="@+id/button_instagram" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView4"

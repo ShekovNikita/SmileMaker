@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.domain.model.Flower
 import com.example.domain.repository.usecases.GetAllFlowersUseCase
 
-class FlowersOnMainFragmentContainerViewModel(
+class MainFragmentViewModel(
     private val getAllFlowersUseCase: GetAllFlowersUseCase
 ): ViewModel() {
 

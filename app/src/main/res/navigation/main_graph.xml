@@ -6,11 +6,6 @@
     app:startDestination="@id/navigation_main">
 
     <fragment
-        android:id="@+id/aboutOneFlowerFragment"
-        android:name="com.example.inpre.fragments.AboutOneFlowerFragment"
-        android:label="fragment_about_one_flower"
-        tools:layout="@layout/fragment_about_one_flower" />
-    <fragment
         android:id="@+id/navigation_basket"
         android:name="com.example.inpre.fragments.BasketFragment"
         android:label="fragment_basket"
@@ -34,9 +29,14 @@
         android:id="@+id/navigation_main"
         android:name="com.example.inpre.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_aboutOneFlowerFragment"
             app:destination="@id/aboutOneFlowerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutOneFlowerFragment"
+        android:name="com.example.inpre.fragments.AboutOneFlowerFragment"
+        android:label="fragment_about_one_flower"
+        tools:layout="@layout/fragment_about_one_flower" />
 </navigation>
