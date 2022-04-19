@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.Category
 import com.example.inpre.R
 import com.example.inpre.databinding.CategoryItemBinding
-import com.example.domain.model.Flower
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
@@ -23,19 +22,18 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        return CategoryViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        CategoryViewHolder(
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.category_item, parent, false)
         )
-    }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.bind(categoryList[position])
     }
 
-    override fun getItemCount(): Int {
-        return categoryList.size
-    }
+    override fun getItemCount() = categoryList.size
 
     fun addCategory(category: ArrayList<Category>) {
         categoryList.addAll(category)

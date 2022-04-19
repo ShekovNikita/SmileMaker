@@ -13,4 +13,6 @@ interface FlowerStorage {
     fun addToBasket(flowerData: FlowerData)
 
     fun getBasket(): ArrayList<Flower>
+
+    fun changeAmountOfOneFlower(flowerData: FlowerData): ArrayList<Flower>
 }

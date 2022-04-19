@@ -1,10 +1,8 @@
 package com.example.inpre
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View.GONE
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.inpre.adapter.CategoryAdapter

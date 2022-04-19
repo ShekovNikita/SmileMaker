@@ -1,7 +1,6 @@
 package com.example.domain.model
 
 import java.io.Serializable
-import javax.swing.text.html.ImageView
 
 data class Flower(
     val name: String,
@@ -10,5 +9,5 @@ data class Flower(
     val info: String,
     val cost: String,
     val image: Int,
-    var basket: Boolean
+    var amount: Int
 ) : Serializable

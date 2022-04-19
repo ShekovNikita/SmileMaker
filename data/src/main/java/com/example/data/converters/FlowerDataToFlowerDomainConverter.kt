@@ -17,7 +17,7 @@ class FlowerDataToFlowerDomainConverter : Converter<ArrayList<FlowerData>, Array
                     i.info,
                     i.cost,
                     i.image,
-                    i.basket
+                    i.amount
                 )
             )
         }

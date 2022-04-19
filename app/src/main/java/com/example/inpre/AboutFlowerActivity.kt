@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.domain.model.Flower
 import com.example.inpre.viewmodel.AboutFlowerActivityViewModel
-import com.example.inpre.viewmodel.MainActivityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AboutFlowerActivity : AppCompatActivity() {
@@ -30,9 +29,11 @@ class AboutFlowerActivity : AppCompatActivity() {
         text_flower.text = flower.title
 
         btn_basket.setOnClickListener {
+            flower.amount += 1
             viewModel.addToBasket(flower)
             Toast.makeText(applicationContext, "Букет добавлен в корзину ", Toast.LENGTH_SHORT)
                 .show()
+            btn_basket.isClickable = false
         }
     }
 

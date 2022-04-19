@@ -20,11 +20,3 @@ class FlowerCategory {
         arrayFlowerCategory.add(Category("Микс", R.drawable.rose_1))
     }
 }
-
-//добавить через класс
-/*categoryList.add(Category("В наличии", R.drawable.rose_1))
-categoryList.add(Category("Хит продаж", R.drawable.rose_2))
-categoryList.add(Category("Розы", R.drawable.igles_blue))
-categoryList.add(Category("Пионы", R.drawable.rose_2))
-categoryList.add(Category("Микс", R.drawable.rose_1))
-*/

@@ -29,4 +29,9 @@ class FlowerRepositoryImpl(
     override fun getBasket(): ArrayList<Flower> {
         return flowerStorage.getBasket()
     }
+
+    override fun changeAmountOfOneFlower(flower: Flower): ArrayList<Flower> {
+        addToBasket(flower)
+        return getBasket()
+    }
 }

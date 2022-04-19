@@ -1,7 +1,5 @@
 package com.example.data.storage.models
 
-import android.widget.ImageView
-
 data class FlowerData(
     val name: String,
     val title: String,
@@ -9,5 +7,5 @@ data class FlowerData(
     val info: String,
     val cost: String,
     val image: Int,
-    var basket: Boolean
+    var amount: Int
 )

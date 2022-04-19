@@ -9,12 +9,11 @@ import com.example.data.storage.sourses.FlowerCategory
 import com.example.domain.model.Category
 import com.example.domain.model.Flower
 
-
 class AppDrawableFlowerStorage(context: Context) : FlowerStorage {
 
     private val arrayAboutFlower = context.resources.getStringArray(R.array.flower_name_cost_title)
 
-    val b = Basket()
+    val basket = Basket()
 
     override fun getAllFlower(): ArrayList<FlowerData> {
 
@@ -32,7 +31,7 @@ class AppDrawableFlowerStorage(context: Context) : FlowerStorage {
                     info = flower[3],
                     cost = flower[4],
                     image = flowers[fl],
-                    basket = false
+                    amount = 0
                 )
             )
         }
@@ -44,13 +43,13 @@ class AppDrawableFlowerStorage(context: Context) : FlowerStorage {
     }
 
     override fun addToBasket(flowerData: FlowerData) {
-        b.addToBasket(flowerData)
+        basket.addToBasket(flowerData)
     }
 
     override fun getBasket(): ArrayList<Flower> {
-        val basket = b.getBasket()
+        val basket = basket.getBasket()
         val arrayFlower = arrayListOf<Flower>()
-        for (i in basket){
+        for (i in basket) {
             arrayFlower.add(
                 Flower(
                     i.name,
@@ -59,10 +58,16 @@ class AppDrawableFlowerStorage(context: Context) : FlowerStorage {
                     i.info,
                     i.cost,
                     i.image,
-                    i.basket
-            )
+                    i.amount
+                )
             )
         }
         return arrayFlower
     }
+
+    override fun changeAmountOfOneFlower(flowerData: FlowerData): ArrayList<Flower> {
+        addToBasket(flowerData)
+        return getBasket()
+    }
+
 }

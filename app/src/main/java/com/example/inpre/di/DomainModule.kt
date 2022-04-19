@@ -1,9 +1,6 @@
 package com.example.inpre.di
 
-import com.example.domain.repository.usecases.AddToBasketUseCase
-import com.example.domain.repository.usecases.GetAllFlowersUseCase
-import com.example.domain.repository.usecases.GetBasketUseCase
-import com.example.domain.repository.usecases.GetCategoryFlowersUseCase
+import com.example.domain.repository.usecases.*
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -22,5 +19,9 @@ val domainModule = module {
 
     factory<GetBasketUseCase> {
         GetBasketUseCase(flowerRepository = get())
+    }
+
+    factory<ChangeAmountOfOneFlowerUseCase> {
+        ChangeAmountOfOneFlowerUseCase(flowerRepository = get())
     }
 }

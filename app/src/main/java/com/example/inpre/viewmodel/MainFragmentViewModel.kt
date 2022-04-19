@@ -1,16 +1,11 @@
 package com.example.inpre.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.domain.model.Flower
 import com.example.domain.repository.usecases.GetAllFlowersUseCase
 
 class MainFragmentViewModel(
     private val getAllFlowersUseCase: GetAllFlowersUseCase
-): ViewModel() {
+) : ViewModel() {
 
-    fun getAllFlowers(): ArrayList<Flower>{
-        return getAllFlowersUseCase.execute()
-    }
-
-
+    fun getAllFlowers() = getAllFlowersUseCase.execute()
 }
