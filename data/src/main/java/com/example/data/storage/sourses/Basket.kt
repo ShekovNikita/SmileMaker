@@ -29,5 +29,7 @@ class Basket {
         return ArrayList(basketFlower)
     }
 
-    //fun getBasketSumma()
+    fun deleteFromBasket(flowerData: FlowerData){
+        basketFlower.remove(flowerData)
+    }
 }

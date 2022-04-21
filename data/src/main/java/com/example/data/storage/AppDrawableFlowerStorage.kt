@@ -13,7 +13,7 @@ class AppDrawableFlowerStorage(context: Context) : FlowerStorage {
 
     private val arrayAboutFlower = context.resources.getStringArray(R.array.flower_name_cost_title)
 
-    val basket = Basket()
+    private val basket = Basket()
 
     override fun getAllFlower(): ArrayList<FlowerData> {
 
@@ -46,28 +46,17 @@ class AppDrawableFlowerStorage(context: Context) : FlowerStorage {
         basket.addToBasket(flowerData)
     }
 
-    override fun getBasket(): ArrayList<Flower> {
-        val basket = basket.getBasket()
-        val arrayFlower = arrayListOf<Flower>()
-        for (i in basket) {
-            arrayFlower.add(
-                Flower(
-                    i.name,
-                    i.title,
-                    i.category,
-                    i.info,
-                    i.cost,
-                    i.image,
-                    i.amount
-                )
-            )
-        }
-        return arrayFlower
+    override fun getBasket(): ArrayList<FlowerData> {
+        return basket.getBasket()
     }
 
-    override fun changeAmountOfOneFlower(flowerData: FlowerData): ArrayList<Flower> {
+    override fun changeAmountOfOneFlower(flowerData: FlowerData): ArrayList<FlowerData> {
         addToBasket(flowerData)
         return getBasket()
+    }
+
+    override fun deleteFromBasket(flowerData: FlowerData){
+        basket.deleteFromBasket(flowerData)
     }
 
 }

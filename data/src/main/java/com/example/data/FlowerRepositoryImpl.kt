@@ -27,11 +27,15 @@ class FlowerRepositoryImpl(
     }
 
     override fun getBasket(): ArrayList<Flower> {
-        return flowerStorage.getBasket()
+        return flowerDataToFlowerDomainConverter.invoke(flowerStorage.getBasket())
     }
 
     override fun changeAmountOfOneFlower(flower: Flower): ArrayList<Flower> {
         addToBasket(flower)
         return getBasket()
+    }
+
+    override fun deleteFromBasket(flower: Flower) {
+        flowerStorage.deleteFromBasket(flowerDomainToFlowerDataConverter.invoke(flower))
     }
 }

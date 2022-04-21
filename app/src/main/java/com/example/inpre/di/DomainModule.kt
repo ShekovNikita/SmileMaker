@@ -24,4 +24,8 @@ val domainModule = module {
     factory<ChangeAmountOfOneFlowerUseCase> {
         ChangeAmountOfOneFlowerUseCase(flowerRepository = get())
     }
+
+    factory<DeleteFlowerFromBasketUseCase> {
+        DeleteFlowerFromBasketUseCase(flowerRepository = get())
+    }
 }

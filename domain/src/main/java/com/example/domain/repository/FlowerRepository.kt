@@ -14,4 +14,6 @@ interface FlowerRepository {
     fun getBasket(): ArrayList<Flower>
 
     fun changeAmountOfOneFlower(flower: Flower): ArrayList<Flower>
+
+    fun deleteFromBasket(flower: Flower)
 }

@@ -22,6 +22,10 @@ val appModule = module {
     }
 
     viewModel<BasketFragmentViewModel> {
-        BasketFragmentViewModel(getBasketUseCase = get(), changeAmountOfOneFlowerUseCase = get())
+        BasketFragmentViewModel(
+            getBasketUseCase = get(),
+            changeAmountOfOneFlowerUseCase = get(),
+            deleteFlowerFromBasketUseCase = get()
+        )
     }
 }

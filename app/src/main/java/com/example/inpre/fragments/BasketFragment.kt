@@ -1,13 +1,11 @@
 package com.example.inpre.fragments
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.model.Flower
-import com.example.domain.repository.FlowerRepository
-import com.example.domain.repository.usecases.ChangeAmountOfOneFlowerUseCase
 import com.example.inpre.AboutFlowerActivity
 import com.example.inpre.adapter.BasketAdapter
 import com.example.inpre.base.BaseFragment
@@ -30,15 +28,14 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
     override fun FragmentBasketBinding.onBindView(savedInstanceState: Bundle?) {
 
         recyclerBasket.adapter = mainFlowerAdapter
-        summa.text = "Итого: ${viewModel.getSummaInBasket()} BYN"
+
+
+        viewModel.resultLiveData.observe(viewLifecycleOwner){
+            summa.text = "Итого: $it"
+        }
 
         btnSendToViber.setOnClickListener {
-            val sb = StringBuffer()
-            for (i in viewModel.getBasket()){
-                sb.append("Название: ${i.title}\nКоличество: \n\n")
-            }
-            sb.append("\nИтого:${viewModel.getSummaInBasket()}")
-            composeEmail(sb.toString())
+            navController.navigate(BasketFragmentDirections.actionNavigationBasketToDataAboutBuyer())
         }
     }
 
@@ -50,22 +47,11 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
         }
     }
 
-    fun composeEmail(message: String) {
-        val intent = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:") // only email apps should handle this
-            putExtra(Intent.EXTRA_EMAIL, arrayOf("shekovnikita8@gmail.com"))
-            putExtra(Intent.EXTRA_SUBJECT, "theme")
-            putExtra(Intent.EXTRA_TEXT, message)
-        }
-        startActivity(intent)
-
+    override fun deleteFlower(flower: Flower) {
+        viewModel.deleteFlower(flower)
     }
 
     override fun addFlower(flower: Flower) {
-        viewModel.changeAmount(flower)
-    }
-
-    override fun cutFlower(flower: Flower) {
         viewModel.changeAmount(flower)
     }
 }

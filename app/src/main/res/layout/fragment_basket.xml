@@ -15,8 +15,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/basket_item"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/summa"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/summa"
@@ -29,11 +28,12 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/recycler_basket"
         app:layout_constraintTop_toBottomOf="@+id/recycler_basket"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sendToViber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Заказать"
+        android:text="Далее"
         app:layout_constraintEnd_toEndOf="@+id/summa"
         app:layout_constraintTop_toBottomOf="@+id/summa"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

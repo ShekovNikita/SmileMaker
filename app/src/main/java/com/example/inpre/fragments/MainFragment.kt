@@ -39,4 +39,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
             it.startActivity(intent)
         }
     }
+
+    override fun deleteFlower(flower: Flower) {
+        TODO("Not yet implemented")
+    }
 }

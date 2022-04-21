@@ -9,7 +9,11 @@
         android:id="@+id/navigation_basket"
         android:name="com.example.inpre.fragments.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_navigation_basket_to_dataAboutBuyer"
+            app:destination="@id/dataAboutBuyer" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_bonus"
         android:name="com.example.inpre.fragments.BonusFragment"
@@ -29,14 +33,10 @@
         android:id="@+id/navigation_main"
         android:name="com.example.inpre.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
-        <action
-            android:id="@+id/action_mainFragment_to_aboutOneFlowerFragment"
-            app:destination="@id/aboutOneFlowerFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main"/>
     <fragment
-        android:id="@+id/aboutOneFlowerFragment"
-        android:name="com.example.inpre.fragments.AboutOneFlowerFragment"
-        android:label="fragment_about_one_flower"
-        tools:layout="@layout/fragment_about_one_flower" />
+        android:id="@+id/dataAboutBuyer"
+        android:name="com.example.inpre.fragments.DataAboutBuyer"
+        android:label="fragment_data_about_buyer"
+        tools:layout="@layout/fragment_data_about_buyer" />
 </navigation>
