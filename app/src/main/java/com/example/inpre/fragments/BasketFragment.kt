@@ -14,7 +14,7 @@ import com.example.inpre.viewmodel.BasketFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, ChangeAmount {
+class BasketFragment() : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, ChangeAmount {
 
     private val viewModel by viewModel<BasketFragmentViewModel>()
 
@@ -29,6 +29,9 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
 
         recyclerBasket.adapter = mainFlowerAdapter
 
+        viewModel.basketLiveData.observe(viewLifecycleOwner){
+            recyclerBasket.adapter = BasketAdapter(this@BasketFragment, it as ArrayList<Flower>, this@BasketFragment)
+        }
 
         viewModel.resultLiveData.observe(viewLifecycleOwner){
             summa.text = "Итого: $it"

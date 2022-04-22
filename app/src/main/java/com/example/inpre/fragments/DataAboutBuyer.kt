@@ -1,23 +1,25 @@
 package com.example.inpre.fragments
 
 import android.app.DatePickerDialog
-import android.app.DatePickerDialog.OnDateSetListener
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.inpre.R
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentDataAboutBuyerBinding
+import com.example.inpre.viewmodel.DataAboutBuyerViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
+
+    private val viewModel by viewModel<DataAboutBuyerViewModel>()
 
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -27,7 +29,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
 
     override fun FragmentDataAboutBuyerBinding.onBindView(savedInstanceState: Bundle?) {
 
-        val group = listOf(groupPickup, groupOrder, groupPost, groupSdek)
+        val group = listOf(groupPickup, groupOrder, groupEuropost)
 
         radioGroup.setOnCheckedChangeListener { _, id ->
             when (id) {
@@ -41,35 +43,39 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
                 }
                 R.id.button_post -> {
                     cleanDataTable(group)
-                    groupPost.visibility = View.VISIBLE
-                }
-                R.id.button_sdek -> {
-                    cleanDataTable(group)
-                    groupSdek.visibility = View.VISIBLE
+                    groupEuropost.visibility = View.VISIBLE
                 }
             }
         }
 
         date.setOnClickListener {
             val c = Calendar.getInstance()
-            c.add(Calendar.DAY_OF_MONTH, 3)
+            c.add(Calendar.DAY_OF_MONTH, 0)
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
             val dpd = DatePickerDialog(requireContext(), { _, i, i2, i3 ->
-                date.text = "$i3-${i2 + 1}-$i"
+                date.text = "$i3 ${i2+1} $i"
+                if(((i3-day) > 1) || ((i3-day) < 0) && ((i2-month) > 0)){
+                    sum.text = "Цена со скидкой: sdasd BYN"
+                } else {
+                    sum.text = "Цена: дывда BYN"
+                }
             }, year, month, day)
             dpd.datePicker.minDate = c.timeInMillis
             dpd.show()
         }
 
         order.setOnClickListener {
-            /*val sb = StringBuffer()
+            val sb = StringBuffer()
             for (i in viewModel.getBasket()){
                 sb.append("Название: ${i.title}\nКоличество: ${i.amount} \n\n")
             }
-            sb.append("\n${summa.text}")
-            composeEmail(sb.toString())*/
+            sb.append("\nсюда добавить сумму")
+            sb.append("\n${name.text}")
+            sb.append("\nТелефон: ${phone.text}")
+            sb.append("\nЗаказано к ${date.text}")
+            composeEmail(sb.toString())
         }
     }
 

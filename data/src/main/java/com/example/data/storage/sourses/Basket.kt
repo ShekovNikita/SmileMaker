@@ -32,4 +32,8 @@ class Basket {
     fun deleteFromBasket(flowerData: FlowerData){
         basketFlower.remove(flowerData)
     }
+
+    fun sumOfBasket(): Int{
+        return 0
+    }
 }

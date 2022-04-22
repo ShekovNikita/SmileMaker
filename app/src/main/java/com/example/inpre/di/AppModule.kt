@@ -1,9 +1,6 @@
 package com.example.inpre.di
 
-import com.example.inpre.viewmodel.AboutFlowerActivityViewModel
-import com.example.inpre.viewmodel.BasketFragmentViewModel
-import com.example.inpre.viewmodel.MainActivityViewModel
-import com.example.inpre.viewmodel.MainFragmentViewModel
+import com.example.inpre.viewmodel.*
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -27,5 +24,8 @@ val appModule = module {
             changeAmountOfOneFlowerUseCase = get(),
             deleteFlowerFromBasketUseCase = get()
         )
+    }
+    viewModel<DataAboutBuyerViewModel>{
+        DataAboutBuyerViewModel(getBasketUseCase = get())
     }
 }

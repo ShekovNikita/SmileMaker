@@ -20,13 +20,9 @@ class BasketFragmentViewModel(
     private val _basketLiveData = MutableLiveData<List<Flower>>()
     val basketLiveData: LiveData<List<Flower>> = _basketLiveData
 
-    fun getBasket(): ArrayList<Flower>{
+    fun getBasket(): ArrayList<Flower> {
         val basket = getBasketUseCase.execute()
-        var summa = 0
-        for (i in basket){
-            summa += i.cost.toInt() * i.amount
-        }
-        _resultLiveData.postValue(summa)
+        _resultLiveData.postValue(getSum(basket))
         return basket
     }
 
@@ -40,5 +36,13 @@ class BasketFragmentViewModel(
         val b = changeAmountOfOneFlowerUseCase.execute(flower)
         getBasket()
         return b
+    }
+
+    private fun getSum(flowers: ArrayList<Flower>): Int{
+        var summa = 0
+        for (i in flowers){
+            summa += i.cost.toInt() * i.amount
+        }
+        return summa
     }
 }

@@ -19,14 +19,9 @@
         app:constraint_referenced_ids="name, phone, date, address" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_post"
+        android:id="@+id/group_europost"
         style="@style/data_buyer_group"
         app:constraint_referenced_ids="name, phone, date, address, surname, region, city, index" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_sdek"
-        style="@style/data_buyer_group"
-        app:constraint_referenced_ids="name, surname, city, phone, date, sdek" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -50,12 +45,7 @@
             <RadioButton
                 android:id="@+id/button_post"
                 style="@style/data_buyer_radio_button"
-                android:text="Почта"/>
-
-            <RadioButton
-                android:id="@+id/button_sdek"
-                style="@style/data_buyer_radio_button"
-                android:text="СДЭК" />
+                android:text="Европочта"/>
     </RadioGroup>
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -107,24 +97,17 @@
         app:layout_constraintTop_toBottomOf="@+id/index" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/sdek"
-        style="@style/data_text_about_buyer"
-        android:hint="Номер отделения СДЭК"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/city"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
-
-    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/phone"
         style="@style/data_text_about_buyer"
         android:inputType="phone"
         android:text="+375"
-        app:layout_constraintStart_toStartOf="@+id/sdek"
-        app:layout_constraintTop_toBottomOf="@+id/sdek" />
+        app:layout_constraintStart_toStartOf="@+id/address"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/date"
         style="@style/data_text_about_buyer"
+        android:paddingStart="@dimen/padding_8dp"
         android:hint="Дата"
         app:layout_constraintStart_toStartOf="@+id/phone"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
@@ -133,9 +116,19 @@
         android:id="@+id/order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_16dp"
         android:text="Заказать"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/sum"
+        app:layout_constraintTop_toBottomOf="@+id/sum" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:fontFamily="@font/lobster"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/date" />
 </androidx.constraintlayout.widget.ConstraintLayout>
