@@ -5,8 +5,6 @@ import com.example.domain.model.Flower
 
 interface FlowerRepository {
 
-    fun getAllFlower(): ArrayList<Flower>
-
     fun getCategoryOfFlower(): ArrayList<Category>
 
     fun addToBasket(flower: Flower)
@@ -16,4 +14,6 @@ interface FlowerRepository {
     fun changeAmountOfOneFlower(flower: Flower): ArrayList<Flower>
 
     fun deleteFromBasket(flower: Flower)
+
+    fun getSumOfBasket(): Int
 }

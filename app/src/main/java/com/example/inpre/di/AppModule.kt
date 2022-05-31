@@ -1,13 +1,15 @@
 package com.example.inpre.di
 
-import com.example.inpre.viewmodel.*
+import com.example.inpre.viewmodels.*
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
 
     viewModel<MainFragmentViewModel> {
-        MainFragmentViewModel(getAllFlowersUseCase = get())
+        MainFragmentViewModel(
+            getFirebaseFlowerUseCase = get()
+        )
     }
 
     viewModel<MainActivityViewModel> {
@@ -15,17 +17,40 @@ val appModule = module {
     }
 
     viewModel<AboutFlowerActivityViewModel> {
-        AboutFlowerActivityViewModel(addToBasketUseCase = get())
+        AboutFlowerActivityViewModel(
+            addToBasketUseCase = get(),
+            getBasketUseCase = get()
+        )
     }
 
     viewModel<BasketFragmentViewModel> {
         BasketFragmentViewModel(
             getBasketUseCase = get(),
             changeAmountOfOneFlowerUseCase = get(),
-            deleteFlowerFromBasketUseCase = get()
+            deleteFlowerFromBasketUseCase = get(),
+            getSumOfBasketUseCase = get()
         )
     }
-    viewModel<DataAboutBuyerViewModel>{
-        DataAboutBuyerViewModel(getBasketUseCase = get())
+    viewModel<DataAboutBuyerViewModel> {
+        DataAboutBuyerViewModel(
+            getBasketUseCase = get(),
+            getSumOfBasketUseCase = get()
+        )
+    }
+
+    viewModel<BonusFragmentViewModel> {
+        BonusFragmentViewModel()
+    }
+
+    viewModel<DeliveryFragmentViewModel> {
+        DeliveryFragmentViewModel()
+    }
+
+    viewModel<TopFragmentsViewModel> {
+        TopFragmentsViewModel(getFirebaseFlowerUseCase = get())
+    }
+
+    viewModel<SplashScreenViewModel> {
+        SplashScreenViewModel()
     }
 }

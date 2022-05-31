@@ -16,45 +16,56 @@
             android:id="@+id/image"
             android:layout_width="@dimen/basket_item_image"
             android:layout_height="@dimen/basket_item_image"
-            tools:src="@drawable/igles_blue"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/logo_blue"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lobster"
-            android:textSize="20sp"
             android:layout_margin="@dimen/margin_12dp"
-            android:text="assfsdfsd"
+            android:fontFamily="@font/lobster"
+            tools:text="assfsdfsd"
             android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/cost"
             app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/articul"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="assfsdfsd"
+            android:textColor="@color/black"
+            android:textSize="8sp"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lobster"
-            android:textSize="20sp"
             android:layout_marginTop="@dimen/margin_12dp"
             android:layout_marginEnd="25dp"
-            android:text="assfsdfsd"
+            android:fontFamily="@font/lobster"
+            tools:text="assfsdfsd"
             android:textColor="@color/black"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_plus"
             android:layout_width="@dimen/basket_item_button"
             android:layout_height="@dimen/basket_item_button"
+            android:layout_marginBottom="@dimen/margin_8dp"
             android:background="@drawable/button_basket_style"
             android:text="+"
-            android:layout_marginBottom="@dimen/margin_8dp"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/cost"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cost" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/counter"
@@ -81,8 +92,8 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="@dimen/basket_item_button"
-            android:text="Количество:  "
             android:gravity="center"
+            android:text="Количество:  "
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/btn_minus"
             app:layout_constraintEnd_toStartOf="@+id/btn_minus"

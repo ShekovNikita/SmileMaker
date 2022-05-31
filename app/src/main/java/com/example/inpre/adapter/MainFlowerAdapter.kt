@@ -1,25 +1,31 @@
 package com.example.inpre.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.domain.model.Flower
 import com.example.inpre.R
 import com.example.inpre.databinding.MainFlowersItemBinding
 import com.example.inpre.fragments.MainFlowerClick
 
 class MainFlowerAdapter(
+    private val context: Context,
     private val click: MainFlowerClick,
     private val mainFlowerList: ArrayList<Flower>
 ) : RecyclerView.Adapter<MainFlowerAdapter.FlowerViewHolder>() {
 
-    class FlowerViewHolder(item: View) : RecyclerView.ViewHolder(item) {
+    inner class FlowerViewHolder(item: View) : RecyclerView.ViewHolder(item) {
 
         private val binding = MainFlowersItemBinding.bind(item)
         fun bind(flower: Flower) = with(binding) {
             cost.text = flower.cost + " BYN"
-            image.setImageResource(flower.image)
+            name.text = flower.name
+            articul.text = "Артикул: ${flower.articul}"
+            Glide.with(context).load(flower.img_source).placeholder(R.drawable.logo_blue)
+                .into(image)
         }
     }
 

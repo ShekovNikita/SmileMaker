@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FCE4EC"
-    tools:context=".fragments.ContactsFragment">
+    android:padding="@dimen/padding_16dp"
+    tools:context=".fragments.bottom.ContactsFragment">
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_call"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_12dp"
         android:background="@null"
-        android:src="@android:drawable/stat_sys_phone_call"
+        android:src="@drawable/call"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,8 +23,8 @@
         android:id="@+id/appCompatTextView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lobster"
         android:layout_marginStart="@dimen/margin_8dp"
+        android:fontFamily="@font/lobster"
         android:text="Позвонить"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -35,12 +36,12 @@
         android:id="@+id/button_instagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/instagram_icon"
         android:layout_marginTop="@dimen/margin_12dp"
         android:background="@null"
+        android:src="@drawable/insta"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@id/button_call"
-        app:layout_constraintTop_toBottomOf="@id/button_call"/>
+        app:layout_constraintTop_toBottomOf="@id/button_call" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
@@ -66,4 +67,54 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:background="@null"
+        android:src="@drawable/site"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/button_call"
+        app:layout_constraintTop_toBottomOf="@+id/button_instagram" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:fontFamily="@font/lobster"
+        android:text="Наш сайт"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_web"
+        app:layout_constraintStart_toEndOf="@id/button_web"
+        app:layout_constraintTop_toTopOf="@id/button_web" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_slivki"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/slivki"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/button_call"
+        app:layout_constraintTop_toBottomOf="@+id/button_web" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:fontFamily="@font/lobster"
+        android:text="Мы на slivki.by"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_slivki"
+        app:layout_constraintStart_toEndOf="@+id/button_slivki"
+        app:layout_constraintTop_toTopOf="@+id/button_slivki" />
 </androidx.constraintlayout.widget.ConstraintLayout>

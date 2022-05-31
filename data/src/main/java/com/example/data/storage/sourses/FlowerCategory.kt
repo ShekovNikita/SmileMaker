@@ -1,6 +1,5 @@
 package com.example.data.storage.sourses
 
-import com.example.data.R
 import com.example.domain.model.Category
 
 class FlowerCategory {
@@ -13,10 +12,35 @@ class FlowerCategory {
     }
 
     private fun addToArray() {
-        arrayFlowerCategory.add(Category("В наличии", R.drawable.rose_1))
-        arrayFlowerCategory.add(Category("Хит продаж", R.drawable.rose_2))
-        arrayFlowerCategory.add(Category("Розы", R.drawable.rose_3))
-        arrayFlowerCategory.add(Category("Пионы", R.drawable.rose_1))
-        arrayFlowerCategory.add(Category("Микс", R.drawable.rose_1))
+        arrayFlowerCategory.add(
+            Category(
+                "В наличии",
+                "https://smilemaker.by/wp-content/uploads/2022/01/photo_2022-01-17_19-13-52.jpg"
+            )
+        )
+        arrayFlowerCategory.add(
+            Category(
+                "Хит продаж",
+                "https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-38-17-600x600.jpg"
+            )
+        )
+        arrayFlowerCategory.add(
+            Category(
+                "Розы",
+                "https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-50-00.jpg"
+            )
+        )
+        arrayFlowerCategory.add(
+            Category(
+                "Пионы",
+                "https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_15-15-29-600x600.jpg"
+            )
+        )
+        arrayFlowerCategory.add(
+            Category(
+                "Микс",
+                "https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-51-01.jpg"
+            )
+        )
     }
 }

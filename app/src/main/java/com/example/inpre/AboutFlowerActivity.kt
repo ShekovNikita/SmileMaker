@@ -1,11 +1,12 @@
 package com.example.inpre
 
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.domain.model.Flower
 import com.example.inpre.databinding.ActivityAboutFlowerBinding
-import com.example.inpre.viewmodel.AboutFlowerActivityViewModel
+import com.example.inpre.viewmodels.AboutFlowerActivityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AboutFlowerActivity : AppCompatActivity() {
@@ -22,33 +23,26 @@ class AboutFlowerActivity : AppCompatActivity() {
 
         val flower = intent.getSerializableExtra("flower") as Flower
         with(binding) {
-            println("---------------------------------------addtobasket $flower")
-            imageFlower.setImageResource(flower.image)
+            for (i in viewModel.getBasket()) {
+                if (i.articul == flower.articul)
+                    buttonBasket.visibility = View.INVISIBLE
+            }
+            Glide.with(applicationContext).load(flower.img_source).into(imageFlower)
             cost.text = "${flower.cost} BYN"
-            textFlower.text = flower.title
+            about.text = flower.about
+            textFlower.text = flower.name
+            articulFlower.text = "Артикул: ${flower.articul}"
             buttonBasket.setOnClickListener {
-                if (flower.amount > 0) {
-                    buttonBasket.isClickable = false
-                    Toast.makeText(
-                        applicationContext,
-                        "Букет уже был добавлен добавлен в корзину ",
-                        Toast.LENGTH_SHORT).show()
-                } else {
-                    flower.amount += 1
-                    viewModel.addToBasket(flower)
-                    Toast.makeText(
-                        applicationContext,
-                        "Букет добавлен в корзину ",
-                        Toast.LENGTH_SHORT).show()
-                }
+                buttonBasket.visibility = View.INVISIBLE
+                flower.amount += 1
+                viewModel.addToBasket(flower)
+                showToast("Букет добавлен в корзину")
             }
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
         _binding = null
     }
-
 }

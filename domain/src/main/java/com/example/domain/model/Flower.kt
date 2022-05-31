@@ -3,11 +3,13 @@ package com.example.domain.model
 import java.io.Serializable
 
 data class Flower(
-    val name: String,
-    val title: String,
+    val about: String,
+    val articul: String,
     val category: String,
-    val info: String,
     val cost: String,
-    val image: Int,
-    var amount: Int
+    val have: String,
+    val hit: String,
+    var amount: Int,
+    val name: String,
+    val img_source: String
 ) : Serializable
