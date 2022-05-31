@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.BasketFragment">
+    android:layout_height="wrap_content"
+    android:scrollbars="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_basket"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/titleColor"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/basket_item"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:context=".fragments.bottom.BasketFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/summa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:fontFamily="@font/lobster"
-        android:layout_marginEnd="@dimen/margin_8dp"
-        tools:text="dfsdf"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/recycler_basket"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_basket"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_basket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/titleColor"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/basket_item" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_sendToViber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Далее"
-        app:layout_constraintEnd_toEndOf="@+id/summa"
-        app:layout_constraintTop_toBottomOf="@+id/summa"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/summa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:fontFamily="@font/lobster"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/recycler_basket"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_basket"
+            tools:text="dfsdf" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sendToViber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Далее"
+            app:layout_constraintEnd_toEndOf="@+id/summa"
+            app:layout_constraintTop_toBottomOf="@+id/summa" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

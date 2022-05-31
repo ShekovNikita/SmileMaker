@@ -3,11 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.DeliveryFragment">
+    android:background="@color/titleColor"
+    tools:context=".fragments.bottom.DeliveryFragment">
 
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Доставка" />
+        android:layout_height="wrap_content">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/delivery_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:padding="@dimen/padding_16dp"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

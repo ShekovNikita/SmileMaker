@@ -7,12 +7,11 @@ class Basket {
     private val basketFlower = arrayListOf<FlowerData>()
 
     fun addToBasket(flowerData: FlowerData) {
-        println("---------------------------------addbasket before $basketFlower")
         var index = 0
         var unique = true
         if (basketFlower.size != 0) {
             for (i in basketFlower) {
-                if (flowerData.title == i.title) {
+                if (flowerData.articul == i.articul) {
                     index = basketFlower.indexOf(i)
                     unique = false
                     break
@@ -22,18 +21,21 @@ class Basket {
                 basketFlower[index] = flowerData
             } else basketFlower.add(flowerData)
         } else basketFlower.add(flowerData)
-        println("---------------------------------addbasket after $basketFlower")
     }
 
     fun getBasket(): ArrayList<FlowerData> {
         return ArrayList(basketFlower)
     }
 
-    fun deleteFromBasket(flowerData: FlowerData){
+    fun deleteFromBasket(flowerData: FlowerData) {
         basketFlower.remove(flowerData)
     }
 
-    fun sumOfBasket(): Int{
-        return 0
+    fun getSumOfBasket(): Int {
+        var summa = 0
+        for (i in basketFlower) {
+            summa += i.cost.toInt() * i.amount
+        }
+        return summa
     }
 }

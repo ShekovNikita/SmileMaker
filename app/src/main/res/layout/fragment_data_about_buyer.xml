@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/padding_8dp"
-    android:background="#458181"
     tools:context=".fragments.DataAboutBuyer">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/padding_8dp"
+        android:background="#458181">
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_pickup"
@@ -21,7 +25,7 @@
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_europost"
         style="@style/data_buyer_group"
-        app:constraint_referenced_ids="name, phone, date, address, surname, region, city, index" />
+        app:constraint_referenced_ids="name, phone, date, europost, surname" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -32,20 +36,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-            <RadioButton
-                android:id="@+id/button_pickup"
-                style="@style/data_buyer_radio_button"
-                android:text="Самовывоз" />
+        <RadioButton
+            android:id="@+id/button_pickup"
+            style="@style/data_buyer_radio_button"
+            android:text="Самовывоз" />
 
-            <RadioButton
-                android:id="@+id/button_order"
-                style="@style/data_buyer_radio_button"
-                android:text="Доставка" />
+        <RadioButton
+            android:id="@+id/button_order"
+            style="@style/data_buyer_radio_button"
+            android:text="Доставка" />
 
-            <RadioButton
-                android:id="@+id/button_post"
-                style="@style/data_buyer_radio_button"
-                android:text="Европочта"/>
+        <RadioButton
+            android:id="@+id/button_post"
+            style="@style/data_buyer_radio_button"
+            android:text="Европочта" />
     </RadioGroup>
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -65,62 +69,36 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/region"
+        android:id="@+id/europost"
         style="@style/data_text_about_buyer"
+        android:hint="Адрес Европочты"
         android:inputType="text"
-        android:hint="Область"
         app:layout_constraintStart_toStartOf="@+id/surname"
         app:layout_constraintTop_toBottomOf="@+id/surname" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/city"
-        style="@style/data_text_about_buyer"
-        android:inputType="text"
-        android:hint="Город или населённый пункт"
-        app:layout_constraintStart_toStartOf="@+id/region"
-        app:layout_constraintTop_toBottomOf="@+id/region" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/index"
-        style="@style/data_text_about_buyer"
-        android:hint="Почтовый индекс"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/city"
-        app:layout_constraintTop_toBottomOf="@+id/city" />
-
-    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/address"
         style="@style/data_text_about_buyer"
+        android:hint="Адрес доставки (только г.Гомель)"
         android:inputType="text"
-        android:hint="Адрес"
-        app:layout_constraintStart_toStartOf="@+id/index"
-        app:layout_constraintTop_toBottomOf="@+id/index" />
+        app:layout_constraintStart_toStartOf="@+id/europost"
+        app:layout_constraintTop_toBottomOf="@+id/europost" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/phone"
         style="@style/data_text_about_buyer"
+        android:hint="Номер телефона"
         android:inputType="phone"
-        android:text="+375"
         app:layout_constraintStart_toStartOf="@+id/address"
         app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/date"
         style="@style/data_text_about_buyer"
-        android:paddingStart="@dimen/padding_8dp"
         android:hint="Дата"
+        android:paddingStart="@dimen/padding_8dp"
         app:layout_constraintStart_toStartOf="@+id/phone"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:text="Заказать"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/sum"
-        app:layout_constraintTop_toBottomOf="@+id/sum" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/sum"
@@ -131,4 +109,35 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/date" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/skidka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:fontFamily="@font/lobster"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/sum" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sum_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:fontFamily="@font/lobster"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/skidka" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:text="Заказать"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/sum_bonus"
+        app:layout_constraintTop_toBottomOf="@+id/sum_bonus" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

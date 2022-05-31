@@ -5,7 +5,7 @@ import com.example.domain.repository.FlowerRepository
 
 class ChangeAmountOfOneFlowerUseCase(private val flowerRepository: FlowerRepository) {
 
-    fun execute(flower: Flower): ArrayList<Flower>{
+    fun execute(flower: Flower): ArrayList<Flower> {
         return flowerRepository.changeAmountOfOneFlower(flower)
     }
 }

@@ -5,10 +5,6 @@ import org.koin.dsl.module
 
 val domainModule = module {
 
-    factory<GetAllFlowersUseCase> {
-        GetAllFlowersUseCase(flowerRepository = get())
-    }
-
     factory<GetCategoryFlowersUseCase> {
         GetCategoryFlowersUseCase(flowerRepository = get())
     }
@@ -27,5 +23,13 @@ val domainModule = module {
 
     factory<DeleteFlowerFromBasketUseCase> {
         DeleteFlowerFromBasketUseCase(flowerRepository = get())
+    }
+
+    factory<GetSumOfBasketUseCase> {
+        GetSumOfBasketUseCase(flowerRepository = get())
+    }
+
+    factory {
+        GetFirebaseFlowerUseCase(firebaseRepository = get())
     }
 }

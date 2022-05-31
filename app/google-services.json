@@ -1,69 +1,47 @@
 {
   "project_info": {
-    "project_number": "30848955721",
-    "firebase_url": "https://admob-app-id-3139546122.firebaseio.com",
-    "project_id": "admob-app-id-3139546122",
-    "storage_bucket": "admob-app-id-3139546122.appspot.com"
+    "project_number": "489382140490",
+    "firebase_url": "https://smilemaker-4b89b-default-rtdb.firebaseio.com",
+    "project_id": "smilemaker-4b89b",
+    "storage_bucket": "smilemaker-4b89b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:30848955721:android:d6a4386324d87700a41698",
+        "mobilesdk_app_id": "1:489382140490:android:a4f7a967780bb534bea4b3",
         "android_client_info": {
           "package_name": "com.example.inpre"
         }
       },
       "oauth_client": [
         {
-          "client_id": "30848955721-chpkdjau01dk0repcop9l6eh1nk5fn26.apps.googleusercontent.com",
+          "client_id": "489382140490-b7ue1rb84dqh68qj1p5b9m7ebva6mvur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.inpre",
+            "certificate_hash": "3eb8a853f8da30a053a223c64b8ae932941b1e8a"
+          }
+        },
+        {
+          "client_id": "489382140490-0fvsqcig228ktadou3rlvhcfl1up2vr0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDatlB4lFV4Dpyix-JMkEFLC5aNasZEArY"
+          "current_key": "AIzaSyAMUOKXzZi8ESPPGwJjcmZXu1hrIxo8UqQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "30848955721-chpkdjau01dk0repcop9l6eh1nk5fn26.apps.googleusercontent.com",
+              "client_id": "489382140490-0fvsqcig228ktadou3rlvhcfl1up2vr0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:30848955721:android:17468ec656320940",
-        "android_client_info": {
-          "package_name": "com.shekov.book.AOUXNDFEUSSPZINR"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "30848955721-chpkdjau01dk0repcop9l6eh1nk5fn26.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDatlB4lFV4Dpyix-JMkEFLC5aNasZEArY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "30848955721-chpkdjau01dk0repcop9l6eh1nk5fn26.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-3753982216838851~3139546122"
     }
   ],
   "configuration_version": "1"
