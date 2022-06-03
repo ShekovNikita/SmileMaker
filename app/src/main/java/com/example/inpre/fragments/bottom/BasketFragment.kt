@@ -45,6 +45,16 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
             summa.text = "Итого: $it"
         }
 
+        viewModel.basketLiveData.observe(viewLifecycleOwner){
+            recyclerBasket.adapter = BasketAdapter(
+                requireContext(),
+                this@BasketFragment,
+                it as ArrayList<Flower>,
+                this@BasketFragment,
+                this@BasketFragment
+            )
+        }
+
         btnSendToViber.setOnClickListener {
             navController.navigate(BasketFragmentDirections.actionNavigationBasketToDataAboutBuyer())
         }

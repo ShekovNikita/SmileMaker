@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.WindowManager
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentContactsBinding
 

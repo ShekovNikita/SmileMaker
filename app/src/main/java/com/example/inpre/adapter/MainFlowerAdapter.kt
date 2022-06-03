@@ -24,7 +24,10 @@ class MainFlowerAdapter(
             cost.text = flower.cost + " BYN"
             name.text = flower.name
             articul.text = "Артикул: ${flower.articul}"
-            Glide.with(context).load(flower.img_source).placeholder(R.drawable.logo_blue)
+            Glide.with(context)
+                .load(flower.img_source)
+                .placeholder(R.drawable.logo_blue)
+                .skipMemoryCache(true)
                 .into(image)
         }
     }

@@ -18,7 +18,17 @@
             android:layout_height="@dimen/basket_item_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:src="@drawable/logo_blue"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#C1E8FF"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
@@ -47,14 +57,13 @@
             android:id="@+id/cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_12dp"
-            android:layout_marginEnd="25dp"
             android:fontFamily="@font/lobster"
-            tools:text="assfsdfsd"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/title"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintTop_toTopOf="@+id/title"
+            tools:text="assfsdfsd" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_plus"
@@ -65,7 +74,8 @@
             android:text="+"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/cost" />
+            app:layout_constraintEnd_toEndOf="@+id/cost"
+            app:layout_constraintTop_toBottomOf="@+id/articul" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/counter"

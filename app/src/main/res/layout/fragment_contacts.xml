@@ -4,56 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCE4EC"
+    android:background="@color/titleColor"
     android:padding="@dimen/padding_16dp"
     tools:context=".fragments.bottom.ContactsFragment">
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_12dp"
         android:background="@null"
-        android:src="@drawable/call"
+        android:drawableLeft="@drawable/call"
+        android:fontFamily="@font/lobster"
+        android:text="     Позвонить"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView5"
+    <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_8dp"
-        android:fontFamily="@font/lobster"
-        android:text="Позвонить"
+        android:layout_marginStart="@dimen/margin_12dp"
+        android:text="+375257696633"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="12sp"
+        android:inputType="none"
         app:layout_constraintBottom_toBottomOf="@+id/button_call"
-        app:layout_constraintStart_toEndOf="@id/button_call"
-        app:layout_constraintTop_toTopOf="@id/button_call" />
+        app:layout_constraintStart_toEndOf="@+id/button_call"
+        app:layout_constraintTop_toTopOf="@+id/button_call" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_instagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_12dp"
         android:background="@null"
-        android:src="@drawable/insta"
+        android:drawableLeft="@drawable/insta"
+        android:textAllCaps="false"
+        android:fontFamily="@font/lobster"
+        android:text="     Instagram"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/button_call"
         app:layout_constraintTop_toBottomOf="@id/button_call" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_8dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:background="@null"
+        android:drawableLeft="@drawable/site"
         android:fontFamily="@font/lobster"
-        android:text="Instagram"
+        android:text="     Наш сайт"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_instagram"
-        app:layout_constraintStart_toEndOf="@id/button_call"
-        app:layout_constraintTop_toTopOf="@+id/button_instagram" />
+        app:layout_constraintStart_toStartOf="@+id/button_call"
+        app:layout_constraintTop_toBottomOf="@+id/button_instagram" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_slivki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:textAllCaps="false"
+        android:background="@null"
+        android:drawableLeft="@drawable/slivk"
+        android:fontFamily="@font/lobster"
+        android:text="     Мы на slivki.by"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/button_call"
+        app:layout_constraintTop_toBottomOf="@+id/button_web" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView4"
@@ -67,54 +91,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/button_web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:background="@null"
-        android:src="@drawable/site"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/button_call"
-        app:layout_constraintTop_toBottomOf="@+id/button_instagram" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_8dp"
-        android:fontFamily="@font/lobster"
-        android:text="Наш сайт"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_web"
-        app:layout_constraintStart_toEndOf="@id/button_web"
-        app:layout_constraintTop_toTopOf="@id/button_web" />
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/button_slivki"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:scaleType="centerInside"
-        android:src="@drawable/slivki"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/button_call"
-        app:layout_constraintTop_toBottomOf="@+id/button_web" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_8dp"
-        android:fontFamily="@font/lobster"
-        android:text="Мы на slivki.by"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button_slivki"
-        app:layout_constraintStart_toEndOf="@+id/button_slivki"
-        app:layout_constraintTop_toTopOf="@+id/button_slivki" />
 </androidx.constraintlayout.widget.ConstraintLayout>

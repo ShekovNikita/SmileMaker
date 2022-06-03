@@ -20,7 +20,7 @@ class FlowerCategory {
         )
         arrayFlowerCategory.add(
             Category(
-                "Хит продаж",
+                "Хиты",
                 "https://smilemaker.by/wp-content/uploads/2021/09/photo_2021-10-20_14-38-17-600x600.jpg"
             )
         )

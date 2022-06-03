@@ -51,6 +51,9 @@ class BasketAdapter(
             image.setOnClickListener {
                 click.sendData(flower)
             }
+            btnDelete.setOnClickListener {
+                deleteFlower.deleteFlower(flower)
+            }
         }
     }
 

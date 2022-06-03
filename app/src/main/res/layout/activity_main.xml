@@ -11,42 +11,16 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/titleColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo_blue" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
             android:layout_height="match_parent"
-            android:background="@color/titleColor">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/appCompatTextView2"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:paddingStart="@dimen/padding_8dp"
-                android:text="@string/smile_maker"
-                android:textColor="@color/black"
-                android:textSize="40sp"
-                app:fontFamily="@font/lobster"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/appCompatTextView"
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:fontFamily="@font/lobster"
-                android:paddingStart="8dp"
-                android:text="@string/master_box"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/appCompatTextView2"
-                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:src="@drawable/title_logo" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,8 +40,10 @@
             android:padding="2dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/category_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.fragment.app.FragmentContainerView
