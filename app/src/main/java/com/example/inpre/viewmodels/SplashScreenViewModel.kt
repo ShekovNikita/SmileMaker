@@ -14,7 +14,7 @@ class SplashScreenViewModel : ViewModel() {
 
     fun waitAndGoFather() {
         viewModelScope.launch {
-            delay(3000)
+            delay(1000)
             _livedata.postValue("Go")
         }
     }
