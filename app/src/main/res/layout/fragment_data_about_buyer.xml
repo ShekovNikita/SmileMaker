@@ -106,9 +106,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16dp"
         android:fontFamily="@font/lobster"
+        tools:text="Цена всего"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dostavka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:fontFamily="@font/lobster"
+            tools:text="Доставка"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/sum" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/skidka"
@@ -116,9 +128,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16dp"
         android:fontFamily="@font/lobster"
+        tools:text="Скидка"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/sum" />
+        app:layout_constraintTop_toBottomOf="@+id/dostavka" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/sum_bonus"
@@ -126,6 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16dp"
         android:fontFamily="@font/lobster"
+        tools:text="Цена со скидкой"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/name"
         app:layout_constraintTop_toBottomOf="@+id/skidka" />
