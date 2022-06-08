@@ -51,6 +51,13 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
                 R.id.button_post -> {
                     cleanDataTable(group)
                     groupEuropost.visibility = View.VISIBLE
+                    if (summa < 50){
+                        order.isClickable = false
+                        order.text = "Отправка почтой от 50 BYN"
+                    }
+                    dostavka.visibility = View.VISIBLE
+                    dostavka.text = "Отправка: 5 BYN"
+                    dostavka_pay = true
                 }
             }
         }
