@@ -16,7 +16,7 @@ class FirebaseFlowerToFlowerDomainConverter : Converter<FirebaseFlower, Flower> 
             params.hit ?: "",
             0,
             params.name ?: "",
-            params.url ?: ""
+            (params.photos ?: "") as List<String>
         )
     }
 }

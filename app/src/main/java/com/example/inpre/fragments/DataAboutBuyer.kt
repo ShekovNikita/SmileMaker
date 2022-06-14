@@ -2,6 +2,7 @@ package com.example.inpre.fragments
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
@@ -53,6 +54,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
                     groupEuropost.visibility = View.VISIBLE
                     if (summa < 50){
                         order.isClickable = false
+                        order.setBackgroundColor(Color.parseColor("#AF0000"))
                         order.text = "Отправка почтой от 50 BYN"
                     }
                     dostavka.visibility = View.VISIBLE
@@ -161,6 +163,9 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
             skidka.visibility = View.GONE
             dostavka.visibility = View.GONE
             sum.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            order.setBackgroundColor(Color.parseColor("#D340ED92"))
+            order.text = "Заказать"
+            order.isClickable = true
             dostavka_pay = false
         }
     }

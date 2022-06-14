@@ -22,7 +22,7 @@ class FirebaseRepositoryImpl(
     }
 
     suspend fun getFirebaseArticuls(): List<String> {
-        val hashMap = mutableMapOf<String, String>()
+        val hashMap = mutableMapOf<String, Any>()
         val response = firebaseApi.getFirebaseArticuls()
         if (response.isSuccessful) {
             hashMap.putAll(response.body()!!)

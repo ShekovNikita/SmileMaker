@@ -10,5 +10,5 @@ data class FirebaseFlower(
     @SerializedName("have") var have: String? = null,
     @SerializedName("hit") var hit: String? = null,
     @SerializedName("name") var name: String? = null,
-    @SerializedName("url") var url: String? = null
+    @SerializedName("photos") var photos: List<String>? = null
 )

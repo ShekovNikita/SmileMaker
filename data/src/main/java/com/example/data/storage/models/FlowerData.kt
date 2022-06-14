@@ -9,5 +9,5 @@ data class FlowerData(
     val hit: String,
     var amount: Int,
     val name: String,
-    val img_source: String
+    val img_source: List<String>
 )

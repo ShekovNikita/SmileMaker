@@ -3,11 +3,12 @@ package com.example.inpre
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 import com.example.domain.model.Flower
+import com.example.inpre.adapter.ViewPagerAdapter
 import com.example.inpre.databinding.ActivityAboutFlowerBinding
 import com.example.inpre.viewmodels.AboutFlowerActivityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class AboutFlowerActivity : AppCompatActivity() {
 
@@ -27,7 +28,13 @@ class AboutFlowerActivity : AppCompatActivity() {
                 if (i.articul == flower.articul)
                     buttonBasket.visibility = View.INVISIBLE
             }
-            Glide.with(applicationContext).load(flower.img_source).into(imageFlower)
+            //Glide.with(applicationContext).load(flower.img_source).into(imageFlower)
+
+            //val mViewPagerAdapter = ViewPagerAdapter(this@AboutFlowerActivity, flower.img_source)
+            //viewPagerMain.adapter = mViewPagerAdapter
+
+            viewPager2.adapter = ViewPagerAdapter(flower.img_source)
+
             cost.text = "${flower.cost} BYN"
             about.text = flower.about
             textFlower.text = flower.name

@@ -8,25 +8,23 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image_flower"
-                android:layout_width="wrap_content"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitStart"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/logo_blue"/>
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_flower"
@@ -36,8 +34,8 @@
                 android:fontFamily="@font/lobster"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@id/button_basket"
-                app:layout_constraintStart_toStartOf="@+id/image_flower"
-                app:layout_constraintTop_toBottomOf="@+id/image_flower"
+                app:layout_constraintStart_toStartOf="@+id/viewPager2"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager2"
                 tools:text="Букетики вся хуйня" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -46,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_8dp"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/image_flower"
+                app:layout_constraintStart_toStartOf="@+id/viewPager2"
                 app:layout_constraintTop_toBottomOf="@+id/text_flower"
                 tools:text="Артикул: " />
 

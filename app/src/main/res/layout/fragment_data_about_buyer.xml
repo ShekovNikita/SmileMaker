@@ -148,10 +148,14 @@
         android:id="@+id/order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_8dp"
+        android:paddingEnd="@dimen/padding_8dp"
         android:layout_marginTop="@dimen/margin_16dp"
-        android:text="Заказать"
+        android:layout_marginBottom="@dimen/margin_12dp"
         android:textSize="16sp"
+        tools:text="Заказать"
         app:layout_constraintEnd_toEndOf="@+id/sum_bonus"
-        app:layout_constraintTop_toBottomOf="@+id/sum_bonus" />
+        app:layout_constraintTop_toBottomOf="@+id/sum_bonus"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

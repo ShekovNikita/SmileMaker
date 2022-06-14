@@ -14,17 +14,30 @@ import com.example.inpre.showToast
 
 class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
 
-    lateinit var don: Uri
+    lateinit var top: Uri
+    lateinit var side: Uri
 
-    private val selectImageFromGalleryResult =
+    private val selectImageFromGalleryResultTop =
         registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
             uri?.let {
-                don = uri
+                top = uri
                 Glide.with(requireActivity())
                     .load(uri)
-                    .override(500, 500)
+                    .override(400, 400)
                     .centerCrop()
-                    .into(binding.photo)
+                    .into(binding.photoTop)
+            }
+        }
+
+    private val selectImageFromGalleryResultSide =
+        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            uri?.let {
+                side = uri
+                Glide.with(requireActivity())
+                    .load(uri)
+                    .override(400, 400)
+                    .centerCrop()
+                    .into(binding.photoSide)
             }
         }
 
@@ -35,6 +48,7 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
 
 
     override fun FragmentAddFlowerBinding.onBindView(savedInstanceState: Bundle?) {
+
         ok.setOnClickListener {
             val dataMap: MutableMap<String, Any> = mutableMapOf()
             val articulMap: MutableMap<String, Any> = mutableMapOf()
@@ -43,6 +57,7 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
             dataMap[CHILD_NAME_FLOWER] = flowerName.text.toString()
             dataMap[CHILD_COST_FLOWER] = flowerCost.text.toString()
             dataMap[CHILD_ABOUT_FLOWER] = flowerAbout.text.toString()
+            val images_map: MutableList<String> = mutableListOf()
 
             val radioButton = root.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
             dataMap[CHILD_CATEGORY_FLOWER] = radioButton.text.toString()
@@ -60,35 +75,54 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
             dataMap[CHILD_HIT_FLOWER] = hit
             articulMap[articul] = articul
 
-            val path = REF_STORAGE_ROOT.child(FOLDER_PROFILE_IMAGE).child(articul)
-            path.putFile(don).addOnCompleteListener { task1 ->
-                if (task1.isSuccessful) {
-                    path.downloadUrl.addOnCompleteListener { task2 ->
-                        if (task2.isSuccessful) {
-                            dataMap[CHILD_URL_FLOWER] = task2.result.toString()
-                            REF_DATABASE_ROOT.child(NODE_FLOWERS).child(NODE_FLOWERS_CHILD)
-                                .child(articul).updateChildren(dataMap)
-                                .addOnCompleteListener { task3 ->
-                                    if (task3.isSuccessful) {
-                                        REF_DATABASE_ROOT.child(NODE_FLOWERS)
-                                            .child(NODE_ALL_ARTICUL).updateChildren(articulMap)
-                                            .addOnCompleteListener {
-                                                if (it.isSuccessful) {
-                                                    showToast("Добавлен цветок")
+            val path = REF_STORAGE_ROOT.child(IMAGE_OF_FLOWERS).child(articul)
+            path.child("top").putFile(top).addOnCompleteListener { task_top ->
+                if (task_top.isSuccessful) {
+                    path.child("top").downloadUrl.addOnCompleteListener { tasks ->
+                        if (tasks.isSuccessful) {
+                            images_map.add(tasks.result.toString())
+                            path.child("side").putFile(side).addOnCompleteListener { task_side ->
+                                if (task_side.isSuccessful) {
+                                    path.child("side").downloadUrl.addOnCompleteListener { taska ->
+                                        if (taska.isSuccessful) {
+                                            images_map.add(taska.result.toString())
+                                            dataMap["photos"] = images_map
+                                            REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
+                                                .child(FLOWERS_NODE_CHILD)
+                                                .child(articul)
+                                                .updateChildren(dataMap)
+                                                .addOnCompleteListener { task5 ->
+                                                    if (task5.isSuccessful) {
+                                                        REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
+                                                            .child(ARTICULS_NODE_CHILD)
+                                                            .updateChildren(articulMap)
+                                                            .addOnCompleteListener {
+                                                                if (it.isSuccessful) {
+                                                                    showToast("Добавлен цветок")
+                                                                    println("------------------------------$dataMap")
+                                                                }
+                                                            }
+                                                    }
                                                 }
-                                            }
+                                        }
                                     }
                                 }
+                            }
                         }
+
                     }
                 }
             }
         }
 
-        photo.setOnClickListener {
-            selectImageFromGallery()
+
+        photoTop.setOnClickListener {
+            selectImageFromGalleryResultTop.launch("image/*")
+        }
+
+        photoSide.setOnClickListener {
+            selectImageFromGalleryResultSide.launch("image/*")
         }
     }
 
-    private fun selectImageFromGallery() = selectImageFromGalleryResult.launch("image/*")
 }

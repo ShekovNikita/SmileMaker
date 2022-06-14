@@ -4,6 +4,6 @@
         name="cached_files"
         path="." />
     <files-path
-        name="images"
+        name="media"
         path="." />
 </paths>

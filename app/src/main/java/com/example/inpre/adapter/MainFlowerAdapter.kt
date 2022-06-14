@@ -1,11 +1,17 @@
 package com.example.inpre.adapter
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.domain.model.Flower
 import com.example.inpre.R
 import com.example.inpre.databinding.MainFlowersItemBinding
@@ -25,7 +31,7 @@ class MainFlowerAdapter(
             name.text = flower.name
             articul.text = "Артикул: ${flower.articul}"
             Glide.with(context)
-                .load(flower.img_source)
+                .load(flower.img_source[0])
                 .placeholder(R.drawable.logo_blue)
                 .skipMemoryCache(true)
                 .into(image)

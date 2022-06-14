@@ -62,6 +62,7 @@
             <RadioButton
                 android:id="@+id/button_rose"
                 style="@style/data_buyer_radio_button"
+                android:checked="true"
                 android:text="розы" />
 
             <RadioButton
@@ -98,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@+id/flower_have" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/photo"
+            android:id="@+id/photo_side"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_12dp"
@@ -107,12 +108,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/flower_hit" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Вид сбоку"
+            app:layout_constraintEnd_toEndOf="@+id/photo_side"
+            app:layout_constraintStart_toStartOf="@+id/photo_side"
+            app:layout_constraintTop_toBottomOf="@id/photo_side" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/photo_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:background="@color/titleColor"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toEndOf="@id/photo_side"
+            app:layout_constraintTop_toTopOf="@+id/photo_side"
+            app:layout_constraintBottom_toBottomOf="@id/photo_side"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Вид сверху"
+            app:layout_constraintEnd_toEndOf="@+id/photo_top"
+            app:layout_constraintStart_toStartOf="@+id/photo_top"
+            app:layout_constraintTop_toBottomOf="@+id/photo_top" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Добавить в базу"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/photo" />
+            app:layout_constraintTop_toBottomOf="@+id/photo_side" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

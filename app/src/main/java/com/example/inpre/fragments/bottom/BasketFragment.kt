@@ -2,6 +2,7 @@ package com.example.inpre.fragments.bottom
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.domain.model.Flower
@@ -42,7 +43,13 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
         initRecyclerView()
 
         viewModel.resultLiveData.observe(viewLifecycleOwner) {
-            summa.text = "Итого: $it"
+            if (it > 0) {
+                summa.text = "Итого: $it"
+                btnSendToViber.visibility = View.VISIBLE
+            } else {
+                summa.text = "Корзина пуста"
+                btnSendToViber.visibility = View.GONE
+            }
         }
 
         viewModel.basketLiveData.observe(viewLifecycleOwner){

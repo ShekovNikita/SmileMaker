@@ -14,10 +14,10 @@ lateinit var AUTH: FirebaseAuth
 lateinit var storedVerificationId: String
 lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
 
-const val FOLDER_PROFILE_IMAGE = "images_of_flower"
-const val NODE_FLOWERS = "all_flowers"
-const val NODE_FLOWERS_CHILD = "flowers"
-const val NODE_ALL_ARTICUL = "articuls"
+const val IMAGE_OF_FLOWERS = "images_of_flower"
+const val ALL_FLOWERS_NODE = "all_flowers"
+const val FLOWERS_NODE_CHILD = "flowers"
+const val ARTICULS_NODE_CHILD = "articuls"
 const val CHILD_ARTICUL_FLOWER = "articul"
 const val CHILD_NAME_FLOWER = "name"
 const val CHILD_COST_FLOWER = "cost"

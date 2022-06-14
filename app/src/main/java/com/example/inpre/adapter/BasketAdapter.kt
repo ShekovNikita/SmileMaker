@@ -32,7 +32,7 @@ class BasketAdapter(
 
         fun bind(flower: Flower) = with(binding) {
             title.text = flower.name
-            Glide.with(context).load(flower.img_source).into(image)
+            Glide.with(context).load(flower.img_source[0]).into(image)
             cost.text = flower.cost + " BYN"
             articul.text = "Артикул: ${flower.articul}"
             counter.text = flower.amount.toString()
