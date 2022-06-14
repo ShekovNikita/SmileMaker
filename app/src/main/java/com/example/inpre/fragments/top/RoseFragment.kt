@@ -30,7 +30,7 @@ class RoseFragment : BaseFragment<FragmentRoseBinding>(), MainFlowerClick {
                 MainFlowerAdapter(requireContext(), this@RoseFragment, it as ArrayList<Flower>)
         }
 
-        recyclerFlowersOnMain.layoutManager = GridLayoutManager(context, 1)
+        recyclerFlowersOnMain.layoutManager = GridLayoutManager(context, 2)
     }
 
     override fun sendData(flower: Flower) {

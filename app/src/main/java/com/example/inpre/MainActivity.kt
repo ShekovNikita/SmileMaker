@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
         nav.popBackStack()
         when (category) {
             "Розы" -> nav.navigate(R.id.roseFragment)
-            "Хит продаж" -> nav.navigate(R.id.hitFragment)
+            "Хиты" -> nav.navigate(R.id.hitFragment)
             "В наличии" -> nav.navigate(R.id.haveFragment)
             "Пионы" -> nav.navigate(R.id.pioniFragment)
             "Микс" -> nav.navigate(R.id.mixFragment)

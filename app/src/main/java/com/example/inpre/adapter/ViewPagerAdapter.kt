@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.inpre.R
 
-class ViewPagerAdapter(private val photos: List<String>) : RecyclerView.Adapter<ViewPagerAdapter.PagerVH>() {
+class ViewPagerAdapter(private val photos: List<Any>) : RecyclerView.Adapter<ViewPagerAdapter.PagerVH>() {
 
     class PagerVH(item: View) : RecyclerView.ViewHolder(item)
 

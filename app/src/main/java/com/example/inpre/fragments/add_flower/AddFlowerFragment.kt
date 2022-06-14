@@ -5,39 +5,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import com.bumptech.glide.Glide
+import androidx.viewpager2.widget.ViewPager2
 import com.example.data.firebase.*
+import com.example.inpre.R
+import com.example.inpre.adapter.ViewPagerAdapter
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentAddFlowerBinding
 import com.example.inpre.showToast
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
 
-    lateinit var top: Uri
-    lateinit var side: Uri
+    private var topList: List<Uri> = listOf()
+    lateinit var viewPager2: ViewPager2
 
-    private val selectImageFromGalleryResultTop =
-        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            uri?.let {
-                top = uri
-                Glide.with(requireActivity())
-                    .load(uri)
-                    .override(400, 400)
-                    .centerCrop()
-                    .into(binding.photoTop)
-            }
-        }
-
-    private val selectImageFromGalleryResultSide =
-        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            uri?.let {
-                side = uri
-                Glide.with(requireActivity())
-                    .load(uri)
-                    .override(400, 400)
-                    .centerCrop()
-                    .into(binding.photoSide)
+    var selectImage: ActivityResultLauncher<String> =
+        registerForActivityResult(ActivityResultContracts.GetMultipleContents()) { uri: List<Uri> ->
+            uri.let {
+                topList = uri
+                println("----------------------------------toplist    $topList")
+                viewPager2 = requireView().findViewById(R.id.viewPager2)
+                val tabLayout = requireView().findViewById<TabLayout>(R.id.tab_layout)
+                viewPager2.adapter = ViewPagerAdapter(topList)
+                TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+                    tab.text = "ФОТО ${(position + 1)}"
+                }.attach()
             }
         }
 
@@ -76,53 +71,44 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
             articulMap[articul] = articul
 
             val path = REF_STORAGE_ROOT.child(IMAGE_OF_FLOWERS).child(articul)
-            path.child("top").putFile(top).addOnCompleteListener { task_top ->
-                if (task_top.isSuccessful) {
-                    path.child("top").downloadUrl.addOnCompleteListener { tasks ->
-                        if (tasks.isSuccessful) {
-                            images_map.add(tasks.result.toString())
-                            path.child("side").putFile(side).addOnCompleteListener { task_side ->
-                                if (task_side.isSuccessful) {
-                                    path.child("side").downloadUrl.addOnCompleteListener { taska ->
-                                        if (taska.isSuccessful) {
-                                            images_map.add(taska.result.toString())
-                                            dataMap["photos"] = images_map
-                                            REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
-                                                .child(FLOWERS_NODE_CHILD)
-                                                .child(articul)
-                                                .updateChildren(dataMap)
-                                                .addOnCompleteListener { task5 ->
-                                                    if (task5.isSuccessful) {
-                                                        REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
-                                                            .child(ARTICULS_NODE_CHILD)
-                                                            .updateChildren(articulMap)
-                                                            .addOnCompleteListener {
-                                                                if (it.isSuccessful) {
-                                                                    showToast("Добавлен цветок")
-                                                                    println("------------------------------$dataMap")
-                                                                }
+            REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
+                .child(ARTICULS_NODE_CHILD)
+                .updateChildren(articulMap)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        for ((index, value) in topList.withIndex()) {
+                            path.child(index.toString()).putFile(value)
+                                .addOnCompleteListener { task_top ->
+                                    if (task_top.isSuccessful) {
+                                        path.child(index.toString()).downloadUrl.addOnCompleteListener { tasks ->
+                                            if (tasks.isSuccessful) {
+                                                images_map.add(tasks.result.toString())
+                                                showToast("${index + 1}-e фото добавлено")
+                                                if (images_map.size == topList.size) {
+                                                    println("image_map ${images_map.size} \n topList ${topList.size}")
+                                                    dataMap["photos"] = images_map
+                                                    REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
+                                                        .child(FLOWERS_NODE_CHILD)
+                                                        .child(articul)
+                                                        .updateChildren(dataMap)
+                                                        .addOnCompleteListener { task5 ->
+                                                            if (task5.isSuccessful) {
+                                                                showToast("Добавлен цветок")
+                                                                println("------------------------------$dataMap")
                                                             }
-                                                    }
+                                                        }
                                                 }
+                                            }
                                         }
                                     }
                                 }
-                            }
                         }
-
                     }
                 }
-            }
         }
 
-
-        photoTop.setOnClickListener {
-            selectImageFromGalleryResultTop.launch("image/*")
-        }
-
-        photoSide.setOnClickListener {
-            selectImageFromGalleryResultSide.launch("image/*")
+        addPhotos.setOnClickListener {
+            selectImage.launch("image/*")
         }
     }
-
 }

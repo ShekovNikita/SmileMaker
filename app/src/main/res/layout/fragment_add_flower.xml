@@ -99,7 +99,7 @@
             app:layout_constraintTop_toBottomOf="@+id/flower_have" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/photo_side"
+            android:id="@+id/add_photos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_12dp"
@@ -109,40 +109,38 @@
             app:layout_constraintTop_toBottomOf="@+id/flower_hit" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/black"
+            android:id="@+id/appCompatTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Вид сбоку"
-            app:layout_constraintEnd_toEndOf="@+id/photo_side"
-            app:layout_constraintStart_toStartOf="@+id/photo_side"
-            app:layout_constraintTop_toBottomOf="@id/photo_side" />
+            android:text="Добавить изображения"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/add_photos"
+            app:layout_constraintStart_toStartOf="@+id/add_photos"
+            app:layout_constraintTop_toBottomOf="@id/add_photos" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/photo_top"
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16dp"
-            android:background="@color/titleColor"
-            android:src="@drawable/logo"
-            app:layout_constraintStart_toEndOf="@id/photo_side"
-            app:layout_constraintTop_toTopOf="@+id/photo_side"
-            app:layout_constraintBottom_toBottomOf="@id/photo_side"/>
+            app:tabMode="auto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appCompatTextView"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Вид сверху"
-            app:layout_constraintEnd_toEndOf="@+id/photo_top"
-            app:layout_constraintStart_toStartOf="@+id/photo_top"
-            app:layout_constraintTop_toBottomOf="@+id/photo_top" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
             android:text="Добавить в базу"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/photo_side" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPager2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
