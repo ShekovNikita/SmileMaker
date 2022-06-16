@@ -8,12 +8,15 @@ import com.example.domain.model.Flower
 import com.example.inpre.adapter.MainFlowerAdapter
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentHaveBinding
+import com.example.inpre.fragments.ChangeAmount
+import com.example.inpre.fragments.DeleteFlower
 import com.example.inpre.fragments.MainFlowerClick
 import com.example.inpre.showActivityAboutFlower
 import com.example.inpre.viewmodels.TopFragmentsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick {
+class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick, DeleteFlower,
+    ChangeAmount {
 
     private val viewModel by viewModel<TopFragmentsViewModel>()
 
@@ -28,7 +31,13 @@ class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick {
 
         viewModel.basketLiveData.observe(viewLifecycleOwner) {
             recyclerFlowersOnMain.adapter =
-                MainFlowerAdapter(requireContext(), this@HaveFragment, it as ArrayList<Flower>)
+                MainFlowerAdapter(
+                    requireContext(),
+                    this@HaveFragment,
+                    it as ArrayList<Flower>,
+                    this@HaveFragment,
+                    this@HaveFragment
+                )
         }
 
         recyclerFlowersOnMain.layoutManager = GridLayoutManager(context, 2)
@@ -36,5 +45,13 @@ class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick {
 
     override fun sendData(flower: Flower) {
         activity?.showActivityAboutFlower(flower)
+    }
+
+    override fun addFlower(flower: Flower) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteFlower(flower: Flower) {
+        TODO("Not yet implemented")
     }
 }

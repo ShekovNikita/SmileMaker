@@ -16,4 +16,7 @@
 
 
     <dimen name="main_menu_text_size">8sp</dimen>
+
+    <dimen name="indicator_size">3dp</dimen>
+    <dimen name="selected_indicator_size">4dp</dimen>
 </resources>

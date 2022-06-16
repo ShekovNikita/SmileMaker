@@ -15,6 +15,7 @@ import com.example.inpre.fragments.DeleteFlower
 import com.example.inpre.fragments.MainFlowerClick
 import com.example.inpre.showActivityAboutFlower
 import com.example.inpre.viewmodels.BasketFragmentViewModel
+import com.example.inpre.viewmodels.MainFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -22,6 +23,7 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
     DeleteFlower {
 
     private val viewModel by viewModel<BasketFragmentViewModel>()
+    private val viewModelMain by viewModel<MainFragmentViewModel>()
 
     private val mainFlowerAdapter by lazy {
         BasketAdapter(

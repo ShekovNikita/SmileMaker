@@ -33,7 +33,6 @@ class AboutFlowerActivity : AppCompatActivity() {
             viewPager2.adapter = ViewPagerAdapter(flower.img_source)
 
             TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-                tab.text = "ФОТО ${(position + 1)}"
             }.attach()
 
             cost.text = "${flower.cost} BYN"

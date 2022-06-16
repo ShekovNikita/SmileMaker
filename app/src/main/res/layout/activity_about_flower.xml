@@ -18,21 +18,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabMode="auto"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPager2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tab_layout"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_16dp"
+                app:tabBackground="@drawable/tab_pager_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                android:layout_gravity="bottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/viewPager2"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_flower"
@@ -42,8 +44,8 @@
                 android:fontFamily="@font/lobster"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@id/button_basket"
-                app:layout_constraintStart_toStartOf="@+id/viewPager2"
-                app:layout_constraintTop_toBottomOf="@+id/viewPager2"
+                app:layout_constraintStart_toStartOf="@+id/tab_layout"
+                app:layout_constraintTop_toBottomOf="@+id/tab_layout"
                 tools:text="Букетики вся хуйня" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -52,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_8dp"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/viewPager2"
+                app:layout_constraintStart_toStartOf="@+id/tab_layout"
                 app:layout_constraintTop_toBottomOf="@+id/text_flower"
                 tools:text="Артикул: " />
 

@@ -8,7 +8,9 @@ val appModule = module {
 
     viewModel<MainFragmentViewModel> {
         MainFragmentViewModel(
-            getFirebaseFlowerUseCase = get()
+            getFirebaseFlowerUseCase = get(),
+            changeAmountOfOneFlowerUseCase = get(),
+            deleteFlowerFromBasketUseCase = get()
         )
     }
 
