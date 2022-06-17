@@ -7,13 +7,15 @@ interface FlowerStorage {
 
     fun getCategoryOfFlower(): ArrayList<Category>
 
-    fun addToBasket(flowerData: FlowerData)
-
     fun getBasket(): ArrayList<FlowerData>
 
-    fun changeAmountOfOneFlower(flowerData: FlowerData): ArrayList<FlowerData>
-
-    fun deleteFromBasket(flowerData: FlowerData)
-
     fun getSumOfBasket(): Int
+
+    fun getAllFlowersFromData(): ArrayList<FlowerData>
+
+    fun addAllFlowersInData(flowers: ArrayList<FlowerData>)
+
+    fun changeFlowerInData(flowerData: FlowerData): ArrayList<FlowerData>
+
+    fun postValueAmountNull(flowerData: FlowerData)
 }

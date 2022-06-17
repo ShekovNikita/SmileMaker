@@ -8,29 +8,32 @@ val appModule = module {
 
     viewModel<MainFragmentViewModel> {
         MainFragmentViewModel(
-            getFirebaseFlowerUseCase = get(),
-            changeAmountOfOneFlowerUseCase = get(),
-            deleteFlowerFromBasketUseCase = get()
+            getAllFlowersFromDataUseCase = get(),
+            postAmountValueNullUseCase = get(),
+            changeFlowerInDataUseCase = get()
         )
     }
 
     viewModel<MainActivityViewModel> {
-        MainActivityViewModel(getCategoryFlowersUseCase = get())
+        MainActivityViewModel(
+            getCategoryFlowersUseCase = get(),
+        )
     }
 
     viewModel<AboutFlowerActivityViewModel> {
         AboutFlowerActivityViewModel(
-            addToBasketUseCase = get(),
-            getBasketUseCase = get()
+            changeFlowerInDataUseCase = get(),
+            getBasketUseCase = get(),
+            postAmountValueNullUseCase = get()
         )
     }
 
     viewModel<BasketFragmentViewModel> {
         BasketFragmentViewModel(
-            getBasketUseCase = get(),
-            changeAmountOfOneFlowerUseCase = get(),
-            deleteFlowerFromBasketUseCase = get(),
-            getSumOfBasketUseCase = get()
+            changeFlowerInDataUseCase = get(),
+            postAmountValueNullUseCase = get(),
+            getSumOfBasketUseCase = get(),
+            getAllFlowersFromDataUseCase = get()
         )
     }
     viewModel<DataAboutBuyerViewModel> {
@@ -49,10 +52,18 @@ val appModule = module {
     }
 
     viewModel<TopFragmentsViewModel> {
-        TopFragmentsViewModel(getFirebaseFlowerUseCase = get())
+        TopFragmentsViewModel(
+            getFirebaseFlowerUseCase = get(),
+            getAllFlowersFromDataUseCase = get(),
+            postAmountValueNullUseCase = get(),
+            changeFlowerInDataUseCase = get()
+        )
     }
 
     viewModel<SplashScreenViewModel> {
-        SplashScreenViewModel()
+        SplashScreenViewModel(
+            getFirebaseFlowerUseCase = get(),
+            addAllFlowersInDataUseCase = get()
+        )
     }
 }

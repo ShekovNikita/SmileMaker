@@ -8,8 +8,8 @@ import com.example.domain.model.Flower
 import com.example.inpre.adapter.MainFlowerAdapter
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentMainBinding
-import com.example.inpre.fragments.ChangeAmount
-import com.example.inpre.fragments.DeleteFlower
+import com.example.inpre.fragments.ChangeAmountFlowerInBasket
+import com.example.inpre.fragments.DeleteFlowerFromBasket
 import com.example.inpre.fragments.MainFlowerClick
 import com.example.inpre.showActivityAboutFlower
 import com.example.inpre.showToast
@@ -17,7 +17,7 @@ import com.example.inpre.viewmodels.MainFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : BaseFragment<FragmentMainBinding>(),
-    MainFlowerClick, DeleteFlower, ChangeAmount {
+    MainFlowerClick, DeleteFlowerFromBasket, ChangeAmountFlowerInBasket {
 
     private val viewModelMain by viewModel<MainFragmentViewModel>()
 
@@ -35,7 +35,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
                 MainFlowerAdapter(
                     requireContext(),
                     this@MainFragment,
-                    it as ArrayList<Flower>,
+                    it,
                     this@MainFragment,
                     this@MainFragment
                 )
@@ -66,12 +66,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
         activity?.showActivityAboutFlower(flower)
     }
 
-    override fun addFlower(flower: Flower) {
+    override fun changeAmountOfFlowerInBasket(flower: Flower) {
         viewModelMain.changeAmount(flower)
         showToast("Букет добавлен в корзину")
     }
 
-    override fun deleteFlower(flower: Flower) {
+    override fun deleteFlowerFromBasket(flower: Flower) {
         viewModelMain.deleteFlower(flower)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModelMain.getAllFlowers()
     }
 }

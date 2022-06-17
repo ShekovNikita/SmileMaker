@@ -10,16 +10,16 @@ import com.bumptech.glide.Glide
 import com.example.domain.model.Flower
 import com.example.inpre.R
 import com.example.inpre.databinding.MainFlowersItemBinding
-import com.example.inpre.fragments.ChangeAmount
-import com.example.inpre.fragments.DeleteFlower
+import com.example.inpre.fragments.ChangeAmountFlowerInBasket
+import com.example.inpre.fragments.DeleteFlowerFromBasket
 import com.example.inpre.fragments.MainFlowerClick
 
 class MainFlowerAdapter(
     private val context: Context,
     private val click: MainFlowerClick,
     private val mainFlowerList: ArrayList<Flower>,
-    private val deleteFlower: DeleteFlower,
-    private val changeAmount: ChangeAmount
+    private val deleteFlowerFromBasket: DeleteFlowerFromBasket,
+    private val changeAmountFlowerInBasket: ChangeAmountFlowerInBasket
 ) : RecyclerView.Adapter<MainFlowerAdapter.FlowerViewHolder>() {
 
     inner class FlowerViewHolder(item: View) : RecyclerView.ViewHolder(item) {
@@ -43,16 +43,17 @@ class MainFlowerAdapter(
             if (flower.amount > 0){
                 checkbox.isChecked = true
                 Log.e("chek", "${checkbox.isChecked}")
+                Log.e("flower", "${flower.articul}   ${flower.amount}")
             }
             checkbox.setOnCheckedChangeListener { compoundButton, isChecked ->
                 when(isChecked){
                     true -> {
                         flower.amount = 1
-                        changeAmount.addFlower(flower)
+                        changeAmountFlowerInBasket.changeAmountOfFlowerInBasket(flower)
                     }
                     false -> {
                         flower.amount = 0
-                        deleteFlower.deleteFlower(flower)
+                        deleteFlowerFromBasket.deleteFlowerFromBasket(flower)
                     }
                 }
             }

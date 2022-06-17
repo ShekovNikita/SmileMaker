@@ -1,7 +1,6 @@
 package com.example.inpre.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,8 @@ import com.bumptech.glide.Glide
 import com.example.domain.model.Flower
 import com.example.inpre.R
 import com.example.inpre.databinding.BasketItemBinding
-import com.example.inpre.fragments.ChangeAmount
-import com.example.inpre.fragments.DeleteFlower
+import com.example.inpre.fragments.ChangeAmountFlowerInBasket
+import com.example.inpre.fragments.DeleteFlowerFromBasket
 import com.example.inpre.fragments.MainFlowerClick
 
 
@@ -19,13 +18,13 @@ class BasketAdapter(
     private val context: Context,
     private val click: MainFlowerClick,
     private val basketList: ArrayList<Flower>,
-    private val changeAmount: ChangeAmount,
-    private val deleteFlower: DeleteFlower
+    private val changeAmountFlowerInBasket: ChangeAmountFlowerInBasket,
+    private val deleteFlowerFromBasket: DeleteFlowerFromBasket
 ) : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
 
     inner class BasketViewHolder(
         item: View,
-        private val changeAmount: ChangeAmount,
+        private val changeAmountFlowerInBasket: ChangeAmountFlowerInBasket,
         private val click: MainFlowerClick
     ) : RecyclerView.ViewHolder(item) {
 
@@ -39,13 +38,13 @@ class BasketAdapter(
             counter.text = flower.amount.toString()
             btnPlus.setOnClickListener {
                 flower.amount += 1
-                changeAmount.addFlower(flower)
+                changeAmountFlowerInBasket.changeAmountOfFlowerInBasket(flower)
                 counter.text = flower.amount.toString()
             }
             btnMinus.setOnClickListener {
                 if (flower.amount > 0) {
                     flower.amount -= 1
-                    changeAmount.addFlower(flower)
+                    changeAmountFlowerInBasket.changeAmountOfFlowerInBasket(flower)
                     counter.text = flower.amount.toString()
                 }
             }
@@ -53,7 +52,8 @@ class BasketAdapter(
                 click.sendData(flower)
             }
             btnDelete.setOnClickListener {
-                deleteFlower.deleteFlower(flower)
+                flower.amount = 0
+                deleteFlowerFromBasket.deleteFlowerFromBasket(flower)
             }
         }
     }
@@ -62,7 +62,7 @@ class BasketAdapter(
         BasketViewHolder(
             LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.basket_item, parent, false), changeAmount, click
+                .inflate(R.layout.basket_item, parent, false), changeAmountFlowerInBasket, click
         )
 
     override fun onBindViewHolder(holder: BasketViewHolder, position: Int) {
@@ -72,7 +72,8 @@ class BasketAdapter(
     override fun getItemCount() = basketList.size
 
     fun deleteItem(pos: Int) {
-        deleteFlower.deleteFlower(basketList[pos])
+        basketList[pos].amount = 0
+        deleteFlowerFromBasket.deleteFlowerFromBasket(basketList[pos])
         basketList.removeAt(pos)
         notifyItemRemoved(pos)
     }

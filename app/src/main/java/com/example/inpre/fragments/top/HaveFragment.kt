@@ -8,15 +8,17 @@ import com.example.domain.model.Flower
 import com.example.inpre.adapter.MainFlowerAdapter
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentHaveBinding
-import com.example.inpre.fragments.ChangeAmount
-import com.example.inpre.fragments.DeleteFlower
+import com.example.inpre.fragments.ChangeAmountFlowerInBasket
+import com.example.inpre.fragments.DeleteFlowerFromBasket
 import com.example.inpre.fragments.MainFlowerClick
 import com.example.inpre.showActivityAboutFlower
+import com.example.inpre.showToast
+import com.example.inpre.viewmodels.MainFragmentViewModel
 import com.example.inpre.viewmodels.TopFragmentsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick, DeleteFlower,
-    ChangeAmount {
+class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick, DeleteFlowerFromBasket,
+    ChangeAmountFlowerInBasket {
 
     private val viewModel by viewModel<TopFragmentsViewModel>()
 
@@ -26,8 +28,6 @@ class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick, Delet
     ) = FragmentHaveBinding.inflate(inflater, container, false)
 
     override fun FragmentHaveBinding.onBindView(savedInstanceState: Bundle?) {
-
-        viewModel.getHave()
 
         viewModel.basketLiveData.observe(viewLifecycleOwner) {
             recyclerFlowersOnMain.adapter =
@@ -47,11 +47,17 @@ class HaveFragment : BaseFragment<FragmentHaveBinding>(), MainFlowerClick, Delet
         activity?.showActivityAboutFlower(flower)
     }
 
-    override fun addFlower(flower: Flower) {
-        TODO("Not yet implemented")
+    override fun changeAmountOfFlowerInBasket(flower: Flower) {
+        viewModel.changeAmount(flower)
+        showToast("Букет добавлен в корзину")
     }
 
-    override fun deleteFlower(flower: Flower) {
-        TODO("Not yet implemented")
+    override fun deleteFlowerFromBasket(flower: Flower) {
+        viewModel.deleteFlower(flower)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getHave()
     }
 }

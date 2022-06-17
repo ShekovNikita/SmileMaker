@@ -10,20 +10,18 @@ import com.example.inpre.adapter.BasketAdapter
 import com.example.inpre.adapter.SwipeToDelete
 import com.example.inpre.base.BaseFragment
 import com.example.inpre.databinding.FragmentBasketBinding
-import com.example.inpre.fragments.ChangeAmount
-import com.example.inpre.fragments.DeleteFlower
+import com.example.inpre.fragments.ChangeAmountFlowerInBasket
+import com.example.inpre.fragments.DeleteFlowerFromBasket
 import com.example.inpre.fragments.MainFlowerClick
 import com.example.inpre.showActivityAboutFlower
 import com.example.inpre.viewmodels.BasketFragmentViewModel
-import com.example.inpre.viewmodels.MainFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, ChangeAmount,
-    DeleteFlower {
+class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, ChangeAmountFlowerInBasket,
+    DeleteFlowerFromBasket {
 
     private val viewModel by viewModel<BasketFragmentViewModel>()
-    private val viewModelMain by viewModel<MainFragmentViewModel>()
 
     private val mainFlowerAdapter by lazy {
         BasketAdapter(
@@ -80,11 +78,11 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
         activity?.showActivityAboutFlower(flower)
     }
 
-    override fun deleteFlower(flower: Flower) {
+    override fun deleteFlowerFromBasket(flower: Flower) {
         viewModel.deleteFlower(flower)
     }
 
-    override fun addFlower(flower: Flower) {
+    override fun changeAmountOfFlowerInBasket(flower: Flower) {
         viewModel.changeAmount(flower)
     }
 }

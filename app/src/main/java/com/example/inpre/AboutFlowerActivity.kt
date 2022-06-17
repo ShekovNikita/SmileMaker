@@ -26,8 +26,9 @@ class AboutFlowerActivity : AppCompatActivity() {
         val flower = intent.getSerializableExtra("flower") as Flower
         with(binding) {
             for (i in viewModel.getBasket()) {
-                if (i.articul == flower.articul)
-                    buttonBasket.visibility = View.INVISIBLE
+                if (i.articul == flower.articul) {
+                    buttonBasket.visibility = View.GONE
+                }
             }
 
             viewPager2.adapter = ViewPagerAdapter(flower.img_source)

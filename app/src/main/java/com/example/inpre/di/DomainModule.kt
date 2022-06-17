@@ -9,20 +9,8 @@ val domainModule = module {
         GetCategoryFlowersUseCase(flowerRepository = get())
     }
 
-    factory<AddToBasketUseCase> {
-        AddToBasketUseCase(flowerRepository = get())
-    }
-
     factory<GetBasketUseCase> {
         GetBasketUseCase(flowerRepository = get())
-    }
-
-    factory<ChangeAmountOfOneFlowerUseCase> {
-        ChangeAmountOfOneFlowerUseCase(flowerRepository = get())
-    }
-
-    factory<DeleteFlowerFromBasketUseCase> {
-        DeleteFlowerFromBasketUseCase(flowerRepository = get())
     }
 
     factory<GetSumOfBasketUseCase> {
@@ -31,5 +19,21 @@ val domainModule = module {
 
     factory {
         GetFirebaseFlowerUseCase(firebaseRepository = get())
+    }
+
+    factory<AddAllFlowersInDataUseCase> {
+        AddAllFlowersInDataUseCase(flowerRepository = get())
+    }
+
+    factory<GetAllFlowersFromDataUseCase> {
+        GetAllFlowersFromDataUseCase(flowerRepository = get())
+    }
+
+    factory<PostAmountValueNullUseCase> {
+        PostAmountValueNullUseCase(flowerRepository = get())
+    }
+
+    factory<ChangeFlowerInDataUseCase> {
+        ChangeFlowerInDataUseCase(flowerRepository = get())
     }
 }

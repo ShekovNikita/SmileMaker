@@ -7,13 +7,15 @@ interface FlowerRepository {
 
     fun getCategoryOfFlower(): ArrayList<Category>
 
-    fun addToBasket(flower: Flower)
-
     fun getBasket(): ArrayList<Flower>
 
-    fun changeAmountOfOneFlower(flower: Flower): ArrayList<Flower>
-
-    fun deleteFromBasket(flower: Flower)
-
     fun getSumOfBasket(): Int
+
+    fun getAllFlowersFromData(): ArrayList<Flower>
+
+    fun addAllFlowersInData(flowers: ArrayList<Flower>)
+
+    fun changeFlowerInData(flower: Flower): ArrayList<Flower>
+
+    fun postAmountValueNull(flower: Flower)
 }

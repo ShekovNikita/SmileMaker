@@ -4,6 +4,7 @@ import com.example.data.FirebaseRepositoryImpl
 import com.example.data.FlowerRepositoryImpl
 import com.example.data.RetrofitCreator
 import com.example.data.api.FirebaseApi
+import com.example.data.converters.ArrayFlowerDomainToArrayFlowerDataConverter
 import com.example.data.converters.FirebaseFlowerToFlowerDomainConverter
 import com.example.data.converters.FlowerDataToFlowerDomainConverter
 import com.example.data.converters.FlowerDomainToFlowerDataConverter
@@ -24,7 +25,8 @@ val dataModule = module {
         FlowerRepositoryImpl(
             flowerStorage = get(),
             flowerDataToFlowerDomainConverter = get(),
-            flowerDomainToFlowerDataConverter = get()
+            flowerDomainToFlowerDataConverter = get(),
+            arrayFlowerDomainToArrayFlowerDataConverter = get()
         )
     }
 
@@ -38,6 +40,10 @@ val dataModule = module {
 
     factory {
         FirebaseFlowerToFlowerDomainConverter()
+    }
+
+    factory {
+        ArrayFlowerDomainToArrayFlowerDataConverter()
     }
 
     single<FirebaseRepository> {
