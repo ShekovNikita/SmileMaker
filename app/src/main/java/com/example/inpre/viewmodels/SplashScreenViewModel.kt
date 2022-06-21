@@ -8,21 +8,18 @@ import com.example.domain.repository.usecases.AddAllFlowersInDataUseCase
 import com.example.domain.repository.usecases.GetFirebaseFlowerUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashScreenViewModel(
-    private val getFirebaseFlowerUseCase: GetFirebaseFlowerUseCase,
-    private val addAllFlowersInDataUseCase: AddAllFlowersInDataUseCase
-) : ViewModel() {
+class SplashScreenViewModel : ViewModel() {
 
     private val _livedata = MutableLiveData<Any>()
     val livedata: LiveData<Any> = _livedata
 
     fun waitAndGoFather() {
         viewModelScope.launch(Dispatchers.Main) {
-            val flo = async { getFirebaseFlowerUseCase.execute() }
-            addAllFlowersInDataUseCase.execute(flo.await())
-            _livedata.postValue(getFirebaseFlowerUseCase.execute())
+            delay(1000)
+            _livedata.postValue("getFirebaseFlowerUseCase.execute()")
         }
     }
 }

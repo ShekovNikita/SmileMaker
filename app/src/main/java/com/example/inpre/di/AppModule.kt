@@ -10,7 +10,9 @@ val appModule = module {
         MainFragmentViewModel(
             getAllFlowersFromDataUseCase = get(),
             postAmountValueNullUseCase = get(),
-            changeFlowerInDataUseCase = get()
+            changeFlowerInDataUseCase = get(),
+            getFirebaseFlowerUseCase = get(),
+            addAllFlowersInDataUseCase = get()
         )
     }
 
@@ -61,9 +63,6 @@ val appModule = module {
     }
 
     viewModel<SplashScreenViewModel> {
-        SplashScreenViewModel(
-            getFirebaseFlowerUseCase = get(),
-            addAllFlowersInDataUseCase = get()
-        )
+        SplashScreenViewModel()
     }
 }

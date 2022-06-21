@@ -27,7 +27,6 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
         registerForActivityResult(ActivityResultContracts.GetMultipleContents()) { uri: List<Uri> ->
             uri.let {
                 topList = uri
-                println("----------------------------------toplist    $topList")
                 viewPager2 = requireView().findViewById(R.id.viewPager2)
                 val tabLayout = requireView().findViewById<TabLayout>(R.id.tab_layout)
 
