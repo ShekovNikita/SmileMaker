@@ -1,7 +1,11 @@
 package com.example.inpre
 
+import android.content.res.Resources
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Display
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.domain.model.Flower
 import com.example.inpre.adapter.ViewPagerAdapter
@@ -30,6 +34,11 @@ class AboutFlowerActivity : AppCompatActivity() {
                     buttonBasket.visibility = View.GONE
                 }
             }
+
+            val size = Resources.getSystem().displayMetrics.widthPixels;
+            val params: ViewGroup.LayoutParams = viewPager2.layoutParams
+            params.height = size
+            viewPager2.layoutParams = params
 
             viewPager2.adapter = ViewPagerAdapter(flower.img_source)
 

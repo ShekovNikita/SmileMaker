@@ -1,5 +1,6 @@
 package com.example.inpre.fragments.add_flower
 
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,6 +30,12 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
                 println("----------------------------------toplist    $topList")
                 viewPager2 = requireView().findViewById(R.id.viewPager2)
                 val tabLayout = requireView().findViewById<TabLayout>(R.id.tab_layout)
+
+                val size = Resources.getSystem().displayMetrics.widthPixels;
+                val params: ViewGroup.LayoutParams = viewPager2.layoutParams
+                params.height = size
+                viewPager2.layoutParams = params
+
                 viewPager2.adapter = ViewPagerAdapter(topList)
                 TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
                     tab.text = "ФОТО ${(position + 1)}"
