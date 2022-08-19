@@ -3,7 +3,7 @@ package com.example.data.storage.models
 import com.google.gson.annotations.SerializedName
 
 data class FirebaseFlower(
-    @SerializedName("about") var about: String? = null,
+    //@SerializedName("about") var about: String? = null,
     @SerializedName("articul") var articul: String? = null,
     @SerializedName("category") var category: String? = null,
     @SerializedName("cost") var cost: String? = null,

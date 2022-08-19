@@ -57,7 +57,7 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
             dataMap[CHILD_ARTICUL_FLOWER] = articul
             dataMap[CHILD_NAME_FLOWER] = flowerName.text.toString()
             dataMap[CHILD_COST_FLOWER] = flowerCost.text.toString()
-            dataMap[CHILD_ABOUT_FLOWER] = flowerAbout.text.toString()
+            //dataMap[CHILD_ABOUT_FLOWER] = flowerAbout.text.toString()
             val images_map: MutableList<String> = mutableListOf()
 
             val radioButton = root.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)

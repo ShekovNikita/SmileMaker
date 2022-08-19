@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/flower_name" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+<!--        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/flower_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:hint="Описание"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/flower_cost" />
+            app:layout_constraintTop_toBottomOf="@id/flower_cost" />-->
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -60,7 +60,7 @@
             android:background="#458181"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/flower_about">
+            app:layout_constraintTop_toBottomOf="@id/flower_cost">
 
             <RadioButton
                 android:id="@+id/button_rose"
@@ -103,13 +103,14 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/add_photos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="@dimen/margin_12dp"
             android:background="@color/titleColor"
             android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/flower_hit" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView"

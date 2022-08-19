@@ -8,7 +8,7 @@ class FlowerDomainToFlowerDataConverter : Converter<Flower, FlowerData> {
 
     override fun invoke(i: Flower): FlowerData {
         return FlowerData(
-            i.about,
+            //i.about,
             i.articul,
             i.category,
             i.cost,

@@ -3,7 +3,7 @@ package com.example.domain.model
 import java.io.Serializable
 
 data class Flower(
-    val about: String,
+    //val about: String,
     val articul: String,
     val category: String,
     val cost: String,

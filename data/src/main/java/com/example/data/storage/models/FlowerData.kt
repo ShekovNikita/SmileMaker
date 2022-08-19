@@ -1,7 +1,7 @@
 package com.example.data.storage.models
 
 data class FlowerData(
-    val about: String,
+    //val about: String,
     val articul: String,
     val category: String,
     val cost: String,

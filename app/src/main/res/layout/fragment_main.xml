@@ -47,12 +47,12 @@
             tools:listitem="@layout/main_flowers_item"
             tools:spanCount="2" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <!--<androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_flower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Добавить цветок"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

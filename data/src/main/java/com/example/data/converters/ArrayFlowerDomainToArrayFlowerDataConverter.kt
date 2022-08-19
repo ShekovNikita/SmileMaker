@@ -12,7 +12,7 @@ class ArrayFlowerDomainToArrayFlowerDataConverter :
         for (i in params) {
             flowerList.add(
                 FlowerData(
-                    i.about,
+                    //i.about,
                     i.articul,
                     i.category,
                     i.cost,

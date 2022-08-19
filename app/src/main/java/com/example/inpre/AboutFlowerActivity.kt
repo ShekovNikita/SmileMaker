@@ -46,7 +46,7 @@ class AboutFlowerActivity : AppCompatActivity() {
             }.attach()
 
             cost.text = "${flower.cost} BYN"
-            about.text = flower.about
+            //about.text = flower.about
             textFlower.text = flower.name
             articulFlower.text = "Артикул: ${flower.articul}"
             buttonBasket.setOnClickListener {

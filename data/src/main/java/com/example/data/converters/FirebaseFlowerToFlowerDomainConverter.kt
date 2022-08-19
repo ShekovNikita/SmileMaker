@@ -8,7 +8,7 @@ class FirebaseFlowerToFlowerDomainConverter : Converter<FirebaseFlower, Flower> 
 
     override fun invoke(params: FirebaseFlower): Flower {
         return Flower(
-            params.about ?: "",
+            //params.about ?: "",
             params.articul ?: "",
             params.category ?: "",
             params.cost ?: "",

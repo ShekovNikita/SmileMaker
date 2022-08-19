@@ -20,12 +20,11 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
         val instagram_url = "https://www.instagram.com/smilemaker.by"
         val number = "tel:+375257696633"
         val web_site = "https://www.smilemaker.by"
-        val slivki =
-            "https://gomel.slivki.by/mylnye-tsvety-skidka-smilemaker?utm_source=search_result&utm_medium=smile%20maker"
+        //val slivki = "https://gomel.slivki.by/mylnye-tsvety-skidka-smilemaker?utm_source=search_result&utm_medium=smile%20maker"
         val instagram = Intent(Intent.ACTION_VIEW, Uri.parse(instagram_url))
         val call = Intent(Intent.ACTION_DIAL, Uri.parse(number))
         val web = Intent(Intent(Intent.ACTION_VIEW, Uri.parse(web_site)))
-        val slivkiby = Intent(Intent(Intent.ACTION_VIEW, Uri.parse(slivki)))
+        //val slivkiby = Intent(Intent(Intent.ACTION_VIEW, Uri.parse(slivki)))
 
         buttonInstagram.setOnClickListener {
             startActivity(instagram)
@@ -39,8 +38,8 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
             startActivity(web)
         }
 
-        buttonSlivki.setOnClickListener {
+        /*buttonSlivki.setOnClickListener {
             startActivity(slivkiby)
-        }
+        }*/
     }
 }

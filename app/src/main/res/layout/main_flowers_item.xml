@@ -73,7 +73,7 @@
                     android:fontFamily="@font/lobster"
                     android:paddingStart="@dimen/padding_4dp"
                     android:paddingEnd="@dimen/padding_4dp"
-                    android:text="В наличии"
+                    android:text="Под заказ"
                     android:textColor="@color/black"
                     android:visibility="gone"
                     app:layout_constraintBottom_toTopOf="@+id/hit"

@@ -57,9 +57,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
             }
         }
 
-        addFlower.setOnClickListener {
+        //Button for Admin APK
+        /*addFlower.setOnClickListener {
             navController.navigate(MainFragmentDirections.actionNavigationMainToRegisterFragment())
-        }
+        }*/
     }
 
     override fun sendData(flower: Flower) {
