@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_basket"
-        android:name="com.example.inpre.fragments.bottom.BasketFragment"
+        android:name="com.sheniv.inpre.fragments.bottom.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket">
         <action
@@ -16,22 +16,22 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_bonus"
-        android:name="com.example.inpre.fragments.bottom.BonusFragment"
+        android:name="com.sheniv.inpre.fragments.bottom.BonusFragment"
         android:label="fragment_bonus"
         tools:layout="@layout/fragment_bonus" />
     <fragment
         android:id="@+id/navigation_contacts"
-        android:name="com.example.inpre.fragments.bottom.ContactsFragment"
+        android:name="com.sheniv.inpre.fragments.bottom.ContactsFragment"
         android:label="fragment_contacts"
         tools:layout="@layout/fragment_contacts" />
     <fragment
         android:id="@+id/navigation_delivery"
-        android:name="com.example.inpre.fragments.bottom.DeliveryFragment"
+        android:name="com.sheniv.inpre.fragments.bottom.DeliveryFragment"
         android:label="fragment_delivery"
         tools:layout="@layout/fragment_delivery" />
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.example.inpre.fragments.bottom.MainFragment"
+        android:name="com.sheniv.inpre.fragments.bottom.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
         <action
@@ -40,17 +40,17 @@
     </fragment>
     <fragment
         android:id="@+id/dataAboutBuyer"
-        android:name="com.example.inpre.fragments.DataAboutBuyer"
+        android:name="com.sheniv.inpre.fragments.DataAboutBuyer"
         android:label="fragment_data_about_buyer"
         tools:layout="@layout/fragment_data_about_buyer" />
     <fragment
         android:id="@+id/addFlower"
-        android:name="com.example.inpre.fragments.add_flower.AddFlowerFragment"
+        android:name="com.sheniv.inpre.fragments.add_flower.AddFlowerFragment"
         android:label="fragment_add_flower"
         tools:layout="@layout/fragment_add_flower" />
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.inpre.fragments.add_flower.RegisterFragment"
+        android:name="com.sheniv.inpre.fragments.add_flower.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/codeFragment"
-        android:name="com.example.inpre.fragments.add_flower.CodeFragment"
+        android:name="com.sheniv.inpre.fragments.add_flower.CodeFragment"
         android:label="fragment_code"
         tools:layout="@layout/fragment_code">
         <action
@@ -79,25 +79,25 @@
     </fragment>
     <fragment
         android:id="@+id/roseFragment"
-        android:name="com.example.inpre.fragments.top.RoseFragment"
+        android:name="com.sheniv.inpre.fragments.top.RoseFragment"
         android:label="fragment_rose"
         tools:layout="@layout/fragment_rose" />
     <fragment
         android:id="@+id/hitFragment"
-        android:name="com.example.inpre.fragments.top.HitFragment"
+        android:name="com.sheniv.inpre.fragments.top.HitFragment"
         android:label="HitFragment" />
     <fragment
         android:id="@+id/haveFragment"
-        android:name="com.example.inpre.fragments.top.HaveFragment"
+        android:name="com.sheniv.inpre.fragments.top.HaveFragment"
         android:label="HaveFragment" />
     <fragment
         android:id="@+id/pioniFragment"
-        android:name="com.example.inpre.fragments.top.PioniFragment"
+        android:name="com.sheniv.inpre.fragments.top.PioniFragment"
         android:label="fragment_pioni"
         tools:layout="@layout/fragment_pioni" />
     <fragment
         android:id="@+id/mixFragment"
-        android:name="com.example.inpre.fragments.top.MixFragment"
+        android:name="com.sheniv.inpre.fragments.top.MixFragment"
         android:label="fragment_mix"
         tools:layout="@layout/fragment_mix" />
 </navigation>

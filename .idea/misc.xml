@@ -23,12 +23,12 @@
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/font/montserrat_subrayada.xml" value="0.22135416666666666" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/font/montserrat_subrayada_bold.xml" value="0.22135416666666666" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/activity_about_flower.xml" value="0.2433234421364985" />
-        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/activity_main.xml" value="0.28756476683937826" />
+        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/activity_splash.xml" value="0.5" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/basket_counter.xml" value="3.0" />
-        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/basket_item.xml" value="0.16872427983539096" />
+        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/basket_item.xml" value="0.67" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/bonus_fragment.xml" value="0.546875" />
-        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/category_item.xml" value="3.0" />
+        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/category_item.xml" value="0.67" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/flowers_container.xml" value="0.3645833333333333" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/fragment_about_one_flower.xml" value="0.1" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/fragment_add_flower.xml" value="0.5" />
@@ -51,8 +51,8 @@
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/fragment_register.xml" value="0.3975" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/fragment_rose.xml" value="0.546875" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/fragment_title.xml" value="0.1796875" />
-        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/item.xml" value="0.546875" />
-        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/main_flowers_item.xml" value="0.67" />
+        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/item.xml" value="0.25" />
+        <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/main_flowers_item.xml" value="0.25" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/register_window.xml" value="0.25" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/layout/reserve_view.xml" value="0.3645833333333333" />
         <entry key="..\:/TeachMeSkills/Android/InPre/app/src/main/res/menu/navigation.xml" value="0.3511450381679389" />

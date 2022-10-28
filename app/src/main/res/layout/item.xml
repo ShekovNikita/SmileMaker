@@ -9,6 +9,7 @@
         android:id="@+id/imageViewMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C1E8FF"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         tools:src="@drawable/logo_blue" />

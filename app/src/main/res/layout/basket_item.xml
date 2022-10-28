@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardView.Elevated"
+    app:cardElevation="@dimen/margin_4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_4dp"
@@ -10,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C1E8FF">
+        >
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image"
@@ -25,8 +27,8 @@
             android:id="@+id/btn_delete"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="#C1E8FF"
-            android:src="@android:drawable/presence_offline"
+            android:background="@null"
+            android:src="@android:drawable/ic_delete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,10 +36,11 @@
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:layout_margin="@dimen/margin_12dp"
             android:fontFamily="@font/lobster"
             tools:text="assfsdfsd"
-            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/cost"
             app:layout_constraintStart_toEndOf="@+id/image"
@@ -48,7 +51,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tools:text="assfsdfsd"
-            android:textColor="@color/black"
             android:textSize="8sp"
             app:layout_constraintStart_toStartOf="@+id/title"
             app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -58,7 +60,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lobster"
-            android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/title"
             app:layout_constraintEnd_toStartOf="@+id/btn_delete"
@@ -72,7 +73,6 @@
             android:layout_marginBottom="@dimen/margin_8dp"
             android:background="@drawable/button_basket_style"
             android:text="+"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cost"
             app:layout_constraintTop_toBottomOf="@+id/articul" />
@@ -84,7 +84,6 @@
             android:background="@color/white"
             android:gravity="center"
             android:inputType="number"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/btn_plus"
             app:layout_constraintTop_toTopOf="@+id/btn_plus" />
 
@@ -94,7 +93,6 @@
             android:layout_height="@dimen/basket_item_button"
             android:background="@drawable/button_basket_style"
             android:text="-"
-            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/btn_plus"
             app:layout_constraintEnd_toStartOf="@+id/counter"
             app:layout_constraintTop_toTopOf="@+id/btn_plus" />
@@ -104,10 +102,10 @@
             android:layout_height="@dimen/basket_item_button"
             android:gravity="center"
             android:text="Количество:  "
-            android:textColor="@color/black"
+            android:fontFamily="@font/lobster"
             app:layout_constraintBottom_toBottomOf="@+id/btn_minus"
             app:layout_constraintEnd_toStartOf="@+id/btn_minus"
             app:layout_constraintTop_toTopOf="@+id/btn_minus" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
 

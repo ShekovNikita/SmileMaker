@@ -29,8 +29,8 @@ import com.canhub.cropper.CropImageView;
 import com.canhub.cropper.sample.SCropResultActivity;
 import com.canhub.cropper.sample.crop_image_java.domain.SCropImageContractJava;
 import com.canhub.cropper.sample.crop_image_java.presenter.SCropImagePresenterJava;
-import com.example.croppersample.R;
-import com.example.croppersample.databinding.FragmentCameraBinding;
+import com.sheniv.croppersample.R;
+import com.sheniv.croppersample.databinding.FragmentCameraBinding;
 
 import org.jetbrains.annotations.NotNull;
 

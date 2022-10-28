@@ -35,7 +35,6 @@
             android:id="@+id/recycler_category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@color/mainBgColor"
             android:orientation="horizontal"
             android:padding="2dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -52,39 +51,21 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/frame"
+        app:layout_constraintBottom_toTopOf="@+id/navigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:navGraph="@navigation/main_graph" />
 
-    <FrameLayout
-        android:id="@+id/frame"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:defaultNavHost="true"
+        app:labelVisibilityMode="labeled"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:defaultNavHost="true"
-            app:itemBackground="@color/menuStringBgColor"
-            app:itemIconTint="@color/black"
-            app:itemTextColor="@color/black"
-            app:labelVisibilityMode="labeled"
-            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
-            app:menu="@menu/navigation" />
-    </FrameLayout>
-
-    <com.example.inpre.customview.CustomView
-        android:id="@+id/basket_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/frame"
-        app:layout_constraintTop_toTopOf="@+id/frame"
-        app:shape="circle" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
