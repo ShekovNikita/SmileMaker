@@ -3,13 +3,11 @@ package com.sheniv.inpre.viewmodels
 import androidx.lifecycle.ViewModel
 import com.sheniv.domain.repository.usecases.GetBasketUseCase
 import com.sheniv.domain.repository.usecases.GetSumOfBasketUseCase
+import com.sheniv.inpre.utilits.basket
 
-class DataAboutBuyerViewModel(
-    private val getBasketUseCase: GetBasketUseCase,
-    private val getSumOfBasketUseCase: GetSumOfBasketUseCase
-) : ViewModel() {
+class DataAboutBuyerViewModel : ViewModel() {
 
-    fun getBasket() = getBasketUseCase.execute()
+    fun getBasket() = basket.getBasket()
 
-    fun getSumOfBasket() = getSumOfBasketUseCase.execute()
+    fun getSumOfBasket() = basket.getSumOfBasket()
 }

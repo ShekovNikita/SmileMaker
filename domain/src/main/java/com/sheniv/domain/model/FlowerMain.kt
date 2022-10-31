@@ -2,7 +2,7 @@ package com.sheniv.domain.model
 
 import java.io.Serializable
 
-data class Flower(
+data class FlowerMain(
     //val about: String,
     val articul: String,
     val category: String,

@@ -4,11 +4,13 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sheniv.domain.model.Flower
 import com.sheniv.domain.repository.usecases.ChangeFlowerInDataUseCase
 import com.sheniv.domain.repository.usecases.GetAllFlowersFromDataUseCase
 import com.sheniv.domain.repository.usecases.GetSumOfBasketUseCase
 import com.sheniv.domain.repository.usecases.PostAmountValueNullUseCase
+import com.sheniv.inpre.models.FlowerMain
+import com.sheniv.inpre.utilits.allFlowers
+import com.sheniv.inpre.utilits.basket
 
 class BasketFragmentViewModel(
     private val changeFlowerInDataUseCase: ChangeFlowerInDataUseCase,
@@ -20,29 +22,29 @@ class BasketFragmentViewModel(
     private val _resultLiveData = MutableLiveData<Int>()
     val resultLiveData: LiveData<Int> = _resultLiveData
 
-    private val _basketLiveData = MutableLiveData<List<Flower>>()
-    val basketLiveData: LiveData<List<Flower>> = _basketLiveData
+    private val _basketLiveData = MutableLiveData<List<FlowerMain>>()
+    val basketLiveData: LiveData<List<FlowerMain>> = _basketLiveData
 
-    fun getBasket(): ArrayList<Flower> {
-        val basket = arrayListOf<Flower>()
-        for (i in getAllFlowersFromDataUseCase.execute()){
+    fun getBasket(): ArrayList<FlowerMain> {
+        val baskets = arrayListOf<FlowerMain>()
+        for (i in allFlowers){
             if (i.amount > 0){
-                basket.add(i)
+                baskets.add(i)
             }
         }
-        _resultLiveData.postValue(getSumOfBasketUseCase.execute())
-        _basketLiveData.postValue(basket)
-        return basket
+        _resultLiveData.postValue(basket.getSumOfBasket())
+        _basketLiveData.postValue(baskets)
+        return baskets
     }
 
-    fun deleteFlower(flower: Flower) {
-        postAmountValueNullUseCase.execute(flower)
+    fun deleteFlower(flower: FlowerMain) {
+        basket.deleteFromBasket(flower)
         Log.e("delete", "$flower")
         getBasket()
     }
 
-    fun changeAmount(flower: Flower): ArrayList<Flower> {
-        val b = changeFlowerInDataUseCase.execute(flower)
+    fun changeAmount(flower: FlowerMain): ArrayList<FlowerMain> {
+        val b = basket.changeAmountInBasket(flower)
         getBasket()
         return b
     }

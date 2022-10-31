@@ -1,13 +1,13 @@
 package com.sheniv.data.converters
 
 import com.sheniv.data.storage.models.FlowerData
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 import com.sheniv.domain.repository.Converter
 
 class ArrayFlowerDomainToArrayFlowerDataConverter :
-    Converter<ArrayList<Flower>, ArrayList<FlowerData>> {
+    Converter<ArrayList<FlowerMain>, ArrayList<FlowerData>> {
 
-    override fun invoke(params: ArrayList<Flower>): ArrayList<FlowerData> {
+    override fun invoke(params: ArrayList<FlowerMain>): ArrayList<FlowerData> {
         val flowerList = mutableListOf<FlowerData>()
         for (i in params) {
             flowerList.add(

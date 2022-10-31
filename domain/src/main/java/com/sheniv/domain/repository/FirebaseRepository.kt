@@ -1,8 +1,8 @@
 package com.sheniv.domain.repository
 
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 
 interface FirebaseRepository {
 
-    suspend fun getFirebaseFlowers(): List<Flower>
+    suspend fun getFirebaseFlowers(): List<FlowerMain>
 }

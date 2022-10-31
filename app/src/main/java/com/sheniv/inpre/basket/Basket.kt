@@ -1,30 +1,23 @@
-package com.sheniv.data.storage.sourses
+package com.sheniv.inpre.basket
 
-import com.sheniv.data.storage.models.FlowerData
+import com.sheniv.inpre.models.FlowerMain
+import com.sheniv.inpre.utilits.allFlowers
 
-class AllFlowersData {
 
-    private val allFlowers = arrayListOf<FlowerData>()
+class Basket {
 
-    fun getAllFlowersFromData() = allFlowers
-
-    fun addAllFlowerInData(flowers: ArrayList<FlowerData>){
-        if (allFlowers.size == 0) {
-            allFlowers.addAll(flowers)
-        }
-    }
-
-    fun postAmountValueNull(flowerData: FlowerData){
+    fun deleteFromBasket(flowerData: FlowerMain){
         var d = 0
         for ((index,i) in allFlowers.withIndex()){
             if (i.articul == flowerData.articul){
                 d = index
             }
         }
+        flowerData.amount = 0
         allFlowers[d] = flowerData
     }
 
-    fun changeFlowerInData(flowerData: FlowerData): ArrayList<FlowerData> {
+    fun changeAmountInBasket(flowerData: FlowerMain): ArrayList<FlowerMain> {
         var d = 0
         for ((index,i) in allFlowers.withIndex()){
             if (i.articul == flowerData.articul){
@@ -39,13 +32,13 @@ class AllFlowersData {
         var summa = 0
         for (i in allFlowers) {
             if (i.amount > 0)
-            summa += i.cost.toInt() * i.amount
+                summa += i.cost.toInt() * i.amount
         }
         return summa
     }
 
-    fun getBasket(): ArrayList<FlowerData> {
-        val basket = arrayListOf<FlowerData>()
+    fun getBasket(): ArrayList<FlowerMain> {
+        val basket = arrayListOf<FlowerMain>()
         for (i in allFlowers){
             if (i.amount > 0 ){
                 basket.add(i)

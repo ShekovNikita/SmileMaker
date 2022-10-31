@@ -3,159 +3,170 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".fragments.DataAboutBuyer">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/padding_8dp"
-        android:background="#458181">
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_pickup"
-        style="@style/data_buyer_group"
-        app:constraint_referenced_ids="name, phone, date" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_order"
-        style="@style/data_buyer_group"
-        app:constraint_referenced_ids="name, phone, date, address" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_europost"
-        style="@style/data_buyer_group"
-        app:constraint_referenced_ids="name, phone, date, europost, surname" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_12dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="@dimen/margin_8dp">
 
-        <RadioButton
-            android:id="@+id/button_pickup"
-            style="@style/data_buyer_radio_button"
-            android:text="Самовывоз" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/padding_8dp">
 
-        <RadioButton
-            android:id="@+id/button_order"
-            style="@style/data_buyer_radio_button"
-            android:text="Доставка" />
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_pickup"
+                style="@style/data_buyer_group"
+                app:constraint_referenced_ids="name, phone, date" />
 
-        <RadioButton
-            android:id="@+id/button_post"
-            style="@style/data_buyer_radio_button"
-            android:text="Европочта" />
-    </RadioGroup>
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_order"
+                style="@style/data_buyer_group"
+                app:constraint_referenced_ids="name, phone, date, address" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/name"
-        style="@style/data_text_about_buyer"
-        android:hint="Фамилия и Имя"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_europost"
+                style="@style/data_buyer_group"
+                app:constraint_referenced_ids="name, phone, date, europost, surname" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/surname"
-        style="@style/data_text_about_buyer"
-        android:hint="Отчество, если имеется"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_required"
+                style="@style/data_buyer_group"
+                app:constraint_referenced_ids="sum, dostavka, skidka, sum_bonus, order" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/europost"
-        style="@style/data_text_about_buyer"
-        android:hint="Адрес Европочты"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/surname"
-        app:layout_constraintTop_toBottomOf="@+id/surname" />
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_8dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/address"
-        style="@style/data_text_about_buyer"
-        android:hint="Адрес доставки (только г.Гомель)"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="@+id/europost"
-        app:layout_constraintTop_toBottomOf="@+id/europost" />
+                <RadioButton
+                    android:id="@+id/button_pickup"
+                    style="@style/data_buyer_radio_button"
+                    android:text="Самовывоз" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/phone"
-        style="@style/data_text_about_buyer"
-        android:hint="Номер телефона"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="@+id/address"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+                <RadioButton
+                    android:id="@+id/button_order"
+                    style="@style/data_buyer_radio_button"
+                    android:text="Доставка" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/date"
-        style="@style/data_text_about_buyer"
-        android:hint="Дата"
-        android:paddingStart="@dimen/padding_8dp"
-        app:layout_constraintStart_toStartOf="@+id/phone"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+                <RadioButton
+                    android:id="@+id/button_post"
+                    style="@style/data_buyer_radio_button"
+                    android:text="Европочта" />
+            </RadioGroup>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/sum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16dp"
-        android:fontFamily="@font/lobster"
-        tools:text="Цена всего"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/name"
+                style="@style/data_text_about_buyer"
+                android:hint="Фамилия и Имя"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/dostavka"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_16dp"
-            android:fontFamily="@font/lobster"
-            tools:text="Доставка"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/sum" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/surname"
+                style="@style/data_text_about_buyer"
+                android:hint="Отчество, если имеется"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/skidka"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16dp"
-        android:fontFamily="@font/lobster"
-        tools:text="Скидка"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/dostavka" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/europost"
+                style="@style/data_text_about_buyer"
+                android:hint="Адрес Европочты"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="@+id/surname"
+                app:layout_constraintTop_toBottomOf="@+id/surname" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/sum_bonus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16dp"
-        android:fontFamily="@font/lobster"
-        tools:text="Цена со скидкой"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/skidka" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/address"
+                style="@style/data_text_about_buyer"
+                android:hint="Адрес доставки (только г.Гомель)"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="@+id/europost"
+                app:layout_constraintTop_toBottomOf="@+id/europost" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding_8dp"
-        android:paddingEnd="@dimen/padding_8dp"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:layout_marginBottom="@dimen/margin_12dp"
-        android:textSize="16sp"
-        tools:text="Заказать"
-        app:layout_constraintEnd_toEndOf="@+id/sum_bonus"
-        app:layout_constraintTop_toBottomOf="@+id/sum_bonus"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/phone"
+                style="@style/data_text_about_buyer"
+                android:hint="Номер телефона"
+                android:inputType="phone"
+                app:layout_constraintStart_toStartOf="@+id/address"
+                app:layout_constraintTop_toBottomOf="@+id/address" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date"
+                style="@style/data_text_about_buyer"
+                android:hint="Дата"
+                android:paddingStart="@dimen/padding_8dp"
+                app:layout_constraintStart_toStartOf="@+id/phone"
+                app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_16dp"
+                android:fontFamily="@font/lobster"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/date"
+                tools:text="Цена всего" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dostavka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_16dp"
+                android:fontFamily="@font/lobster"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/sum"
+                tools:text="Доставка" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/skidka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_16dp"
+                android:fontFamily="@font/lobster"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/dostavka"
+                tools:text="Скидка" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sum_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_16dp"
+                android:fontFamily="@font/lobster"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/skidka"
+                tools:text="Цена со скидкой" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginBottom="@dimen/margin_12dp"
+                android:background="@drawable/button_basket_style"
+                android:padding="@dimen/margin_8dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/sum_bonus"
+                tools:text="Заказать" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.core.widget.NestedScrollView>

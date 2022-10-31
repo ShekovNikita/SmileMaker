@@ -16,8 +16,11 @@ import com.sheniv.inpre.databinding.FragmentDataAboutBuyerBinding
 import com.sheniv.inpre.utilits.beGone
 import com.sheniv.inpre.utilits.beVisible
 import com.sheniv.inpre.utilits.recyclerTop
+import com.sheniv.inpre.utilits.showToast
 import com.sheniv.inpre.viewmodels.DataAboutBuyerViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.definition.IndexKey
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -31,8 +34,8 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
         container: ViewGroup?
     ) = FragmentDataAboutBuyerBinding.inflate(inflater, container, false)
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         recyclerTop.beGone()
     }
 
@@ -43,29 +46,30 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
 
         val group = listOf(groupPickup, groupOrder, groupEuropost)
         radioGroup.setOnCheckedChangeListener { _, id ->
+            groupRequired.beVisible()
             when (id) {
                 R.id.button_pickup -> {
                     cleanDataTable(group)
-                    groupPickup.visibility = View.VISIBLE
+                    groupPickup.beVisible()
                 }
                 R.id.button_order -> {
                     cleanDataTable(group)
-                    groupOrder.visibility = View.VISIBLE
+                    groupOrder.beVisible()
                     if (summa < 50){
-                        dostavka.visibility = View.VISIBLE
+                        dostavka.beVisible()
                         dostavka.text = "Доставка: 5 BYN"
                         dostavka_pay = true
                     }
                 }
                 R.id.button_post -> {
                     cleanDataTable(group)
-                    groupEuropost.visibility = View.VISIBLE
+                    groupEuropost.beVisible()
                     if (summa < 50){
                         order.isClickable = false
-                        order.setBackgroundColor(Color.parseColor("#AF0000"))
+                        order.setBackgroundResource(R.drawable.basket_button_delete)
                         order.text = "Отправка почтой от 50 BYN"
                     }
-                    dostavka.visibility = View.VISIBLE
+                    dostavka.beVisible()
                     dostavka.text = "Отправка: 5 BYN"
                     dostavka_pay = true
                 }
@@ -82,7 +86,9 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
             val month = c.get(Calendar.MONTH)
             val day = c.get(Calendar.DAY_OF_MONTH)
             val dpd = DatePickerDialog(requireContext(), { _, getYear, getMonth, getDay ->
-                date.text = "$getDay ${getMonth + 1} $getYear"
+                val d = Date(getYear-1900, getMonth, getDay)
+                val df = SimpleDateFormat("dd MMMM yyyy")
+                date.text = df.format(d)
                 if (((getDay - day) > 1) || ((getDay - day) < 0) && ((getMonth - month) > 0)) {
                     sumBonus.visibility = View.VISIBLE
                     skidka.visibility = View.VISIBLE
@@ -116,46 +122,56 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
             dpd.show()
         }
 
+
+
+
         order.setOnClickListener {
-            val sb = StringBuffer()
+            if (name.text!!.isEmpty() || phone.text!!.isEmpty() || date.text.isEmpty()) {
+                showToast("Не все данные введены")
+            } else {
+                val sb = StringBuffer()
 
-            for (i in viewModel.getBasket()) {
-                sb.append("Артикул: ${i.articul}\n" +
-                        "Название: ${i.name}\n" +
-                        "Количество: ${i.amount}\n" +
-                        "Стоимость: ${i.cost.toInt() * i.amount}\n\n")
+                for (i in viewModel.getBasket()) {
+                    sb.append(
+                        "Артикул: ${i.articul}\n" +
+                                "Название: ${i.name}\n" +
+                                "Количество: ${i.amount}\n" +
+                                "Стоимость: ${i.cost.toInt() * i.amount}\n" +
+                                "Image: ${i.photos[0]}\n\n"
+                    )
+                }
+
+                sb.append("\nЦена: ${viewModel.getSumOfBasket()} BYN")
+
+                if (dostavka_pay) {
+                    sb.append("\n${dostavka.text}")
+                }
+
+                if (skidka.visibility == View.VISIBLE) {
+                    sb.append("\n${skidka.text}")
+                }
+
+                if (sumBonus.visibility == View.VISIBLE) {
+                    sb.append("\n${sumBonus.text}")
+                }
+
+                val radioButton =
+                    root.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
+                sb.append("\nСпособ получения: $radioButton")
+
+                if (radioButton == "Доставка") {
+                    sb.append("\nАдрес доставки: ${address.text}")
+                }
+
+                if (radioButton == "Европочта") {
+                    sb.append("\nАдрес Европочты: ${europost.text}")
+                }
+
+                sb.append("\n${name.text} ${surname.text}")
+                sb.append("\nТелефон: ${phone.text}")
+                sb.append("\nЗаказано к ${date.text}")
+                composeEmail(sb.toString())
             }
-
-            sb.append("\nЦена: ${viewModel.getSumOfBasket()} BYN")
-
-            if (dostavka_pay){
-                sb.append("\n${dostavka.text}")
-            }
-
-            if (skidka.visibility == View.VISIBLE) {
-                sb.append("\n${skidka.text}")
-            }
-
-            if (sumBonus.visibility == View.VISIBLE) {
-                sb.append("\n${sumBonus.text}")
-            }
-
-            val radioButton =
-                root.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
-            sb.append("\nСпособ получения: $radioButton")
-
-            if (radioButton == "Доставка") {
-                sb.append("\nАдрес доставки: ${address.text}")
-            }
-
-            if (radioButton == "Европочта") {
-                sb.append("\nАдрес Европочты: ${europost.text}")
-            }
-
-            sb.append("\n${name.text} ${surname.text}")
-            sb.append("\nТелефон: ${phone.text}")
-            sb.append("\nЗаказано к ${date.text}")
-            composeEmail(sb.toString())
         }
     }
 
@@ -171,7 +187,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
             skidka.visibility = View.GONE
             dostavka.visibility = View.GONE
             sum.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            order.setBackgroundColor(Color.parseColor("#D340ED92"))
+            order.setBackgroundResource(R.drawable.button_basket_style)
             order.text = "Заказать"
             order.isClickable = true
             dostavka_pay = false

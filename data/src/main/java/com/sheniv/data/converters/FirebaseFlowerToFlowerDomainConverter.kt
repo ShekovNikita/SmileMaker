@@ -1,13 +1,13 @@
 package com.sheniv.data.converters
 
 import com.sheniv.data.storage.models.FirebaseFlower
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 import com.sheniv.domain.repository.Converter
 
-class FirebaseFlowerToFlowerDomainConverter : Converter<FirebaseFlower, Flower> {
+class FirebaseFlowerToFlowerDomainConverter : Converter<FirebaseFlower, FlowerMain> {
 
-    override fun invoke(params: FirebaseFlower): Flower {
-        return Flower(
+    override fun invoke(params: FirebaseFlower): FlowerMain {
+        return FlowerMain(
             //params.about ?: "",
             params.articul ?: "",
             params.category ?: "",

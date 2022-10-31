@@ -1,8 +1,9 @@
 package com.sheniv.inpre.fragments
 
-import com.sheniv.domain.model.Flower
+import com.sheniv.inpre.models.FlowerMain
+
 
 interface DeleteFlowerFromBasket {
 
-    fun deleteFlowerFromBasket(flower: Flower)
+    fun deleteFlowerFromBasket(flower: FlowerMain)
 }

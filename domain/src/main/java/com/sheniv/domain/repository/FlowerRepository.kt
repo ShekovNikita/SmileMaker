@@ -1,21 +1,21 @@
 package com.sheniv.domain.repository
 
 import com.sheniv.domain.model.Category
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 
 interface FlowerRepository {
 
     fun getCategoryOfFlower(): ArrayList<Category>
 
-    fun getBasket(): ArrayList<Flower>
+    fun getBasket(): ArrayList<FlowerMain>
 
     fun getSumOfBasket(): Int
 
-    fun getAllFlowersFromData(): ArrayList<Flower>
+    fun getAllFlowersFromData(): ArrayList<FlowerMain>
 
-    fun addAllFlowersInData(flowers: ArrayList<Flower>)
+    fun addAllFlowersInData(flowers: ArrayList<FlowerMain>)
 
-    fun changeFlowerInData(flower: Flower): ArrayList<Flower>
+    fun changeFlowerInData(flower: FlowerMain): ArrayList<FlowerMain>
 
-    fun postAmountValueNull(flower: Flower)
+    fun postAmountValueNull(flower: FlowerMain)
 }

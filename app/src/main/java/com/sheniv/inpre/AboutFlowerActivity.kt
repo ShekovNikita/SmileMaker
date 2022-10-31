@@ -1,17 +1,17 @@
 package com.sheniv.inpre
 
 import android.content.res.Resources
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.sheniv.domain.model.Flower
+import com.google.android.material.tabs.TabLayoutMediator
 import com.sheniv.inpre.adapter.ViewPagerAdapter
 import com.sheniv.inpre.databinding.ActivityAboutFlowerBinding
-import com.sheniv.inpre.viewmodels.AboutFlowerActivityViewModel
-import com.google.android.material.tabs.TabLayoutMediator
+import com.sheniv.inpre.models.FlowerMain
+import com.sheniv.inpre.utilits.beGone
+import com.sheniv.inpre.utilits.beVisible
 import com.sheniv.inpre.utilits.showToast
+import com.sheniv.inpre.viewmodels.AboutFlowerActivityViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -27,35 +27,51 @@ class AboutFlowerActivity : AppCompatActivity() {
         _binding = ActivityAboutFlowerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val flower = intent.getSerializableExtra("flower") as Flower
+        val flower = intent.getSerializableExtra("flower") as FlowerMain
+
+        val size = Resources.getSystem().displayMetrics.widthPixels;
+        val params: ViewGroup.LayoutParams = binding.viewPager2.layoutParams
+        params.height = size
+        binding.viewPager2.layoutParams = params
+
+        binding.viewPager2.adapter = ViewPagerAdapter(flower.photos)
+
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
+        }.attach()
+
+        addFlower(flower)
+        deleteFlower(flower)
+
         with(binding) {
-            for (i in viewModel.getBasket()) {
-                if (i.articul == flower.articul) {
-                    buttonBasket.text = "Удалить из корзины"
-                    buttonBasket.setBackgroundColor(Color.parseColor("#CC0000"))
-                }
-            }
-
-            val size = Resources.getSystem().displayMetrics.widthPixels;
-            val params: ViewGroup.LayoutParams = viewPager2.layoutParams
-            params.height = size
-            viewPager2.layoutParams = params
-
-            viewPager2.adapter = ViewPagerAdapter(flower.img_source)
-
-            TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-            }.attach()
-
             cost.text = "${flower.cost} BYN"
-            //about.text = flower.about
             textFlower.text = flower.name
             articulFlower.text = "Артикул: ${flower.articul}"
-            buttonBasket.setOnClickListener {
-                buttonBasket.visibility = View.INVISIBLE
-                flower.amount += 1
-                viewModel.addToBasket(flower)
-                showToast("Букет добавлен в корзину")
-            }
+        }
+
+        if (viewModel.getBasket().contains(flower)) {
+            deleteFlower(flower)
+        } else addFlower(flower)
+
+    }
+
+    private fun deleteFlower(flower: FlowerMain) {
+        binding.buttonBasket.beGone()
+        binding.buttonBasketDelete.beVisible()
+        binding.buttonBasketDelete.setOnClickListener {
+            viewModel.deleteFlower(flower)
+            showToast("Букет удалён из корзины")
+            addFlower(flower)
+        }
+    }
+
+    private fun addFlower(flower: FlowerMain) {
+        binding.buttonBasket.beVisible()
+        binding.buttonBasketDelete.beGone()
+        binding.buttonBasket.setOnClickListener {
+            flower.amount += 1
+            viewModel.addToBasket(flower)
+            showToast("Букет добавлен в корзину")
+            deleteFlower(flower)
         }
     }
 

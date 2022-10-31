@@ -2,10 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/titleColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/basket" />
+
+    <TextView
+        android:id="@+id/text_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Корзина пока пуста"
+        android:fontFamily="@font/lobster"
+        android:textSize="36dp"
+        app:layout_constraintStart_toStartOf="@+id/image_empty"
+        app:layout_constraintTop_toBottomOf="@+id/image_empty" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,7 +45,6 @@
                 android:id="@+id/recycler_basket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/titleColor"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +67,7 @@
                 android:id="@+id/btn_sendToViber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_basket_style"
                 android:text="Далее"
                 app:layout_constraintEnd_toEndOf="@+id/summa"
                 app:layout_constraintTop_toBottomOf="@+id/summa" />

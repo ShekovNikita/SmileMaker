@@ -16,6 +16,7 @@ import com.sheniv.inpre.fragments.CategoryClick
 import com.sheniv.inpre.viewmodels.BasketFragmentViewModel
 import com.sheniv.inpre.viewmodels.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sheniv.inpre.utilits.APP_ACTIVITY
 import com.sheniv.inpre.utilits.beGone
 import com.sheniv.inpre.utilits.recyclerTop
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initFirebase()
+        APP_ACTIVITY = this
 
         supportActionBar?.hide()
 

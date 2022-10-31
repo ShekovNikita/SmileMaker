@@ -2,7 +2,7 @@ package com.sheniv.data
 
 import com.sheniv.data.api.FirebaseApi
 import com.sheniv.data.converters.FirebaseFlowerToFlowerDomainConverter
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 import com.sheniv.domain.repository.FirebaseRepository
 
 class FirebaseRepositoryImpl(
@@ -10,8 +10,8 @@ class FirebaseRepositoryImpl(
     private val firebaseFlowerToFlowerDataConverter: FirebaseFlowerToFlowerDomainConverter
 ) : FirebaseRepository {
 
-    override suspend fun getFirebaseFlowers(): List<Flower> {
-        val flowerList = mutableListOf<Flower>()
+    override suspend fun getFirebaseFlowers(): List<FlowerMain> {
+        val flowerList = mutableListOf<FlowerMain>()
         for (i in getFirebaseArticuls()) {
             val response = firebaseApi.getFirebaseFlowers(i)
             if (response.isSuccessful) {

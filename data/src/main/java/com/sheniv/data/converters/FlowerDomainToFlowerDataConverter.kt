@@ -1,12 +1,12 @@
 package com.sheniv.data.converters
 
 import com.sheniv.data.storage.models.FlowerData
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 import com.sheniv.domain.repository.Converter
 
-class FlowerDomainToFlowerDataConverter : Converter<Flower, FlowerData> {
+class FlowerDomainToFlowerDataConverter : Converter<FlowerMain, FlowerData> {
 
-    override fun invoke(i: Flower): FlowerData {
+    override fun invoke(i: FlowerMain): FlowerData {
         return FlowerData(
             //i.about,
             i.articul,

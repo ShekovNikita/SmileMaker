@@ -5,35 +5,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.sheniv.domain.model.Flower
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
+import com.google.android.material.snackbar.Snackbar
 import com.sheniv.inpre.adapter.BasketAdapter
 import com.sheniv.inpre.adapter.SwipeToDelete
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentBasketBinding
 import com.sheniv.inpre.fragments.ChangeAmountFlowerInBasket
 import com.sheniv.inpre.fragments.DeleteFlowerFromBasket
-import com.sheniv.inpre.fragments.MainFlowerClick
+import com.sheniv.inpre.models.FlowerMain
+import com.sheniv.inpre.utilits.basket
 import com.sheniv.inpre.utilits.beGone
 import com.sheniv.inpre.utilits.beVisible
 import com.sheniv.inpre.utilits.recyclerTop
-import com.sheniv.inpre.utilits.showActivityAboutFlower
 import com.sheniv.inpre.viewmodels.BasketFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, ChangeAmountFlowerInBasket,
-    DeleteFlowerFromBasket {
+class BasketFragment : BaseFragment<FragmentBasketBinding>(), ChangeAmountFlowerInBasket {
 
     private val viewModel by viewModel<BasketFragmentViewModel>()
 
-    private val mainFlowerAdapter by lazy {
-        BasketAdapter(
-            requireContext(),
-            this,
-            viewModel.getBasket(),
-            this,
-            this
-        )
+    private val simpleAdapter by lazy { BasketAdapter(requireContext(), this) }
+
+    override fun onResume() {
+        super.onResume()
+        recyclerTop.beGone()
+        updateList()
     }
 
     override fun createViewBinding(
@@ -44,26 +43,22 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
     override fun FragmentBasketBinding.onBindView(savedInstanceState: Bundle?) {
 
         initRecyclerView()
-        recyclerTop.beGone()
+
+        recyclerBasket.adapter = simpleAdapter
 
         viewModel.resultLiveData.observe(viewLifecycleOwner) {
             if (it > 0) {
                 summa.text = "Итого: $it"
-                btnSendToViber.visibility = View.VISIBLE
+                btnSendToViber.beVisible()
+                summa.beVisible()
+                imageEmpty.beGone()
+                textEmpty.beGone()
             } else {
-                summa.text = "Корзина пуста"
-                btnSendToViber.visibility = View.GONE
+                summa.beGone()
+                btnSendToViber.beGone()
+                imageEmpty.beVisible()
+                textEmpty.beVisible()
             }
-        }
-
-        viewModel.basketLiveData.observe(viewLifecycleOwner){
-            recyclerBasket.adapter = BasketAdapter(
-                requireContext(),
-                this@BasketFragment,
-                it as ArrayList<Flower>,
-                this@BasketFragment,
-                this@BasketFragment
-            )
         }
 
         btnSendToViber.setOnClickListener {
@@ -71,27 +66,21 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(), MainFlowerClick, C
         }
     }
 
+    private fun updateList(){
+        simpleAdapter.differ.submitList(viewModel.getBasket())
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         recyclerTop.beVisible()
     }
 
+    override fun changeAmountFlowerInBasket() {
+        updateList()
+    }
+
     private fun initRecyclerView() {
-        binding.recyclerBasket.adapter = mainFlowerAdapter
-
-        val itemTouchHelper = ItemTouchHelper(SwipeToDelete(mainFlowerAdapter))
+        val itemTouchHelper = ItemTouchHelper(SwipeToDelete(simpleAdapter))
         itemTouchHelper.attachToRecyclerView(binding.recyclerBasket)
-    }
-
-    override fun sendData(flower: Flower) {
-        activity?.showActivityAboutFlower(flower)
-    }
-
-    override fun deleteFlowerFromBasket(flower: Flower) {
-        viewModel.deleteFlower(flower)
-    }
-
-    override fun changeAmountOfFlowerInBasket(flower: Flower) {
-        viewModel.changeAmount(flower)
     }
 }

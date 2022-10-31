@@ -40,8 +40,7 @@ val appModule = module {
     }
     viewModel<DataAboutBuyerViewModel> {
         DataAboutBuyerViewModel(
-            getBasketUseCase = get(),
-            getSumOfBasketUseCase = get()
+
         )
     }
 
@@ -55,8 +54,6 @@ val appModule = module {
 
     viewModel<TopFragmentsViewModel> {
         TopFragmentsViewModel(
-            getFirebaseFlowerUseCase = get(),
-            getAllFlowersFromDataUseCase = get(),
             postAmountValueNullUseCase = get(),
             changeFlowerInDataUseCase = get()
         )

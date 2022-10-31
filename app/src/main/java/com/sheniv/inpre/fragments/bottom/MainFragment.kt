@@ -5,19 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sheniv.domain.model.Flower
 import com.sheniv.inpre.adapter.MainFlowerAdapter
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentMainBinding
 import com.sheniv.inpre.fragments.ChangeAmountFlowerInBasket
 import com.sheniv.inpre.fragments.DeleteFlowerFromBasket
-import com.sheniv.inpre.fragments.MainFlowerClick
+import com.sheniv.inpre.models.FlowerMain
 import com.sheniv.inpre.utilits.*
 import com.sheniv.inpre.viewmodels.MainFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : BaseFragment<FragmentMainBinding>(),
-    MainFlowerClick, DeleteFlowerFromBasket, ChangeAmountFlowerInBasket {
+class MainFragment : BaseFragment<FragmentMainBinding>(), DeleteFlowerFromBasket, ChangeAmountFlowerInBasket {
 
     private val viewModelMain by viewModel<MainFragmentViewModel>()
 
@@ -38,7 +36,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
                 recyclerFlowersOnMain.adapter =
                     MainFlowerAdapter(
                         requireContext(),
-                        this@MainFragment,
                         it,
                         this@MainFragment,
                         this@MainFragment
@@ -54,8 +51,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
                 recyclerFlowersOnMain.adapter =
                     MainFlowerAdapter(
                         requireContext(),
-                        this@MainFragment,
-                        it as ArrayList<Flower>,
+                        it as ArrayList<FlowerMain>,
                         this@MainFragment,
                         this@MainFragment
                     )
@@ -68,8 +64,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
                 recyclerFlowersOnMain.adapter =
                     MainFlowerAdapter(
                         requireContext(),
-                        this@MainFragment,
-                        it as ArrayList<Flower>,
+                        it as ArrayList<FlowerMain>,
                         this@MainFragment,
                         this@MainFragment
                     )
@@ -82,17 +77,13 @@ class MainFragment : BaseFragment<FragmentMainBinding>(),
         }*/
     }
 
-    override fun sendData(flower: Flower) {
-        activity?.showActivityAboutFlower(flower)
-    }
-
-    override fun changeAmountOfFlowerInBasket(flower: Flower) {
-        viewModelMain.changeAmount(flower)
+    override fun changeAmountFlowerInBasket() {
+        //viewModelMain.changeAmount()
         showToast("Букет добавлен в корзину")
     }
 
-    override fun deleteFlowerFromBasket(flower: Flower) {
-        viewModelMain.deleteFlower(flower)
+    override fun deleteFlowerFromBasket(flower: FlowerMain) {
+        basket.deleteFromBasket(flower)
     }
 
     override fun onResume() {

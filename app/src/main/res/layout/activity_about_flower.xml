@@ -65,7 +65,8 @@
                 android:fontFamily="@font/lobster"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/text_flower"
-                app:layout_constraintEnd_toEndOf="@+id/button_basket"
+                android:layout_marginEnd="@dimen/margin_12dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/text_flower"
                 tools:text="345 BYN" />
 
@@ -110,9 +111,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
                 android:layout_margin="@dimen/margin_12dp"
-                android:background="@drawable/button_basket_style"
                 android:text="@string/in_basket"
-                android:textColor="@color/black"
+                android:background="@drawable/button_basket_style"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cost" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_basket_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_margin="@dimen/margin_12dp"
+                android:text="Удалить"
+                android:background="@drawable/basket_button_delete"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cost" />

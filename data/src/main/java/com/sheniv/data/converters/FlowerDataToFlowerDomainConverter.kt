@@ -1,16 +1,16 @@
 package com.sheniv.data.converters
 
 import com.sheniv.data.storage.models.FlowerData
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 import com.sheniv.domain.repository.Converter
 
-class FlowerDataToFlowerDomainConverter : Converter<ArrayList<FlowerData>, ArrayList<Flower>> {
+class FlowerDataToFlowerDomainConverter : Converter<ArrayList<FlowerData>, ArrayList<FlowerMain>> {
 
-    override fun invoke(params: ArrayList<FlowerData>): ArrayList<Flower> {
-        val flowerList = mutableListOf<Flower>()
+    override fun invoke(params: ArrayList<FlowerData>): ArrayList<FlowerMain> {
+        val flowerList = mutableListOf<FlowerMain>()
         for (i in params) {
             flowerList.add(
-                Flower(
+                FlowerMain(
                    // i.about,
                     i.articul,
                     i.category,
@@ -23,7 +23,7 @@ class FlowerDataToFlowerDomainConverter : Converter<ArrayList<FlowerData>, Array
                 )
             )
         }
-        return flowerList as ArrayList<Flower>
+        return flowerList as ArrayList<FlowerMain>
     }
 }
 

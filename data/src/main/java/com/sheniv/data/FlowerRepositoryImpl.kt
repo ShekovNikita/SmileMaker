@@ -5,7 +5,7 @@ import com.sheniv.data.converters.FlowerDataToFlowerDomainConverter
 import com.sheniv.data.converters.FlowerDomainToFlowerDataConverter
 import com.sheniv.data.storage.FlowerStorage
 import com.sheniv.domain.model.Category
-import com.sheniv.domain.model.Flower
+import com.sheniv.domain.model.FlowerMain
 import com.sheniv.domain.repository.FlowerRepository
 
 class FlowerRepositoryImpl(
@@ -19,7 +19,7 @@ class FlowerRepositoryImpl(
         return flowerStorage.getCategoryOfFlower()
     }
 
-    override fun getBasket(): ArrayList<Flower> {
+    override fun getBasket(): ArrayList<FlowerMain> {
         return flowerDataToFlowerDomainConverter.invoke(flowerStorage.getBasket())
     }
 
@@ -27,20 +27,20 @@ class FlowerRepositoryImpl(
         return flowerStorage.getSumOfBasket()
     }
 
-    override fun getAllFlowersFromData(): ArrayList<Flower> {
+    override fun getAllFlowersFromData(): ArrayList<FlowerMain> {
         return flowerDataToFlowerDomainConverter.invoke(flowerStorage.getAllFlowersFromData())
     }
 
-    override fun addAllFlowersInData(flowers: ArrayList<Flower>) {
+    override fun addAllFlowersInData(flowers: ArrayList<FlowerMain>) {
             flowerStorage.addAllFlowersInData(arrayFlowerDomainToArrayFlowerDataConverter.invoke(flowers))
     }
 
-    override fun changeFlowerInData(flower: Flower): ArrayList<Flower> {
+    override fun changeFlowerInData(flower: FlowerMain): ArrayList<FlowerMain> {
         val b = flowerStorage.changeFlowerInData(flowerDomainToFlowerDataConverter.invoke(flower))
         return flowerDataToFlowerDomainConverter.invoke(b)
     }
 
-    override fun postAmountValueNull(flower: Flower) {
+    override fun postAmountValueNull(flower: FlowerMain) {
         flowerStorage.postValueAmountNull(flowerDomainToFlowerDataConverter.invoke(flower))
     }
 }
