@@ -2,6 +2,7 @@ package com.sheniv.inpre
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sheniv.inpre.firebase.initFirebase
 import com.sheniv.inpre.utilits.showMainActivity
 import com.sheniv.inpre.viewmodels.SplashScreenViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,6 +20,7 @@ class SplashScreen : AppCompatActivity() {
 
     private fun subscribeLiveData() {
         viewModel.livedata.observe(this) {
+            initFirebase()
             showMainActivity()
             finish()
         }

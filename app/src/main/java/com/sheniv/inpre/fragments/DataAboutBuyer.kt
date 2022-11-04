@@ -13,6 +13,7 @@ import android.widget.RadioButton
 import com.sheniv.inpre.R
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentDataAboutBuyerBinding
+import com.sheniv.inpre.firebase.USER
 import com.sheniv.inpre.utilits.beGone
 import com.sheniv.inpre.utilits.beVisible
 import com.sheniv.inpre.utilits.recyclerTop
@@ -45,6 +46,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
         val skid = summa / 10
 
         val group = listOf(groupPickup, groupOrder, groupEuropost)
+        phone.setText(USER.phone)
         radioGroup.setOnCheckedChangeListener { _, id ->
             groupRequired.beVisible()
             when (id) {

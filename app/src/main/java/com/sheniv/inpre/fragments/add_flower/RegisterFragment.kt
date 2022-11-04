@@ -14,6 +14,7 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.sheniv.inpre.R
 import java.util.concurrent.TimeUnit
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
@@ -34,7 +35,12 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                     if (it.isSuccessful) {
                         it.result.user
                         showToast("всё гуд")
-                        navController.navigate(RegisterFragmentDirections.actionRegisterFragmentToAddFlower2())
+                        /*if(AUTH.currentUser?.phoneNumber.toString() == "+16505552494"){
+                            navController.navigate(R.id.addFlower)
+                        } else {
+                            navController.navigate(R.id.navigation_main)
+                        }*/
+                        navController.navigate(R.id.navigation_main)
                     }
                 }
             }
@@ -59,7 +65,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
     private fun sendCode() {
         if (binding.enterPhone.text.toString().isEmpty()) {
-            showToast("Enter your number")
+            showToast("Введите свой номер")
         } else {
             authUser()
         }

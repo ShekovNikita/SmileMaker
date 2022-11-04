@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainBgColor">#FFF0F0F0</color>
     <color name="menuStringBgColor">#CBCACACA</color>
-    <color name="titleColor">#E6F6F6</color>
+    <color name="titleColor">#e6F6F6</color>
     <color name="green">#11BB11</color>
     <color name="red">#C40D00</color>
 </resources>

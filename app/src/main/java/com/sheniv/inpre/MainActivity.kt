@@ -1,9 +1,13 @@
 package com.sheniv.inpre
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -16,7 +20,10 @@ import com.sheniv.inpre.fragments.CategoryClick
 import com.sheniv.inpre.viewmodels.BasketFragmentViewModel
 import com.sheniv.inpre.viewmodels.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sheniv.inpre.firebase.*
+import com.sheniv.inpre.models.User
 import com.sheniv.inpre.utilits.APP_ACTIVITY
+import com.sheniv.inpre.utilits.AppValueEventListener
 import com.sheniv.inpre.utilits.beGone
 import com.sheniv.inpre.utilits.recyclerTop
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -50,6 +57,46 @@ class MainActivity : AppCompatActivity(), CategoryClick {
         control()
         viewModel.getBasket()
 
+        initUserMain()
+    }
+
+    fun initUserMain() {
+        initUser()
+        REF_DATABASE_ROOT.child(NODE_USER).child(CURRENT_UID)
+            .addListenerForSingleValueEvent(AppValueEventListener{
+                USER = it.getValue(User::class.java) ?: User()
+                Log.e("USER", "$USER")
+            })
+        if (USER.phone == "+16505552494"){
+            binding.imageLogo.isClickable = true
+            binding.imageLogo.setOnClickListener { findNavController(R.id.fragment).navigate(R.id.addFlower) }
+        } else {
+            binding.imageLogo.isClickable = false
+        }
+        registration()
+    }
+
+    fun registration() {
+        when {
+            AUTH.currentUser == null -> {
+                binding.enter.text = "Войти"
+                binding.enter.setOnClickListener {
+                    findNavController(R.id.fragment).navigate(R.id.registerFragment)
+                }
+            }
+            USER.phone == "+16505552494" -> {
+                binding.enter.text = "Выйти\nadmin"
+                binding.enter.setOnClickListener{
+                    onCreateDialog().show()
+                }
+            }
+            else -> {
+                binding.enter.text = "Выйти"
+                binding.enter.setOnClickListener{
+                    onCreateDialog().show()
+                }
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -87,6 +134,21 @@ class MainActivity : AppCompatActivity(), CategoryClick {
                 badge.isVisible = true
                 viewModel.getBasket()
             }
+        }
+    }
+
+    private fun onCreateDialog(): Dialog {
+        return this.let {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("Выйти из аккаунта?")
+                .setPositiveButton("Выйти",
+                    DialogInterface.OnClickListener { dialog, id ->
+                        AUTH.signOut()
+                        registration()
+                        findNavController(R.id.fragment).navigate(R.id.navigation_main)
+                    })
+                .setNegativeButton("Отмена", null)
+            builder.create()
         }
     }
 }

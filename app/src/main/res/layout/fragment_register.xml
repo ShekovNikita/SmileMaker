@@ -4,26 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/menuStringBgColor"
     android:padding="@dimen/padding_16dp"
     tools:context=".fragments.add_flower.RegisterFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Номер телефона вводится в формате +375ххххххххх"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/enter_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите свой номер"
+        android:hint="Введите свой номер телефона"
+        android:layout_marginVertical="@dimen/padding_16dp"
         android:inputType="phone"
         android:text="+16505552494"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/get_code"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="получить код"
+        android:text="Получить код"
         app:layout_constraintEnd_toEndOf="@+id/enter_phone"
         app:layout_constraintStart_toStartOf="@+id/enter_phone"
         app:layout_constraintTop_toBottomOf="@+id/enter_phone" />
