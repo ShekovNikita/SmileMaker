@@ -14,7 +14,7 @@ import com.sheniv.inpre.utilits.showToast
 import com.sheniv.inpre.viewmodels.TopFragmentsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PioniFragment : BaseFragment<FragmentPioniBinding>(), DeleteFlowerFromBasket,
+class PioniFragment : BaseFragment<FragmentPioniBinding>(),
     ChangeAmountFlowerInBasket {
 
     private val viewModel by viewModel<TopFragmentsViewModel>()
@@ -31,8 +31,6 @@ class PioniFragment : BaseFragment<FragmentPioniBinding>(), DeleteFlowerFromBask
                 MainFlowerAdapter(
                     requireContext(),
                     it as ArrayList<FlowerMain>,
-                    this@PioniFragment,
-                    this@PioniFragment
                 )
         }
 
@@ -42,10 +40,6 @@ class PioniFragment : BaseFragment<FragmentPioniBinding>(), DeleteFlowerFromBask
     override fun changeAmountFlowerInBasket() {
         //viewModel.changeAmount(flower)
         showToast("Букет добавлен в корзину")
-    }
-
-    override fun deleteFlowerFromBasket(flower: FlowerMain) {
-        viewModel.deleteFlower(flower)
     }
 
     override fun onResume() {

@@ -20,7 +20,6 @@ class SplashScreen : AppCompatActivity() {
 
     private fun subscribeLiveData() {
         viewModel.livedata.observe(this) {
-            initFirebase()
             showMainActivity()
             finish()
         }

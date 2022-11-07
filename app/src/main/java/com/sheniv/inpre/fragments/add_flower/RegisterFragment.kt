@@ -3,10 +3,6 @@ package com.sheniv.inpre.fragments.add_flower
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.sheniv.data.firebase.AUTH
-import com.sheniv.data.firebase.initFirebase
-import com.sheniv.data.firebase.resendToken
-import com.sheniv.data.firebase.storedVerificationId
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentRegisterBinding
 import com.sheniv.inpre.utilits.showToast
@@ -15,6 +11,10 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.sheniv.inpre.R
+import com.sheniv.inpre.firebase.AUTH
+import com.sheniv.inpre.firebase.initFirebase
+import com.sheniv.inpre.firebase.resendToken
+import com.sheniv.inpre.firebase.storedVerificationId
 import java.util.concurrent.TimeUnit
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
@@ -35,11 +35,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                     if (it.isSuccessful) {
                         it.result.user
                         showToast("всё гуд")
-                        /*if(AUTH.currentUser?.phoneNumber.toString() == "+16505552494"){
-                            navController.navigate(R.id.addFlower)
-                        } else {
-                            navController.navigate(R.id.navigation_main)
-                        }*/
                         navController.navigate(R.id.navigation_main)
                     }
                 }

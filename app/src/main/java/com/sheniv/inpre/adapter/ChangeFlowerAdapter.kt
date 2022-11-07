@@ -10,6 +10,7 @@ import com.sheniv.inpre.R
 import com.sheniv.inpre.databinding.ChangeFlowerItemBinding
 import com.sheniv.inpre.fragments.ChangeFlowerInFirebase
 import com.sheniv.inpre.models.FlowerMain
+import com.sheniv.inpre.utilits.changeFlower
 
 class ChangeFlowerAdapter(
     private val context: Context,
@@ -29,7 +30,10 @@ class ChangeFlowerAdapter(
                 .skipMemoryCache(true)
                 .into(image)
 
-            btnChange.setOnClickListener { change.changeFlower(flower) }
+            btnChange.setOnClickListener {
+                changeFlower = flower
+                change.changeFlower()
+            }
             btnDelete.setOnClickListener { change.deleteFlower(flower.articul) }
         }
     }

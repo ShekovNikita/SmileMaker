@@ -7,41 +7,23 @@ import org.koin.dsl.module
 val appModule = module {
 
     viewModel<MainFragmentViewModel> {
-        MainFragmentViewModel(
-            getAllFlowersFromDataUseCase = get(),
-            postAmountValueNullUseCase = get(),
-            changeFlowerInDataUseCase = get(),
-            getFirebaseFlowerUseCase = get(),
-            addAllFlowersInDataUseCase = get()
-        )
+        MainFragmentViewModel()
     }
 
     viewModel<MainActivityViewModel> {
-        MainActivityViewModel(
-            getCategoryFlowersUseCase = get(),
-        )
+        MainActivityViewModel()
     }
 
     viewModel<AboutFlowerActivityViewModel> {
-        AboutFlowerActivityViewModel(
-            changeFlowerInDataUseCase = get(),
-            getBasketUseCase = get(),
-            postAmountValueNullUseCase = get()
-        )
+        AboutFlowerActivityViewModel()
     }
 
     viewModel<BasketFragmentViewModel> {
-        BasketFragmentViewModel(
-            changeFlowerInDataUseCase = get(),
-            postAmountValueNullUseCase = get(),
-            getSumOfBasketUseCase = get(),
-            getAllFlowersFromDataUseCase = get()
-        )
+        BasketFragmentViewModel()
     }
-    viewModel<DataAboutBuyerViewModel> {
-        DataAboutBuyerViewModel(
 
-        )
+    viewModel<DataAboutBuyerViewModel> {
+        DataAboutBuyerViewModel()
     }
 
     viewModel<BonusFragmentViewModel> {
@@ -53,10 +35,7 @@ val appModule = module {
     }
 
     viewModel<TopFragmentsViewModel> {
-        TopFragmentsViewModel(
-            postAmountValueNullUseCase = get(),
-            changeFlowerInDataUseCase = get()
-        )
+        TopFragmentsViewModel()
     }
 
     viewModel<SplashScreenViewModel> {

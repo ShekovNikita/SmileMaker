@@ -19,8 +19,6 @@ import com.sheniv.inpre.utilits.beVisible
 class MainFlowerAdapter(
     private val context: Context,
     private val mainFlowerList: ArrayList<FlowerMain>,
-    private val deleteFlowerFromBasket: DeleteFlowerFromBasket,
-    private val changeAmountFlowerInBasket: ChangeAmountFlowerInBasket
 ) : RecyclerView.Adapter<MainFlowerAdapter.FlowerViewHolder>() {
 
     inner class FlowerViewHolder(item: View) : RecyclerView.ViewHolder(item) {
@@ -49,12 +47,9 @@ class MainFlowerAdapter(
                     true -> {
                         flower.amount = 1
                         basket.changeAmountInBasket(flower)
-                        //changeAmountFlowerInBasket.changeAmountOfFlowerInBasket(flower)
                     }
                     false -> {
-                        //flower.amount = 0
                         basket.deleteFromBasket(flower)
-                        //deleteFlowerFromBasket.deleteFlowerFromBasket(flower)
                     }
                 }
             }

@@ -13,7 +13,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.sheniv.data.firebase.initFirebase
 import com.sheniv.inpre.adapter.CategoryAdapter
 import com.sheniv.inpre.databinding.ActivityMainBinding
 import com.sheniv.inpre.fragments.CategoryClick
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initFirebase()
+        //initFirebase()
         APP_ACTIVITY = this
 
         supportActionBar?.hide()

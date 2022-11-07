@@ -78,7 +78,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
             }
         }
 
-        date.setOnClickListener {
+        calendar.setOnClickListener {
             sum.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG.inv()
             sumBonus.visibility = View.GONE
             skidka.visibility = View.GONE
@@ -90,7 +90,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
             val dpd = DatePickerDialog(requireContext(), { _, getYear, getMonth, getDay ->
                 val d = Date(getYear-1900, getMonth, getDay)
                 val df = SimpleDateFormat("dd MMMM yyyy")
-                date.text = df.format(d)
+                date.setText(df.format(d))
                 if (((getDay - day) > 1) || ((getDay - day) < 0) && ((getMonth - month) > 0)) {
                     sumBonus.visibility = View.VISIBLE
                     skidka.visibility = View.VISIBLE
@@ -128,7 +128,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
 
 
         order.setOnClickListener {
-            if (name.text!!.isEmpty() || phone.text!!.isEmpty() || date.text.isEmpty()) {
+            if (name.text!!.isEmpty() || phone.text!!.isEmpty() || date.text!!.isEmpty()) {
                 showToast("Не все данные введены")
             } else {
                 val sb = StringBuffer()
@@ -183,7 +183,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
         }
 
         with(binding) {
-            date.text = ""
+            date.setText("")
             sum.text = "Цена: ${viewModel.getSumOfBasket()} BYN"
             sumBonus.visibility = View.GONE
             skidka.visibility = View.GONE

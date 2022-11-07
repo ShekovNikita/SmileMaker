@@ -7,5 +7,5 @@ interface ChangeFlowerInFirebase {
 
     fun deleteFlower(articul: String)
 
-    fun changeFlower(flowerMain: FlowerMain)
+    fun changeFlower()
 }

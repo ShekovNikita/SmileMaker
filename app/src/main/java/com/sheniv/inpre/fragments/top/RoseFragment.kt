@@ -14,8 +14,7 @@ import com.sheniv.inpre.utilits.showToast
 import com.sheniv.inpre.viewmodels.TopFragmentsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RoseFragment : BaseFragment<FragmentRoseBinding>(), DeleteFlowerFromBasket,
-    ChangeAmountFlowerInBasket {
+class RoseFragment : BaseFragment<FragmentRoseBinding>() {
 
     private val viewModel by viewModel<TopFragmentsViewModel>()
 
@@ -31,21 +30,10 @@ class RoseFragment : BaseFragment<FragmentRoseBinding>(), DeleteFlowerFromBasket
                 MainFlowerAdapter(
                     requireContext(),
                     it as ArrayList<FlowerMain>,
-                    this@RoseFragment,
-                    this@RoseFragment
                 )
         }
 
         recyclerFlowersOnMain.layoutManager = GridLayoutManager(context, 2)
-    }
-
-    override fun changeAmountFlowerInBasket() {
-        //viewModel.changeAmount(flower)
-        showToast("Букет добавлен в корзину")
-    }
-
-    override fun deleteFlowerFromBasket(flower: FlowerMain) {
-        viewModel.deleteFlower(flower)
     }
 
     override fun onResume() {

@@ -8,30 +8,23 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import com.sheniv.data.firebase.ALL_FLOWERS_NODE
-import com.sheniv.data.firebase.FLOWERS_NODE_CHILD
-import com.sheniv.data.firebase.REF_DATABASE_ROOT
-import com.sheniv.domain.repository.usecases.*
+import com.sheniv.inpre.firebase.ALL_FLOWERS_NODE
+import com.sheniv.inpre.firebase.FLOWERS_NODE_CHILD
+import com.sheniv.inpre.firebase.REF_DATABASE_ROOT
 import com.sheniv.inpre.models.FlowerMain
 import com.sheniv.inpre.utilits.allFlowers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainFragmentViewModel(
-    private val getAllFlowersFromDataUseCase: GetAllFlowersFromDataUseCase,
-    private val postAmountValueNullUseCase: PostAmountValueNullUseCase,
-    private val changeFlowerInDataUseCase: ChangeFlowerInDataUseCase,
-    private val getFirebaseFlowerUseCase: GetFirebaseFlowerUseCase,
-    private val addAllFlowersInDataUseCase: AddAllFlowersInDataUseCase
-) : ViewModel() {
+class MainFragmentViewModel() : ViewModel() {
 
     private var _basketLiveData = MutableLiveData<ArrayList<FlowerMain>>()
     val basketLiveData: LiveData<ArrayList<FlowerMain>> = _basketLiveData
 
-    init {
+    /*init {
         viewModelScope.launch(Dispatchers.Main) {
             REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE).child(FLOWERS_NODE_CHILD)
-                .addValueEventListener(object : ValueEventListener{
+                .addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         allFlowers.clear()
                         if (snapshot.exists()) {
@@ -49,31 +42,24 @@ class MainFragmentViewModel(
                     }
                 })
         }
-    }
+    }*/
 
-    fun getAllFlowers(){
+    fun getAllFlowers() {
         _basketLiveData.postValue(allFlowers as ArrayList<FlowerMain>)
+        Log.e("ALL FLOWERS", "$allFlowers")
     }
 
-    fun sorted(){
+    fun sorted() {
         val flowers = mutableListOf<FlowerMain>()
         flowers.addAll(allFlowers as ArrayList<FlowerMain>)
         flowers.sortBy { it.cost.toInt() }
         _basketLiveData.postValue(flowers as ArrayList<FlowerMain>?)
     }
 
-    fun sortedDown(){
+    fun sortedDown() {
         val flowers = mutableListOf<FlowerMain>()
         flowers.addAll(allFlowers)
         flowers.sortByDescending { it.cost.toInt() }
         _basketLiveData.postValue(flowers as ArrayList<FlowerMain>?)
     }
-
-    fun deleteFlower(flower: com.sheniv.domain.model.FlowerMain) {
-        postAmountValueNullUseCase.execute(flower)
-    }
-
-    /*fun changeAmount(): ArrayList<com.sheniv.domain.model.FlowerMain> {
-        return changeFlowerInDataUseCase.execute()
-    }*/
 }

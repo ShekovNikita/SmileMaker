@@ -101,13 +101,28 @@
                 app:layout_constraintStart_toStartOf="@+id/address"
                 app:layout_constraintTop_toBottomOf="@+id/address" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/date"
                 style="@style/data_text_about_buyer"
+                android:layout_width="0dp"
                 android:hint="Дата"
+                android:inputType="date"
                 android:paddingStart="@dimen/padding_8dp"
-                app:layout_constraintStart_toStartOf="@+id/phone"
+                app:layout_constraintEnd_toStartOf="@+id/calendar"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+            <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintTop_toTopOf="@+id/date"
+                app:layout_constraintBottom_toBottomOf="@+id/date"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                app:layout_constraintEnd_toEndOf="@+id/phone"
+                android:src="@drawable/ic_baseline_calendar_month_24"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/sum"

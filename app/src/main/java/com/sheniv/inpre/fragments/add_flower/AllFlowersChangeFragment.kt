@@ -3,7 +3,10 @@ package com.sheniv.inpre.fragments.add_flower
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.sheniv.data.firebase.*
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.sheniv.inpre.R
+import com.sheniv.inpre.firebase.*
 import com.sheniv.inpre.adapter.ChangeFlowerAdapter
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentAllFlowersChangeBinding
@@ -50,7 +53,8 @@ class AllFlowersChangeFragment : BaseFragment<FragmentAllFlowersChangeBinding>()
             }
     }
 
-    override fun changeFlower(flowerMain: FlowerMain) {
+    override fun changeFlower() {
+        navController.navigate(R.id.changeCurrentFlowerFragment)
     }
 
 }

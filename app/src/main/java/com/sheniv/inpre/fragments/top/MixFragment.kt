@@ -14,7 +14,7 @@ import com.sheniv.inpre.utilits.showToast
 import com.sheniv.inpre.viewmodels.TopFragmentsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MixFragment : BaseFragment<FragmentMixBinding>(), DeleteFlowerFromBasket,
+class MixFragment : BaseFragment<FragmentMixBinding>(),
     ChangeAmountFlowerInBasket {
 
     private val viewModel by viewModel<TopFragmentsViewModel>()
@@ -31,8 +31,6 @@ class MixFragment : BaseFragment<FragmentMixBinding>(), DeleteFlowerFromBasket,
                 MainFlowerAdapter(
                     requireContext(),
                     it as ArrayList<FlowerMain>,
-                    this@MixFragment,
-                    this@MixFragment
                 )
         }
 
@@ -40,12 +38,7 @@ class MixFragment : BaseFragment<FragmentMixBinding>(), DeleteFlowerFromBasket,
     }
 
     override fun changeAmountFlowerInBasket() {
-        //viewModel.changeAmount(flower)
         showToast("Букет добавлен в корзину")
-    }
-
-    override fun deleteFlowerFromBasket(flower: FlowerMain) {
-        viewModel.deleteFlower(flower)
     }
 
     override fun onResume() {

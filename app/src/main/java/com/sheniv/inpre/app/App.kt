@@ -2,8 +2,6 @@ package com.sheniv.inpre.app
 
 import android.app.Application
 import com.sheniv.inpre.di.appModule
-import com.sheniv.inpre.di.dataModule
-import com.sheniv.inpre.di.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,7 +15,7 @@ class App : Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@App)
-            modules(listOf(appModule, domainModule, dataModule))
+            modules(listOf(appModule))
         }
     }
 }

@@ -17,6 +17,7 @@ var allFlowers = arrayListOf<FlowerMain>()
 var basket = Basket()
 lateinit var bottomNavigationView: BottomNavigationView
 lateinit var APP_ACTIVITY: MainActivity
+lateinit var changeFlower: FlowerMain
 
 fun Activity.showMainActivity() {
     this.startActivity(Intent(this, MainActivity::class.java))

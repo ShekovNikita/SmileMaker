@@ -70,7 +70,7 @@
                 app:layout_constraintTop_toTopOf="@+id/text_flower"
                 tools:text="345 BYN" />
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <!--<androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/about"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/button_basket"
                 app:layout_constraintStart_toStartOf="@+id/articul_flower"
                 app:layout_constraintTop_toBottomOf="@+id/articul_flower"
-                tools:text="про  цветы" />
+                tools:text="про  цветы" />-->
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                 app:layout_constrainedHeight="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/about">
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar">
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -127,6 +127,14 @@
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cost" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progress="29"
+                app:layout_constraintStart_toStartOf="@+id/articul_flower"
+                app:layout_constraintTop_toBottomOf="@+id/articul_flower" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

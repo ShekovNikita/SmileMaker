@@ -15,10 +15,12 @@ import com.sheniv.inpre.fragments.DeleteFlowerFromBasket
 import com.sheniv.inpre.models.FlowerMain
 import com.sheniv.inpre.models.User
 import com.sheniv.inpre.utilits.*
+import com.sheniv.inpre.viewmodels.MainActivityViewModel
 import com.sheniv.inpre.viewmodels.MainFragmentViewModel
+import com.sheniv.inpre.viewmodels.SplashScreenViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : BaseFragment<FragmentMainBinding>(), DeleteFlowerFromBasket, ChangeAmountFlowerInBasket {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val viewModelMain by viewModel<MainFragmentViewModel>()
 
@@ -39,9 +41,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), DeleteFlowerFromBasket
                 recyclerFlowersOnMain.adapter =
                     MainFlowerAdapter(
                         requireContext(),
-                        it,
-                        this@MainFragment,
-                        this@MainFragment
+                        it
                     )
             }
         }
@@ -54,9 +54,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), DeleteFlowerFromBasket
                 recyclerFlowersOnMain.adapter =
                     MainFlowerAdapter(
                         requireContext(),
-                        it as ArrayList<FlowerMain>,
-                        this@MainFragment,
-                        this@MainFragment
+                        it as ArrayList<FlowerMain>
                     )
             }
         }
@@ -68,22 +66,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), DeleteFlowerFromBasket
                     MainFlowerAdapter(
                         requireContext(),
                         it as ArrayList<FlowerMain>,
-                        this@MainFragment,
-                        this@MainFragment
                     )
             }
         }
-    }
-
-
-
-    override fun changeAmountFlowerInBasket() {
-        //viewModelMain.changeAmount()
-        showToast("Букет добавлен в корзину")
-    }
-
-    override fun deleteFlowerFromBasket(flower: FlowerMain) {
-        basket.deleteFromBasket(flower)
     }
 
     override fun onResume() {

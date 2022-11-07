@@ -10,7 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
-import com.sheniv.data.firebase.AUTH
+import com.sheniv.inpre.firebase.AUTH
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentCodeBinding
 import com.google.firebase.auth.PhoneAuthProvider
@@ -67,11 +67,6 @@ class CodeFragment : BaseFragment<FragmentCodeBinding>() {
                             .updateChildren(mapOf(CHILD_PHONE to mPhoneNumber, CHILD_ID to uid))
                             .addOnSuccessListener {
                                 showToast("Добро пожаловать\n$mPhoneNumber")
-                                /*if(AUTH.currentUser?.phoneNumber.toString() == "+16505552494"){
-                                    navController.navigate(R.id.addFlower)
-                                } else {
-                                    navController.navigate(R.id.navigation_main)
-                                }*/
                                 navController.navigate(R.id.navigation_main)
                                 activity?.let {ma -> (ma as MainActivity).initUserMain() }
                             }

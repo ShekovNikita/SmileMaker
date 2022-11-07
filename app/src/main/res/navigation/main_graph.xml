@@ -100,4 +100,9 @@
         android:name="com.sheniv.inpre.fragments.add_flower.ChangeFlowerFragment"
         android:label="fragment_change_flower"
         tools:layout="@layout/fragment_change_flower" />
+    <fragment
+        android:id="@+id/changeCurrentFlowerFragment"
+        android:name="com.sheniv.inpre.fragments.add_flower.ChangeCurrentFlowerFragment"
+        android:label="fragment_change_current_flower"
+        tools:layout="@layout/fragment_change_current_flower" />
 </navigation>

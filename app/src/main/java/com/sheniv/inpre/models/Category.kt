@@ -1,4 +1,4 @@
-package com.sheniv.domain.model
+package com.sheniv.inpre.models
 
 class Category(
     val nameCategory: String,
