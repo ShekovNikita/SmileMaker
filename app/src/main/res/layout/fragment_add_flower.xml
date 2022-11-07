@@ -109,7 +109,6 @@
             android:background="@color/titleColor"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <androidx.appcompat.widget.AppCompatTextView

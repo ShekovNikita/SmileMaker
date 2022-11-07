@@ -5,10 +5,25 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.sheniv.inpre.R
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentContactsBinding
+import com.sheniv.inpre.utilits.beGone
+import com.sheniv.inpre.utilits.beVisible
+import com.sheniv.inpre.utilits.recyclerTop
 
 class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
+
+    override fun onResume() {
+        super.onResume()
+        recyclerTop.beGone()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        recyclerTop.beVisible()
+    }
+
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -36,6 +51,10 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
         buttonWeb.setOnClickListener {
             startActivity(web)
         }
+
+        btnBonus.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
+
+        btnDelivery.setOnClickListener { navController.navigate(R.id.navigation_delivery) }
 
         /*buttonSlivki.setOnClickListener {
             startActivity(slivkiby)

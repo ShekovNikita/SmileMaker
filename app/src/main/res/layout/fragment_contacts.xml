@@ -8,8 +8,9 @@
     android:padding="@dimen/padding_16dp"
     tools:context=".fragments.bottom.ContactsFragment">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_call"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
@@ -17,52 +18,77 @@
         android:fontFamily="@font/lobster"
         android:text="     Позвонить"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.google.android.material.textfield.TextInputEditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_12dp"
         android:text="+375257696633"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:inputType="none"
         app:layout_constraintBottom_toBottomOf="@+id/button_call"
         app:layout_constraintStart_toEndOf="@+id/button_call"
         app:layout_constraintTop_toTopOf="@+id/button_call" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_instagram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_marginTop="@dimen/margin_12dp"
         android:background="@null"
         android:drawableLeft="@drawable/insta"
         android:textAllCaps="false"
         android:fontFamily="@font/lobster"
         android:text="     Instagram"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/button_call"
         app:layout_constraintTop_toBottomOf="@id/button_call" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         android:textAllCaps="false"
         android:layout_marginTop="@dimen/margin_16dp"
         android:background="@null"
         android:drawableLeft="@drawable/site"
         android:fontFamily="@font/lobster"
         android:text="     Наш сайт"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/button_call"
         app:layout_constraintTop_toBottomOf="@+id/button_instagram" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_bonus"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_16dp"
+        android:fontFamily="@font/lobster"
+        android:text="Акции"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_delivery"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_delivery"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_16dp"
+        android:fontFamily="@font/lobster"
+        android:text="Доставка"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView4"
+        tools:layout_editor_absoluteX="16dp" />
 
     <!--<androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_slivki"
@@ -79,14 +105,14 @@
         app:layout_constraintStart_toStartOf="@+id/button_call"
         app:layout_constraintTop_toBottomOf="@+id/button_web" />-->
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/appCompatTextView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_12dp"
         android:gravity="end"
-        android:text="@string/about_registration"
         android:textColor="@color/black"
+        android:text="@string/about_registration"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

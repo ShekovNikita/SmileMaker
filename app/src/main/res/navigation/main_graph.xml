@@ -90,4 +90,14 @@
         android:name="com.sheniv.inpre.fragments.top.MixFragment"
         android:label="fragment_mix"
         tools:layout="@layout/fragment_mix" />
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.sheniv.inpre.fragments.bottom.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/changeFlowerFragment"
+        android:name="com.sheniv.inpre.fragments.add_flower.ChangeFlowerFragment"
+        android:label="fragment_change_flower"
+        tools:layout="@layout/fragment_change_flower" />
 </navigation>

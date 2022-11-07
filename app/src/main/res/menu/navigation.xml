@@ -5,18 +5,18 @@
         android:id="@+id/navigation_main"
         android:icon="@drawable/home"
         android:title="@string/main_word" />
-    <item
+    <!--<item
         android:id="@+id/navigation_bonus"
         android:icon="@drawable/bonus"
-        android:title="@string/bonus" />
-    <item
-        android:id="@+id/navigation_delivery"
-        android:icon="@drawable/contacts"
-        android:title="@string/dostavka" />
+        android:title="@string/bonus" />-->
     <item
         android:id="@+id/navigation_contacts"
         android:icon="@drawable/contact_big"
         android:title="@string/contacts" />
+    <item
+        android:id="@+id/navigation_info"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="Инфо" />
     <item
         android:id="@+id/navigation_basket"
         android:icon="@drawable/basket"

@@ -38,9 +38,9 @@ class MainFlowerAdapter(
             if (flower.hit == "hit") {
                 hit.beVisible()
             }
-            if (flower.have != "have") {
+            /*if (flower.have != "have") {
                 have.visibility = View.VISIBLE
-            }
+            }*/
             if (flower.amount > 0){
                 checkbox.isChecked = true
             }

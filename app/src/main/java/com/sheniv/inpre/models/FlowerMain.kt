@@ -2,7 +2,6 @@ package com.sheniv.inpre.models
 
 import java.io.Serializable
 
-
 data class FlowerMain(
     var articul: String = "",
     var category: String = "",

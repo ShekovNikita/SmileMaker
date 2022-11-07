@@ -22,10 +22,7 @@ import com.sheniv.inpre.viewmodels.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sheniv.inpre.firebase.*
 import com.sheniv.inpre.models.User
-import com.sheniv.inpre.utilits.APP_ACTIVITY
-import com.sheniv.inpre.utilits.AppValueEventListener
-import com.sheniv.inpre.utilits.beGone
-import com.sheniv.inpre.utilits.recyclerTop
+import com.sheniv.inpre.utilits.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), CategoryClick {
@@ -69,7 +66,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
             })
         if (USER.phone == "+16505552494"){
             binding.imageLogo.isClickable = true
-            binding.imageLogo.setOnClickListener { findNavController(R.id.fragment).navigate(R.id.addFlower) }
+            binding.imageLogo.setOnClickListener { findNavController(R.id.fragment).navigate(R.id.changeFlowerFragment) }
         } else {
             binding.imageLogo.isClickable = false
         }
@@ -118,6 +115,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
 
     private fun control() {
         val navView: BottomNavigationView = findViewById(R.id.navigationView)
+        bottomNavigationView = navView
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         val navController = navHostFragment.navController

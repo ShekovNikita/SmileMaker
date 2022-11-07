@@ -14,9 +14,9 @@ import com.sheniv.inpre.R
 import com.sheniv.inpre.adapter.ViewPagerAdapter
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentAddFlowerBinding
-import com.sheniv.inpre.utilits.showToast
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.sheniv.inpre.utilits.*
 
 class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
 
@@ -77,11 +77,11 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
             articulMap[articul] = articul
 
             val path = REF_STORAGE_ROOT.child(IMAGE_OF_FLOWERS).child(articul)
-            REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
+            /*REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE)
                 .child(ARTICULS_NODE_CHILD)
                 .updateChildren(articulMap)
                 .addOnCompleteListener {
-                    if (it.isSuccessful) {
+                    if (it.isSuccessful) {*/
                         for ((index, value) in topList.withIndex()) {
                             path.child(index.toString()).putFile(value)
                                 .addOnCompleteListener { task_top ->
@@ -109,8 +109,8 @@ class AddFlowerFragment : BaseFragment<FragmentAddFlowerBinding>() {
                                     }
                                 }
                         }
-                    }
-                }
+                  //  }
+                //}
         }
 
         addPhotos.setOnClickListener {
