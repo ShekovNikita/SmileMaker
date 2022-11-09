@@ -28,7 +28,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     ) = FragmentRegisterBinding.inflate(inflater, container, false)
 
     override fun FragmentRegisterBinding.onBindView(savedInstanceState: Bundle?) {
-        initFirebase()
         mCallBack = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 AUTH.signInWithCredential(credential).addOnCompleteListener(requireActivity()) {

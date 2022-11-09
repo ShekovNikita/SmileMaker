@@ -11,6 +11,8 @@ import com.sheniv.inpre.AboutFlowerActivity
 import com.sheniv.inpre.MainActivity
 import com.sheniv.inpre.basket.Basket
 import com.sheniv.inpre.models.FlowerMain
+import java.text.SimpleDateFormat
+import java.util.*
 
 lateinit var recyclerTop: RecyclerView
 var allFlowers = arrayListOf<FlowerMain>()
@@ -38,10 +40,18 @@ fun activityAboutFlower(flower: FlowerMain){
     ).putExtra("flower", flower))
 }
 
+fun fragmentAboutFlower(){}
+
 fun Activity.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
 fun Fragment.showToast(message: String) {
     Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
+}
+
+fun String.asTime(): String {
+    val time = Date(this.toLong())
+    val timeFormat = SimpleDateFormat("dd MMMM yyyy HH:mm", Locale.getDefault())
+    return timeFormat.format(time)
 }

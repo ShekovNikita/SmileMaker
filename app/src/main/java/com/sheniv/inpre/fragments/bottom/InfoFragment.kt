@@ -1,5 +1,7 @@
 package com.sheniv.inpre.fragments.bottom
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,9 +34,9 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
     }
 
     override fun onDestroyView() {
+        binding.adView.destroy()
         super.onDestroyView()
         recyclerTop.beVisible()
-        //binding.adView.destroy()
     }
 
     override fun createViewBinding(
@@ -44,9 +46,23 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
 
     override fun FragmentInfoBinding.onBindView(savedInstanceState: Bundle?) {
         initAdMob()
+        val play = "https://play.google.com/store/apps/dev?id=7801316179503456063"
+        val play_market = Intent(Intent(Intent.ACTION_VIEW, Uri.parse(play)))
+
         btnAds.setOnClickListener {
             showInterAd()
         }
+
+        btnCooperation.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf("shekovnikita8@gmail.com"))
+                putExtra(Intent.EXTRA_SUBJECT, "Сотрудничество")
+            }
+            startActivity(intent)
+        }
+
+        btnPlayMarket.setOnClickListener { startActivity(play_market) }
     }
 
     private fun initAdMob() {

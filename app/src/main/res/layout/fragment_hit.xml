@@ -9,7 +9,6 @@
         android:id="@+id/recycler_flowers_on_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/titleColor"
         android:orientation="vertical"
         tools:spanCount="2"
         tools:listitem="@layout/main_flowers_item" />

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/titleColor"
     tools:context=".fragments.bottom.BonusFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -14,7 +13,6 @@
             android:id="@+id/bonus_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:justificationMode="inter_word"
             android:gravity="left"
             android:padding="@dimen/padding_16dp"
             android:textColor="@color/black"

@@ -23,7 +23,6 @@
         android:hint="- - - - - -"
         android:layout_marginVertical="@dimen/margin_16dp"
         android:inputType="number"
-        android:text="112233"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +30,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/code"
-        style="@style/Widget.Material3.Button.ElevatedButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
@@ -52,7 +51,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/repeat_code"
-        style="@style/Widget.Material3.Button.ElevatedButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Запросить повторно"

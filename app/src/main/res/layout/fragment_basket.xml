@@ -49,7 +49,8 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/basket_item" />
+                tools:listitem="@layout/basket_item"
+                tools:itemCount="4"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/summa"
@@ -57,17 +58,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_8dp"
                 android:fontFamily="@font/lobster"
-                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/recycler_basket"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_basket"
                 tools:text="dfsdf" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_sendToViber"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_basket_style"
+                android:textColor="#06BD56"
+                app:strokeColor="#06BD56"
                 android:text="Далее"
                 app:layout_constraintEnd_toEndOf="@+id/summa"
                 app:layout_constraintTop_toBottomOf="@+id/summa" />

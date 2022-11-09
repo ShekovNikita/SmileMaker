@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import com.sheniv.inpre.R
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentContactsBinding
@@ -55,6 +56,8 @@ class ContactsFragment : BaseFragment<FragmentContactsBinding>() {
         btnBonus.setOnClickListener { navController.navigate(R.id.navigation_bonus) }
 
         btnDelivery.setOnClickListener { navController.navigate(R.id.navigation_delivery) }
+
+        btnAboutCare.setOnClickListener { navController.navigate(R.id.aboutCareFragment) }
 
         /*buttonSlivki.setOnClickListener {
             startActivity(slivkiby)

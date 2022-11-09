@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Material3.DayNight">
+        android:theme="@style/Theme.InPre">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
@@ -34,8 +34,10 @@
         <activity
             android:name=".AboutFlowerActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+            <!--android:theme="@style/Theme.AppCompat.NoActionBar"-->
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -4,24 +4,22 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.TextView
+import android.view.LayoutInflater
+import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sheniv.inpre.adapter.CategoryAdapter
 import com.sheniv.inpre.databinding.ActivityMainBinding
+import com.sheniv.inpre.firebase.*
 import com.sheniv.inpre.fragments.CategoryClick
+import com.sheniv.inpre.utilits.*
 import com.sheniv.inpre.viewmodels.BasketFragmentViewModel
 import com.sheniv.inpre.viewmodels.MainActivityViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.sheniv.inpre.firebase.*
-import com.sheniv.inpre.models.User
-import com.sheniv.inpre.utilits.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), CategoryClick {
@@ -52,18 +50,12 @@ class MainActivity : AppCompatActivity(), CategoryClick {
 
         control()
         viewModel.getBasket()
-
         initUserMain()
     }
 
     fun initUserMain() {
         initUser()
-        REF_DATABASE_ROOT.child(NODE_USER).child(CURRENT_UID)
-            .addListenerForSingleValueEvent(AppValueEventListener{
-                USER = it.getValue(User::class.java) ?: User()
-                Log.e("USER", "$USER")
-            })
-        if (USER.phone == "+16505552494"){
+        if (USER.phone == "+16505552494") {
             binding.imageLogo.isClickable = true
             binding.imageLogo.setOnClickListener { findNavController(R.id.fragment).navigate(R.id.changeFlowerFragment) }
         } else {
@@ -82,18 +74,20 @@ class MainActivity : AppCompatActivity(), CategoryClick {
             }
             USER.phone == "+16505552494" -> {
                 binding.enter.text = "Выйти\nadmin"
-                binding.enter.setOnClickListener{
+                binding.enter.setOnClickListener {
                     onCreateDialog().show()
                 }
             }
             else -> {
                 binding.enter.text = "Выйти"
-                binding.enter.setOnClickListener{
+                binding.enter.setOnClickListener {
                     onCreateDialog().show()
                 }
             }
         }
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -123,7 +117,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
 
         var badge = navView.getOrCreateBadge(R.id.navigation_basket)
         viewModel.basketLiveData.observe(this) {
-            if (it.size.toString() == "0"){
+            if (it.size.toString() == "0") {
                 badge.isVisible = false
                 viewModel.getBasket()
             } else {

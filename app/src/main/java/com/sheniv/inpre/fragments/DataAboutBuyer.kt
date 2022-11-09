@@ -47,6 +47,7 @@ class DataAboutBuyer : BaseFragment<FragmentDataAboutBuyerBinding>() {
 
         val group = listOf(groupPickup, groupOrder, groupEuropost)
         phone.setText(USER.phone)
+        name.setText(USER.name)
         radioGroup.setOnCheckedChangeListener { _, id ->
             groupRequired.beVisible()
             when (id) {

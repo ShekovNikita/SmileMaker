@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/titleColor"
     android:padding="@dimen/padding_16dp"
     tools:context=".fragments.bottom.ContactsFragment">
 
@@ -27,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_12dp"
         android:text="+375257696633"
-        android:textColor="@color/black"
         android:textSize="16sp"
         android:inputType="none"
         app:layout_constraintBottom_toBottomOf="@+id/button_call"
@@ -63,6 +61,19 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/button_call"
         app:layout_constraintTop_toBottomOf="@+id/button_instagram" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_about_care"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_16dp"
+        android:fontFamily="@font/lobster"
+        android:text="О букетах"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_bonus"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_bonus"
@@ -111,7 +122,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_12dp"
         android:gravity="end"
-        android:textColor="@color/black"
         android:text="@string/about_registration"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

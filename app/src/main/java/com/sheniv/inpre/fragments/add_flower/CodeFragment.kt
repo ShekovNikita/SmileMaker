@@ -1,9 +1,11 @@
 package com.sheniv.inpre.fragments.add_flower
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -64,7 +66,10 @@ class CodeFragment : BaseFragment<FragmentCodeBinding>() {
                     .addOnFailureListener { task1 -> showToast(task1.message.toString()) }
                     .addOnSuccessListener {
                         REF_DATABASE_ROOT.child(NODE_USER).child(uid)
-                            .updateChildren(mapOf(CHILD_PHONE to mPhoneNumber, CHILD_ID to uid))
+                            .updateChildren(mapOf(
+                                CHILD_PHONE to mPhoneNumber,
+                                CHILD_ID to uid
+                            ))
                             .addOnSuccessListener {
                                 showToast("Добро пожаловать\n$mPhoneNumber")
                                 navController.navigate(R.id.navigation_main)
