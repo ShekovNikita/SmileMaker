@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_main"/>
     <fragment
         android:id="@+id/dataAboutBuyer"
-        android:name="com.sheniv.inpre.fragments.DataAboutBuyer"
+        android:name="com.sheniv.inpre.fragments.bottom.DataAboutBuyer"
         android:label="fragment_data_about_buyer"
         tools:layout="@layout/fragment_data_about_buyer" />
     <fragment

@@ -12,10 +12,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.sheniv.inpre.base.BaseFragment
 import com.sheniv.inpre.databinding.FragmentInfoBinding
-import com.sheniv.inpre.utilits.beGone
-import com.sheniv.inpre.utilits.beVisible
-import com.sheniv.inpre.utilits.recyclerTop
-import com.sheniv.inpre.utilits.showToast
+import com.sheniv.inpre.utilits.*
 
 class InfoFragment : BaseFragment<FragmentInfoBinding>() {
 
@@ -74,7 +71,7 @@ class InfoFragment : BaseFragment<FragmentInfoBinding>() {
     private fun loadInterAd(){
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(requireActivity(),
-            "ca-app-pub-3940256099942544/1033173712",
+            "ca-app-pub-2440252298457934/8090781111",
         adRequest,
         object : InterstitialAdLoadCallback(){
             override fun onAdFailedToLoad(p0: LoadAdError) {

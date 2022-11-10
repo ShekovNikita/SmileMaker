@@ -20,7 +20,7 @@
         android:theme="@style/Theme.InPre">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-2440252298457934~6946850716"/>
         <activity
             android:name=".SplashScreen"
             android:exported="true"

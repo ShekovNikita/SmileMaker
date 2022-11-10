@@ -15,7 +15,6 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:padding="@dimen/padding_16dp"
-            android:textColor="@color/black"
             android:textSize="20sp" />
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

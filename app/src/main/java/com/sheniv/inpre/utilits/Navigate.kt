@@ -4,11 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sheniv.inpre.AboutFlowerActivity
 import com.sheniv.inpre.MainActivity
+import com.sheniv.inpre.R
 import com.sheniv.inpre.basket.Basket
 import com.sheniv.inpre.models.FlowerMain
 import java.text.SimpleDateFormat
@@ -20,6 +22,7 @@ var basket = Basket()
 lateinit var bottomNavigationView: BottomNavigationView
 lateinit var APP_ACTIVITY: MainActivity
 lateinit var changeFlower: FlowerMain
+lateinit var main_title: ConstraintLayout
 
 fun Activity.showMainActivity() {
     this.startActivity(Intent(this, MainActivity::class.java))

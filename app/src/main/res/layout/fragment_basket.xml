@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Корзина пока пуста"
+        android:visibility="gone"
         android:fontFamily="@font/lobster"
         android:textSize="36dp"
         app:layout_constraintStart_toStartOf="@+id/image_empty"
@@ -59,6 +61,7 @@
                 android:layout_marginEnd="@dimen/margin_8dp"
                 android:fontFamily="@font/lobster"
                 android:textSize="20sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/recycler_basket"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_basket"
                 tools:text="dfsdf" />
@@ -70,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#06BD56"
                 app:strokeColor="#06BD56"
+                android:visibility="gone"
                 android:text="Далее"
                 app:layout_constraintEnd_toEndOf="@+id/summa"
                 app:layout_constraintTop_toBottomOf="@+id/summa" />

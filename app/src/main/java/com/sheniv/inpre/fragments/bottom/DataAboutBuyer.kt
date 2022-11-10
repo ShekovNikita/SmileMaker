@@ -1,8 +1,7 @@
-package com.sheniv.inpre.fragments
+package com.sheniv.inpre.fragments.bottom
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
@@ -20,7 +19,6 @@ import com.sheniv.inpre.utilits.recyclerTop
 import com.sheniv.inpre.utilits.showToast
 import com.sheniv.inpre.viewmodels.DataAboutBuyerViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.definition.IndexKey
 import java.text.SimpleDateFormat
 import java.util.*
 

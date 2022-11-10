@@ -38,10 +38,11 @@ class MainActivity : AppCompatActivity(), CategoryClick {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //initFirebase()
         APP_ACTIVITY = this
 
         supportActionBar?.hide()
+
+        //main_title = binding.title
 
         recyclerTop = binding.recyclerCategory
         recyclerTop.adapter = categoryAdapter
