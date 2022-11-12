@@ -87,6 +87,7 @@ class CodeFragment : BaseFragment<FragmentCodeBinding>() {
                 AUTH.signInWithCredential(credential).addOnCompleteListener(requireActivity()) {
                     if (it.isSuccessful) {
                         it.result.user
+                        activity?.let {ma -> (ma as MainActivity).initUserMain() }
                         findNavController().navigate(R.id.navigation_main)
                     }
                 }

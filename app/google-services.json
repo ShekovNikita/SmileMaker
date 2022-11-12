@@ -8,43 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:489382140490:android:a4f7a967780bb534bea4b3",
-        "android_client_info": {
-          "package_name": "com.sheniv.inpre"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "489382140490-b7ue1rb84dqh68qj1p5b9m7ebva6mvur.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.sheniv.inpre",
-            "certificate_hash": "3eb8a853f8da30a053a223c64b8ae932941b1e8a"
-          }
-        },
-        {
-          "client_id": "489382140490-0fvsqcig228ktadou3rlvhcfl1up2vr0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAMUOKXzZi8ESPPGwJjcmZXu1hrIxo8UqQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "489382140490-0fvsqcig228ktadou3rlvhcfl1up2vr0.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:489382140490:android:21cff0848f1472efbea4b3",
         "android_client_info": {
           "package_name": "com.sheniv.inpre"
@@ -52,11 +15,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "489382140490-bp17rnecvffkmfcs66e07q0jak12pidg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sheniv.inpre",
+            "certificate_hash": "0c70bb5bf83dfe66bf1e8c489697112b18772025"
+          }
+        },
+        {
           "client_id": "489382140490-kroums1v3bk1pccm6l3qau9je0irn1u0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.sheniv.inpre",
             "certificate_hash": "3eb8a853f8da30a053a223c64b8ae932941b1e8a"
+          }
+        },
+        {
+          "client_id": "489382140490-ne05trc0kb6lpl82hmg0b1g7p9m8328t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sheniv.inpre",
+            "certificate_hash": "817cb01cf8cda4e03d12d12839b5a55e74bc5b19"
           }
         },
         {

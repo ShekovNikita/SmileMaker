@@ -10,6 +10,7 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.sheniv.inpre.MainActivity
 import com.sheniv.inpre.R
 import com.sheniv.inpre.firebase.AUTH
 import com.sheniv.inpre.firebase.initFirebase
@@ -34,6 +35,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                     if (it.isSuccessful) {
                         it.result.user
                         showToast("всё гуд")
+                        activity?.let {ma -> (ma as MainActivity).initUserMain() }
                         navController.navigate(R.id.navigation_main)
                     }
                 }
@@ -68,7 +70,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     private fun authUser() {
         mPhoneNumber = binding.enterPhone.text.toString()
         val options = PhoneAuthOptions.newBuilder(AUTH)
-            .setActivity(activity as com.sheniv.inpre.MainActivity)
+            .setActivity(activity as MainActivity)
             .setPhoneNumber(mPhoneNumber)
             .setTimeout(60L, TimeUnit.SECONDS)
             .setCallbacks(mCallBack)

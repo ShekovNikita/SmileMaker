@@ -1,5 +1,6 @@
 package com.sheniv.inpre.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,8 @@ class ReviewAdapter(
     inner class ReviewHolder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = ItemReviewBinding.bind(item)
         fun bind(review: Review) = with(binding) {
+            phoneNumber.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            date.paintFlags = Paint.UNDERLINE_TEXT_FLAG
             phoneNumber.text = review.name
             date.text = review.date.toString().asTime()
             textReview.text = review.review

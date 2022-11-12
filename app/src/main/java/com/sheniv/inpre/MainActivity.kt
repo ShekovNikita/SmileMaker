@@ -13,6 +13,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.sheniv.inpre.adapter.CategoryAdapter
 import com.sheniv.inpre.databinding.ActivityMainBinding
 import com.sheniv.inpre.firebase.*
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity(), CategoryClick {
 
         supportActionBar?.hide()
 
-        //main_title = binding.title
+
 
         recyclerTop = binding.recyclerCategory
         recyclerTop.adapter = categoryAdapter

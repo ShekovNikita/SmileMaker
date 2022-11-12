@@ -13,6 +13,7 @@ import com.sheniv.inpre.R
 import com.sheniv.inpre.firebase.ALL_FLOWERS_NODE
 import com.sheniv.inpre.firebase.FLOWERS_NODE_CHILD
 import com.sheniv.inpre.firebase.REF_DATABASE_ROOT
+import com.sheniv.inpre.firebase.initFirebase
 import com.sheniv.inpre.models.Category
 import com.sheniv.inpre.models.FlowerMain
 import com.sheniv.inpre.utilits.allFlowers
@@ -20,6 +21,32 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel() : ViewModel() {
+
+    init {
+
+        initFirebase()
+        viewModelScope.launch(Dispatchers.Main) {
+            REF_DATABASE_ROOT.child(ALL_FLOWERS_NODE).child(FLOWERS_NODE_CHILD)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        allFlowers.clear()
+                        if (snapshot.exists()) {
+                            for (favorite in snapshot.children) {
+                                allFlowers.add(
+                                    favorite.getValue(FlowerMain::class.java) ?: FlowerMain()
+                                )
+                            }
+                        }
+                        //_basketLiveData.postValue(allFlowers)
+                        Log.e("flowers", "$allFlowers")
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
+        }
+
+    }
 
     private val arrayFlowerCategory = mutableListOf<Category>()
 

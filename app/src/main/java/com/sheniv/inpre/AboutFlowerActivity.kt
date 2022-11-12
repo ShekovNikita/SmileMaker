@@ -97,7 +97,6 @@ class AboutFlowerActivity : AppCompatActivity() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_user_name, null)
         val name: EditText = dialogView.findViewById<EditText>(R.id.input_text)
         val builder = android.app.AlertDialog.Builder(this).setView(dialogView)
-        var playerName = ""
         builder.setPositiveButton("Принять") { _, _ ->
             if (name.text.toString().isEmpty()) {
                 showToast("Имя не может быть пустым")
@@ -124,10 +123,12 @@ class AboutFlowerActivity : AppCompatActivity() {
                                 favorite.getValue(Review::class.java) ?: Review()
                             )
                             Log.e("time", "${favorite.child(CHILD_DATE).value.toString().asTime()}")
-
                         }
                     }
                     binding.recyclerReview.adapter = ReviewAdapter(reviews)
+                    if (reviews.size == 0){
+                        binding.textReview.text = "Отзывов еще нет"
+                    } else binding.textReview.text = "Отзывы покупателей:"
                     Log.e("REVIEWS", "$reviews")
                 }
 

@@ -43,7 +43,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                         requireContext(),
                         it
                     )
-            }
+            } else viewModelMain.getAllFlowers()
         }
 
         recyclerFlowersOnMain.layoutManager = GridLayoutManager(context, 2)
